@@ -9,7 +9,7 @@ elseif has("win32")
 endif
 if !isdirectory(prefixDir.'/bundle/Vundle.vim')
     let cloneVundle = 'git clone https://github.com/VundleVim/Vundle.vim '.prefixDir.'/bundle/Vundle.vim'
-    system(cloneVundle)
+    exe 'silent !'.cloneVundle
 endif
 " set the runtime path to include Vundle and initialize
 exe 'set rtp+='.prefixDir.'/bundle/Vundle.vim'
