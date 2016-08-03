@@ -1,17 +1,19 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-syntax enable
-set number
-" set the runtime path to include Vundle and initialize
+"Clone Vundle if not exist
+let prefixDir = ''
 if has("unix")
-    set rtp+=/home/nghia/.vim/bundle/Vundle.vim
-    call vundle#begin('/home/nghia/.vim/bundle/')
-else
-    if has("win32")
-        set rtp+=$HOME/.vim/bundle/Vundle.vim/
-        call vundle#begin('$USERPROFILE/.vim/bundle/')
-    endif
+    let prefixDir = '/etc/vim'
+elseif has("win32")
+    let prefixDir = '$USERPROFILE/.vim'
 endif
+if !isdirectory(prefixDir.'/bundle/Vundle.vim')
+    let cloneVundle = 'git clone https://github.com/VundleVim/Vundle.vim '.prefixDir.'/bundle/Vundle.vim'
+    system(cloneVundle)
+endif
+" set the runtime path to include Vundle and initialize
+exe 'set rtp+='.prefixDir.'/bundle/Vundle.vim'
+call vundle#begin(prefixDir.'/bundle')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -33,6 +35,10 @@ Plugin 'valloric/youcompleteme'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+"Enable syntax highlighting
+syntax enable
+"Enable line number
+set number
 " Toggle nerdtree
 map <C-o> :NERDTreeToggle<CR>
 "X11 clipboard
