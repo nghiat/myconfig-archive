@@ -5,7 +5,7 @@ let prefixDir = ''
 if has("unix")
     let prefixDir = '/etc/vim'
 elseif has("win32")
-    let prefixDir = '$USERPROFILE/.vim'
+    let prefixDir = '.vim'
 endif
 if !isdirectory(prefixDir.'/bundle/Vundle.vim')
     let cloneVundle = 'git clone https://github.com/VundleVim/Vundle.vim '.prefixDir.'/bundle/Vundle.vim'
