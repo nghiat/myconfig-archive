@@ -5,7 +5,8 @@ let prefixDir = ''
 if has("unix")
     let prefixDir = '/etc/vim'
 elseif has("win32")
-    let prefixDir = '.vim'
+  let prefixDir = substitute( $HOME . '/.vim', '/', '\\', 'g' )
+
 endif
 if !isdirectory(prefixDir.'/bundle/Vundle.vim')
     let cloneVundle = 'git clone https://github.com/VundleVim/Vundle.vim '.prefixDir.'/bundle/Vundle.vim'
@@ -31,6 +32,8 @@ Plugin 'ervandew/supertab'
 Plugin 'AutoComplPop'
 "status bar
 Plugin 'bling/vim-airline'
+"GLSL syntax highlighting
+Plugin 'tikhomirov/vim-glsl'
 Plugin 'valloric/youcompleteme'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
