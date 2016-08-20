@@ -56,8 +56,8 @@ set softtabstop=4
 "makes backspace work like most other apps
 set backspace=indent,eol,start
 "ycm config
-let g:ycm_global_ycm_extra_conf = prefixDir.'/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
+"let g:ycm_global_ycm_extra_conf = prefixDir.'/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_confirm_extra_conf = 0
 let g:rehash256 = 1
 colorscheme molokai
 "syntastic syntax checking
@@ -71,4 +71,5 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 set softtabstop=4
 set encoding=utf-8
-
+"vim-airline always show
+set laststatus=2
