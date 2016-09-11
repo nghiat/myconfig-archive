@@ -75,3 +75,11 @@ set encoding=utf-8
 set laststatus=2
 "matching braces color
 highlight MatchParen cterm=bold ctermfg=cyan
+"set gui font
+if has('gui_running')
+    set guifont=DejaVu\ Sans\ Mono\ 12
+endif
+"map Ctrl-S to save
+noremap <silent> <C-s>          :update<CR>
+vnoremap <silent> <C-s>         <C-C>:update<CR>
+inoremap <silent> <C-s>         <C-O>:update<CR>
