@@ -26,14 +26,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'raimondi/delimitmate'
 "displays thin vertical lines at each identation level
 Plugin 'yggdroot/indentline'
-"Use tab to goes through Autocomplete
-Plugin 'ervandew/supertab'
-"Autocomplete popup
-Plugin 'AutoComplPop'
 "status bar
 Plugin 'bling/vim-airline'
 "GLSL syntax highlighting
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'valloric/youcompleteme'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
