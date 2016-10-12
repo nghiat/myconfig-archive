@@ -21,7 +21,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 "syntax checking
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 "auto closing quotes,...
 Plugin 'jiangmiao/auto-pairs'
 "Plugin 'raimondi/delimitmate'
@@ -33,6 +33,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'DoxygenToolkit.vim'
 Plugin 'valloric/youcompleteme'
 "HTML5 omnicomplete and syntax
 Plugin 'othree/html5.vim'
@@ -58,6 +59,8 @@ set shiftwidth=4
 set softtabstop=4
 "makes backspace work like most other apps
 set backspace=indent,eol,start
+"Set color for column 80th
+set cc=80
 "Filetype config
 au FileType cpp setl sts=2 sw=2
 au FileType js setl sts=2 sw=2
@@ -72,9 +75,9 @@ colorscheme solarized
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+"
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_checkers = ['clang-check']
@@ -82,6 +85,12 @@ set softtabstop=4
 set encoding=utf-8
 "vim-airline always show
 set laststatus=2
+"Doxygen settings
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_blockHeader="-------------------------------"
+let g:DoxygenToolkit_blockFooter="---------------------------------"
 "matching braces color
 highlight MatchParen cterm=bold ctermfg=cyan
 "set gui font
