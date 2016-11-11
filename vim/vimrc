@@ -5,13 +5,13 @@ let prefixDir = ''
 if has("unix")
     let prefixDir = '/etc/vim'
 elseif has("win32")
-  let prefixDir = substitute( $HOME . '/.vim', '/', '\\', 'g' )
-
+  let prefixDir = substitute( $HOME . '/.vim', '/', '\\', 'g' ) 
 endif
 if !isdirectory(prefixDir.'/bundle/Vundle.vim')
-    let cloneVundle = 'git clone https://github.com/VundleVim/Vundle.vim '.prefixDir.'/bundle/Vundle.vim'
+    let cloneVundle = 'git clone https://github.com/VundleVim/Vundle.vim '.'"'.prefixDir.'/bundle/Vundle.vim"'
     exe 'silent !'.cloneVundle
 endif
+let prefixDir = substitute(prefixDir, ' ', '\\ ', 'g')
 " set the runtime path to include Vundle and initialize
 exe 'set rtp+='.prefixDir.'/bundle/Vundle.vim'
 call vundle#begin(prefixDir.'/bundle')
@@ -95,7 +95,11 @@ let g:DoxygenToolkit_blockFooter="---------------------------------"
 highlight MatchParen cterm=bold ctermfg=cyan
 "set gui font
 if has('gui_running')
-    set guifont=DejaVu\ Sans\ Mono\ 12
+    if has("unix")
+        set guifont=DejaVu\ Sans\ Mono\ 12
+    elseif has("win32")
+        set guifont=Consolas:h12:b:cANSI
+    endif
 endif
 "map Ctrl-S to save
 noremap <silent> <C-s>          :update<CR>
