@@ -5,7 +5,7 @@ let prefixDir = ''
 if has("unix")
     let prefixDir = '/etc/vim'
 elseif has("win32")
-  let prefixDir = substitute( $HOME . '/.vim', '/', '\\', 'g' ) 
+    let prefixDir = substitute( $HOME . '/.vim', '/', '\\', 'g' ) 
 endif
 if !isdirectory(prefixDir.'/bundle/Vundle.vim')
     let cloneVundle = 'git clone https://github.com/VundleVim/Vundle.vim '.'"'.prefixDir.'/bundle/Vundle.vim"'
@@ -52,7 +52,11 @@ map <C-o> :NERDTreeToggle<CR>
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 "X11 clipboard
-set clipboard=unnamedplus
+if has("unix")
+    set clipboard=unnamedplus
+elseif has("win32")
+    set clipboard=unnamed
+endif
 "tab to spaces
 set expandtab
 set tabstop=4
