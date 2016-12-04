@@ -48,6 +48,7 @@ syntax enable
 set number
 " Toggle nerdtree
 map <C-o> :NERDTreeToggle<CR>
+" Switch between buffers
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 "X11 clipboard
@@ -88,6 +89,7 @@ set encoding=utf-8
 "vim-airline always show
 set laststatus=2
 
+"show buffers list on the top of window
 let g:airline#extensions#tabline#enabled = 1
 
 "Doxygen settings
