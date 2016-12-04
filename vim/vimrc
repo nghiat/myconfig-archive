@@ -48,6 +48,8 @@ syntax enable
 set number
 " Toggle nerdtree
 map <C-o> :NERDTreeToggle<CR>
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
 "X11 clipboard
 set clipboard=unnamedplus
 "tab to spaces
@@ -72,19 +74,22 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 set background=dark
 colorscheme solarized
 "syntastic syntax checking
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 "
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cpp_checkers = ['clang-check']
+"let g:syntastic_always_populate_loc_list = 0
+"let g:syntastic_auto_loc_list = 0
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_cpp_checkers = ['clang-check']
 set softtabstop=4
 set encoding=utf-8
 "vim-airline always show
 set laststatus=2
+
+let g:airline#extensions#tabline#enabled = 1
+
 "Doxygen settings
 let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
 let g:DoxygenToolkit_paramTag_pre="@Param "
