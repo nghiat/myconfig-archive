@@ -1,0 +1,12 @@
+[Unit]
+Description=i3lock-blur
+Before=sleep.target
+
+[Service]
+User=nghia
+Type=forking
+Environment=DISPLAY=:0.0
+ExecStart=/home/nghia/.config/i3/i3lock-blur.sh
+
+[Install]
+WantedBy=sleep.target
