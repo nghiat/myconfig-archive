@@ -55,4 +55,8 @@ fi
 #exec xterm -geometry 80x66+0+0 -name login
 xset -display :0.0 dpms 300 300 &
 xautolock -time 10 -locker "systemctl suspend" -detectsleep &
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -drx
 exec i3
