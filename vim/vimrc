@@ -69,8 +69,7 @@ set backspace=indent,eol,start
 "Set color for column 80th
 set cc=80
 "Filetype config
-au FileType cpp setl sts=2 sw=2
-au FileType js setl sts=2 sw=2
+au FileType cpp,c,js setl sts=2 sw=2
 "ycm config
 "let g:ycm_global_ycm_extra_conf = prefixDir.'/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
@@ -117,4 +116,11 @@ noremap <silent> <C-s>          :update<CR>
 vnoremap <silent> <C-s>         <C-C>:update<CR>
 inoremap <silent> <C-s>         <C-O>:update<CR>
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-
+"Cpp Compile and run shortcuts
+autocmd Filetype c setlocal makeprg=gcc\ -o\ %<\ %
+autocmd Filetype cpp setlocal makeprg=g++\ -o\ %<\ %
+autocmd Filetype cpp setlocal makeprg=g++\ -o\ %<\ %
+autocmd FileType c,cpp noremap <F6> :w <bar> make<CR>
+autocmd FileType c,cpp inoremap <F6> <C-O>:w <bar> make<CR>
+autocmd FileType c,cpp nnoremap <F5> :!%<<CR>
+autocmd FileType c,cpp inoremap <F5> <C-O>:!%<<CR>
