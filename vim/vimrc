@@ -106,7 +106,7 @@ highlight MatchParen cterm=bold ctermfg=cyan
 "set gui font
 if has('gui_running')
     if has("unix")
-        set guifont=DejaVu\ Sans\ Mono\ 12
+        set guifont=DejaVu\ Sans\ Mono\ Bold\ 12
     elseif has("win32")
         set guifont=Consolas:h12:b:cANSI
     endif
