@@ -39,5 +39,7 @@ xautolock -time 10 -locker "systemctl suspend" -detectsleep &
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-ibus-daemon -drx
+xmodmap ~/.Xmodmap
+xcape -e 'Hyper_L=Escape'
+ibus-daemon -drx 
 exec i3
