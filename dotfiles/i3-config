@@ -179,6 +179,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 bindsym $mod+p exec arandr
 bindsym $mod+d exec rofi -show Drun -font "DejaVu Sans Mono Bold 14" -opacity 85
 
+bindsym $mod+x move workspace to output left
+
 exec --no-startup-id nm-applet &
 exec --no-startup-id compton &
 exec --no-startup-id ibus-daemon &
@@ -202,7 +204,6 @@ bar {
     urgent_workspace #d33682 #d33682 #fdf6e3
   }
 }
-
 client.focused #859900 #859900 #fdf6e3 #6c71c4
 client.focused_inactive #073642 #073642 #eee8d5 #6c71c4
 client.unfocused #073642 #073642 #93a1a1 #586e75

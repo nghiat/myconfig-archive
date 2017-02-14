@@ -40,6 +40,7 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 xmodmap ~/.Xmodmap
-xcape -e 'Hyper_L=Escape'
+xcape -e 'Hyper_L=Escape' -t 200
 ibus-daemon -drx 
+syndaemon -i 0.2 -t -K -R -d
 exec i3
