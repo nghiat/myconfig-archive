@@ -39,6 +39,8 @@ Plugin 'valloric/youcompleteme'
 Plugin 'othree/html5.vim'
 "html auto-close tag
 Plugin 'alvan/vim-closetag'
+"comment stuff out
+Plugin 'tpope/vim-commentary'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -47,7 +49,7 @@ syntax enable
 "Enable line number
 set number
 " Toggle nerdtree
-map <C-o> :NERDTreeToggle<CR>
+nnoremap <C-o> :NERDTreeToggle<CR>
 " Switch between buffers
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
@@ -115,6 +117,8 @@ endif
 noremap <silent> <C-s>          :update<CR>
 vnoremap <silent> <C-s>         <C-C>:update<CR>
 inoremap <silent> <C-s>         <C-O>:update<CR>
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 "Cpp Compile and run shortcuts
 autocmd Filetype c setlocal makeprg=gcc\ -o\ %<\ %
@@ -124,3 +128,4 @@ autocmd FileType c,cpp noremap <F6> :w <bar> make<CR>
 autocmd FileType c,cpp inoremap <F6> <C-O>:w <bar> make<CR>
 autocmd FileType c,cpp nnoremap <F5> :!%<<CR>
 autocmd FileType c,cpp inoremap <F5> <C-O>:!%<<CR>
+
