@@ -55,6 +55,7 @@ set number
 " Switch between buffers
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
+nmap <F8> :TagbarToggle<CR>
 "X11 clipboard
 if has("unix")
     set clipboard=unnamedplus
