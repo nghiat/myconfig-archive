@@ -41,6 +41,7 @@ Plugin 'othree/html5.vim'
 Plugin 'alvan/vim-closetag'
 "comment stuff out
 Plugin 'tpope/vim-commentary'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,10 +50,11 @@ syntax enable
 "Enable line number
 set number
 " Toggle nerdtree
-nnoremap <C-o> :NERDTreeToggle<CR>
+"nnoremap <C-o> :NERDTreeToggle<CR>
 " Switch between buffers
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
+nmap <F8> :TagbarToggle<CR>
 "X11 clipboard
 if has("unix")
     set clipboard=unnamedplus
@@ -68,8 +70,8 @@ set shiftwidth=4
 set softtabstop=4
 "makes backspace work like most other apps
 set backspace=indent,eol,start
-"Set color for column 80th
-set cc=80
+"Set color for column 100th
+set cc=100
 "Filetype config
 au FileType cpp,c,js setl sts=2 sw=2
 "ycm config
