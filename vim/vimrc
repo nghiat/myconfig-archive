@@ -1,57 +1,43 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-"Clone Vundle if not exist
-let prefixDir = ''
-if has("unix")
-    let prefixDir = '/etc/vim'
-elseif has("win32")
-    let prefixDir = substitute( $HOME . '/.vim', '/', '\\', 'g' ) 
+"Download plug.vim if not exist
+if !filereadable('~/.vim/autoload/plug.vim')
+    let downloadPlug = 'curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
+    exe 'silent !'.downloadPlug
 endif
-if !isdirectory(prefixDir.'/bundle/Vundle.vim')
-    let cloneVundle = 'git clone https://github.com/VundleVim/Vundle.vim '.'"'.prefixDir.'/bundle/Vundle.vim"'
-    exe 'silent !'.cloneVundle
-endif
-let prefixDir = substitute(prefixDir, ' ', '\\ ', 'g')
-" set the runtime path to include Vundle and initialize
-exe 'set rtp+='.prefixDir.'/bundle/Vundle.vim'
-call vundle#begin(prefixDir.'/bundle')
+call plug#begin('$VIMRUNTIME/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'morhetz/gruvbox'
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'morhetz/gruvbox'
 "syntax checking
-"Plugin 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 "auto closing quotes,...
-Plugin 'jiangmiao/auto-pairs'
-"Plugin 'raimondi/delimitmate'
+Plug 'jiangmiao/auto-pairs'
 "displays thin vertical lines at each identation level
-Plugin 'yggdroot/indentline'
+Plug 'yggdroot/indentline'
 "status bar
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 "GLSL syntax highlighting
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'DoxygenToolkit.vim'
-Plugin 'valloric/youcompleteme'
-"HTML5 omnicomplete and syntax
-Plugin 'othree/html5.vim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'valloric/youcompleteme'
 "html auto-close tag
-Plugin 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag'
 "comment stuff out
-Plugin 'tpope/vim-commentary'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+Plug 'tpope/vim-commentary'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-fugitive'
+" All of your Plugs must be added before the following line
+call plug#end()            " required
 filetype plugin indent on    " required
 "Enable syntax highlighting
 syntax enable
 "Enable line number
 set number
 " Toggle nerdtree
-"nnoremap <C-o> :NERDTreeToggle<CR>
+nnoremap <F7> :NERDTreeToggle<CR>
 " Switch between buffers
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
@@ -75,8 +61,6 @@ set backspace=indent,eol,start
 set cc=100
 "Filetype config
 au FileType cpp,c,js setl sts=2 sw=2
-"ycm config
-"let g:ycm_global_ycm_extra_conf = prefixDir.'/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
