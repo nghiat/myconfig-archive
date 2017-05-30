@@ -4,11 +4,12 @@ call plug#begin('$VIMRUNTIME/plugged')
 
 Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'morhetz/gruvbox'
-"syntax checking
-"Plug 'scrooloose/syntastic'
+"The plugin provides mappings to easily delete, change and add such surroundings in pairs
+Plug 'tpope/vim-surround'
 "auto closing quotes,...
-Plug 'jiangmiao/auto-pairs'
+Plug 'raimondi/delimitmate'
 "displays thin vertical lines at each identation level
 Plug 'yggdroot/indentline'
 "status bar
