@@ -1,10 +1,5 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-"Download plug.vim if not exist
-if !filereadable('~/.vim/autoload/plug.vim')
-    let downloadPlug = 'curl -fLo ~/.vim/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
-    exe 'silent !'.downloadPlug
-endif
 call plug#begin('$VIMRUNTIME/plugged')
 
 Plug 'VundleVim/Vundle.vim'
