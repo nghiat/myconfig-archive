@@ -41,6 +41,11 @@ nnoremap <F7> :NERDTreeToggle<CR>
 " Switch between buffers
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
+
+"Tag bar settings
+if (has("win32"))
+    let g:tagbar_ctags_bin = "$HOME/myconfig/vim/ctags58/ctags.exe"
+endif
 nmap <F8> :TagbarToggle<CR>
 "X11 clipboard
 if has("unix")
