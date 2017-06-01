@@ -1,8 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('$VIMRUNTIME/plugged')
-
-Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'morhetz/gruvbox'
@@ -10,15 +8,14 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
 "auto closing quotes,...
 Plug 'raimondi/delimitmate'
-"displays thin vertical lines at each identation level
-Plug 'yggdroot/indentline'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'scrooloose/syntastic'
 "status bar
 Plug 'bling/vim-airline'
-"GLSL syntax highlighting
 Plug 'tikhomirov/vim-glsl'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
-Plug 'valloric/youcompleteme'
+Plug 'ajh17/vimcompletesme'
 "html auto-close tag
 Plug 'alvan/vim-closetag'
 "comment stuff out
@@ -27,22 +24,15 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-fugitive'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
-filetype plugin indent on    " required
+""""""""""Vim config""""""""""
 "Enable syntax highlighting
 syntax enable
 "Enable line number
 set number
-" Toggle nerdtree
-nnoremap <F7> :NERDTreeToggle<CR>
+filetype plugin indent on    " required
 " Switch between buffers
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
-
-"Tag bar settings
-if (has("win32"))
-    let g:tagbar_ctags_bin = "$HOME/myconfig/vim/ctags58/ctags.exe"
-endif
-nmap <F8> :TagbarToggle<CR>
 "X11 clipboard
 if has("unix")
     set clipboard=unnamedplus
@@ -62,37 +52,13 @@ set backspace=indent,eol,start
 set cc=100
 "Filetype config
 au FileType cpp,c,js setl sts=2 sw=2
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
 set background=dark
 colorscheme gruvbox
-"syntastic syntax checking
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_always_populate_loc_list = 0
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_cpp_checkers = ['clang-check']
 set softtabstop=4
 set encoding=utf-8
-"vim-airline always show
-set laststatus=2
-
-"show buffers list on the top of window
-let g:airline#extensions#tabline#enabled = 1
-
-"Doxygen settings
-let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
-let g:DoxygenToolkit_paramTag_pre="@Param "
-let g:DoxygenToolkit_returnTag="@Returns   "
-let g:DoxygenToolkit_blockHeader="-------------------------------"
-let g:DoxygenToolkit_blockFooter="---------------------------------"
 "matching braces color
 highlight MatchParen cterm=bold ctermfg=cyan
+
 "set gui font
 if has('gui_running')
     if has("unix")
@@ -117,3 +83,30 @@ autocmd FileType c,cpp inoremap <F6> <C-O>:w <bar> make<CR>
 autocmd FileType c,cpp nnoremap <F5> :!%<<CR>
 autocmd FileType c,cpp inoremap <F5> <C-O>:!%<<CR>
 
+""""""""""nerdtree""""""""""
+" Toggle nerdtree
+nnoremap <F7> :NERDTreeToggle<CR>
+
+""""""""""tagbar""""""""""
+"Tag bar settings
+if (has("win32"))
+    let g:tagbar_ctags_bin = "$HOME/myconfig/vim/ctags58/ctags.exe"
+endif
+nmap <F8> :TagbarToggle<CR>
+
+""""""""""vim-airline""""""""""
+"vim-airline always show
+set laststatus=2
+"show buffers list on the top of window
+let g:airline#extensions#tabline#enabled = 1
+
+""""""""""syntastic""""""""""
+"syntastic syntax checking
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_checkers = ['clang-check']
