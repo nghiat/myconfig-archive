@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p $HOME/.config/{i3,dunst,rofi}
+mkdir -p $HOME/.config/{i3,dunst,rofi,fish}
 ln -s $PWD/dunstrc $HOME/.config/dunst
 ln -s $PWD/{i3blocks.conf,i3lock-blur.sh} $HOME/.config/i3
 ln -s $PWD/i3-config $HOME/.config/i3/config
