@@ -43,4 +43,5 @@ xmodmap ~/.Xmodmap
 xcape -e 'Hyper_L=Escape' -t 200
 ibus-daemon -drx 
 syndaemon -i 0.2 -t -K -R -d
+pgrep redshift &> /dev/null || redshift &> /dev/null &
 exec i3
