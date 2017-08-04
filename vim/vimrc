@@ -3,7 +3,7 @@ filetype off                  " required
 call plug#begin('$VIMRUNTIME/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 "The plugin provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
 "auto closing quotes,...
@@ -25,90 +25,86 @@ Plug 'tpope/vim-fugitive'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
-"Enable syntax highlighting
-syntax enable
-"Enable line number
-set number
-filetype plugin indent on    " required
-" Switch between buffers
-:nnoremap <Tab> :bnext<CR>
-:nnoremap <S-Tab> :bprevious<CR>
-"X11 clipboard
-if has("unix")
-    set clipboard=unnamedplus
-elseif has("win32")
-    set clipboard=unnamed
-endif
-"tab to spaces
-set expandtab
-set tabstop=4
-"identation tab
-set shiftwidth=4
-"makes the backspace key treat the spaces like a tab
-set softtabstop=4
-"makes backspace work like most other apps
-set backspace=indent,eol,start
-"Set color for column 100th
-set cc=100
-"Filetype config
-au FileType cpp,c,js setl sts=2 sw=2
-set background=dark
-colorscheme gruvbox
-set softtabstop=4
-set encoding=utf-8
-"matching braces color
-highlight MatchParen cterm=bold ctermfg=cyan
-
-"set gui font
-if has('gui_running')
+    "Enable syntax highlighting
+    syntax enable
+    "Enable line number
+    set number
+    filetype plugin on
+    filetype plugin indent on    " required
+    "X11 clipboard
     if has("unix")
-        set guifont=DejaVu\ Sans\ Mono\ Bold\ 12
+        set clipboard=unnamedplus
     elseif has("win32")
-        set guifont=Consolas:h12:b:cANSI
+        set clipboard=unnamed
     endif
-endif
-" Press Space to turn off highlighting and clear any message already displayed.
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-"map Ctrl-S to save
-noremap <silent> <C-s>          :update<CR>
-vnoremap <silent> <C-s>         <C-C>:update<CR>
-inoremap <silent> <C-s>         <C-O>:update<CR>
-"Cpp Compile and run shortcuts
-autocmd Filetype c setlocal makeprg=gcc\ -o\ %<\ %
-autocmd Filetype cpp setlocal makeprg=g++\ -o\ %<\ %
-autocmd Filetype cpp setlocal makeprg=g++\ -o\ %<\ %
-autocmd FileType c,cpp noremap <F6> :w <bar> make<CR>
-autocmd FileType c,cpp inoremap <F6> <C-O>:w <bar> make<CR>
-autocmd FileType c,cpp nnoremap <F5> :!%<<CR>
-autocmd FileType c,cpp inoremap <F5> <C-O>:!%<<CR>
+    "tab to spaces
+    set expandtab
+    set tabstop=4
+    "identation tab
+    set shiftwidth=4
+    "makes the backspace key treat the spaces like a tab
+    set softtabstop=4
+    "makes backspace work like most other apps
+    set backspace=indent,eol,start
+    "Set color for column 100th
+    set cc=100
+    "Filetype config
+    set background=dark
+    colorscheme base16-default-dark
+    set softtabstop=4
+    set encoding=utf-8
+    "matching braces color
+    highlight MatchParen cterm=bold ctermfg=cyan
+
+    "set gui font
+    if has('gui_running')
+        if has("unix")
+            set guifont=DejaVu\ Sans\ Mono\ Bold\ 12
+        elseif has("win32")
+            set guifont=Consolas:h12:b:cANSI
+        endif
+    endif
+
+    " Shortcuts
+        " Switch between buffers
+        :nnoremap <Tab> :bnext<CR>
+        :nnoremap <S-Tab> :bprevious<CR>
+        " Press Space to turn off highlighting and clear any message already displayed.
+        :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+        "map Ctrl-S to save
+        noremap <silent> <C-s>          :update<CR>
+        vnoremap <silent> <C-s>         <C-C>:update<CR>
+        inoremap <silent> <C-s>         <C-O>:update<CR>
+        "Set Leader key
+        let mapleader="\<Space>"
+        nnoremap <Leader>w :w<CR>
 
 """"""""""nerdtree""""""""""
-" Toggle nerdtree
-nnoremap <F7> :NERDTreeToggle<CR>
+    " Toggle nerdtree
+    nnoremap <F7> :NERDTreeToggle<CR>
 
 """"""""""tagbar""""""""""
-"Tag bar settings
-if (has("win32"))
-    let g:tagbar_ctags_bin = "$HOME/myconfig/vim/ctags58/ctags.exe"
-endif
-nmap <F8> :TagbarToggle<CR>
+    if (has("win32"))
+        let g:tagbar_ctags_bin = "$HOME/myconfig/vim/ctags58/ctags.exe"
+    endif
+    nmap <F8> :TagbarToggle<CR>
 
 """"""""""vim-airline""""""""""
-"vim-airline always show
-set laststatus=2
-"show buffers list on the top of window
-let g:airline#extensions#tabline#enabled = 1
+    "vim-airline always show
+    set laststatus=2
+    "show buffers list on the top of window
+    let g:airline#extensions#tabline#enabled = 1
 
 """"""""""syntastic""""""""""
-"syntastic syntax checking
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cpp_checkers = ['clang-check']
+    "syntastic syntax checking
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+    let g:syntastic_always_populate_loc_list = 0
+    let g:syntastic_auto_loc_list = 0
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+    let g:syntastic_cpp_checkers = ['clang-check']
 
 """"""""""vim-indent-guides""""""""""
-let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_enable_on_vim_startup = 1
