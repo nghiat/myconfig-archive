@@ -101,10 +101,10 @@ call plug#end()            " required
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
     let g:syntastic_always_populate_loc_list = 0
-    let g:syntastic_auto_loc_list = 0
+    let g:syntastic_auto_loc_list = 1
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
-    let g:syntastic_cpp_checkers = ['clang-check']
+    let g:syntastic_cpp_checkers = ['clang_check']
 
 """"""""""vim-indent-guides""""""""""
     let g:indent_guides_enable_on_vim_startup = 1
