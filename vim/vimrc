@@ -3,7 +3,7 @@ filetype off                  " required
 call plug#begin('$VIMRUNTIME/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'chriskempson/base16-vim'
+Plug 'tomasr/molokai'
 "The plugin provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
 "auto closing quotes,...
@@ -22,6 +22,7 @@ Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-startify'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
@@ -37,7 +38,6 @@ call plug#end()            " required
     elseif has("win32")
         set clipboard=unnamed
     endif
-    "tab to spaces
     set expandtab
     set tabstop=4
     "identation tab
@@ -49,8 +49,8 @@ call plug#end()            " required
     "Set color for column 100th
     set cc=100
     "Filetype config
-    set background=dark
-    colorscheme base16-default-dark
+    let g:rehash256=1
+    colorscheme molokai
     set softtabstop=4
     set encoding=utf-8
     "matching braces color
