@@ -3,7 +3,7 @@ filetype off                  " required
 call plug#begin('$VIMRUNTIME/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 "The plugin provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
 "auto closing quotes,...
@@ -48,9 +48,12 @@ call plug#end()            " required
     set backspace=indent,eol,start
     "Set color for column 100th
     set cc=100
+    "Color scheme
+    set termguicolors
+    let g:gruvbox_contrast_dark="hard"
+    set background=dark
     "Filetype config
-    let g:rehash256=1
-    colorscheme molokai
+    colorscheme gruvbox
     set softtabstop=4
     set encoding=utf-8
     "matching braces color
@@ -102,9 +105,9 @@ call plug#end()            " required
     set statusline+=%*
     let g:syntastic_always_populate_loc_list = 0
     let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
     let g:syntastic_cpp_checkers = ['clang_check']
+    noremap <F9> :SyntasticCheck<CR>
 
 """"""""""vim-indent-guides""""""""""
     let g:indent_guides_enable_on_vim_startup = 1
