@@ -30,6 +30,8 @@ call plug#end()            " required
     syntax enable
     "Enable line number
     set number
+    "Enable switching between tabs without saving
+    set hidden
     filetype plugin on
     filetype plugin indent on    " required
     "X11 clipboard
@@ -82,8 +84,10 @@ call plug#end()            " required
         inoremap <silent> <C-s>         <C-O>:update<CR>
         "Set Leader key
         let mapleader="\<Space>"
-        nnoremap <Leader>w :w<CR>
-
+        nmap <leader>e :e<Space>
+        nmap <leader>s :b<Space>
+        nmap <leader>q :bd<CR>
+        
 """"""""""nerdtree""""""""""
     " Toggle nerdtree
     nnoremap <F7> :NERDTreeToggle<CR>
