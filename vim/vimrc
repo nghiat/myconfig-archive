@@ -23,6 +23,7 @@ Plug 'tpope/vim-commentary'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
+Plug 'SirVer/ultisnips'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
@@ -114,3 +115,8 @@ call plug#end()            " required
 
 """"""""""vim-indent-guides""""""""""
     let g:indent_guides_enable_on_vim_startup = 1
+
+""""""""""utilsnips""""""""""
+    let g:UtilSnipsExpandTrigger="<c-i>"
+    let g:UltiSnipsJumpForwardTrigger="<c-k>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-j>"
