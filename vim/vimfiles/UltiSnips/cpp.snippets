@@ -1,5 +1,9 @@
 snippet cl
-class ${1:classname} {
+class ${1:`!p snip.rv = snip.basename or "classname"`} {
+public:
+  $1(${2:args});
+  ~$1();
+private:
   $0
 };
 endsnippet
