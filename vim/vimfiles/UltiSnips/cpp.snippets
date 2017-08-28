@@ -9,7 +9,17 @@ private:
 endsnippet
 
 snippet fn
-${1:return} ${2:name}(${3:arg(s)}) {
+${1:return} ${2:name}($3)}) {
   $0
 }
+endsnippet
+
+snippet in<
+#include <${1:header}>
+$0
+endsnippet
+
+snippet in"
+#include "${1:header}"
+$0
 endsnippet
