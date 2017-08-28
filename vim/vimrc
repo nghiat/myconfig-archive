@@ -78,7 +78,7 @@ call plug#end()            " required
         :nnoremap <Tab> :bnext<CR>
         :nnoremap <S-Tab> :bprevious<CR>
         " Press Space to turn off highlighting and clear any message already displayed.
-        :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+        :noremap <Space> :set hlsearch! hlsearch?<CR>
         "map Ctrl-S to save
         noremap <silent> <C-s>          :update<CR>
         vnoremap <silent> <C-s>         <C-C>:update<CR>
