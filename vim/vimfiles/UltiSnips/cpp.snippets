@@ -1,25 +1,29 @@
 snippet cl
 class ${1:`!p snip.rv = snip.basename or "classname"`} {
 public:
-  $1(${2:args});
-  ~$1();
+	$1($2);
+	~$1();
 private:
-  $0
+	$0
 };
 endsnippet
 
 snippet fn
 ${1:return} ${2:name}($3)}) {
-  $0
+	$0
 }
 endsnippet
 
 snippet in<
-#include <${1:header}>
-$0
+#include <${1:header}>$0
 endsnippet
 
 snippet in"
-#include "${1:header}"
-$0
+#include "${1:header}"$0
+endsnippet
+
+snippet me
+${1:return} ${2:`!p snip.rv = snip.basename or "classname"`}::${3:methodname} ($4) {
+	$0
+}
 endsnippet
