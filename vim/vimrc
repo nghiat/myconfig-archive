@@ -88,6 +88,8 @@ call plug#end()            " required
         nmap <leader>e :e<Space>
         nmap <leader>s :b<Space>
         nmap <leader>q :bd<CR>
+        nmap <leader>l <C-W>l<CR>
+        nmap <leader>h <C-W>h<CR>
         
 """"""""""nerdtree""""""""""
     " Toggle nerdtree
@@ -111,6 +113,8 @@ call plug#end()            " required
     set statusline+=%{SyntasticStatuslineFlag()}
     set statusline+=%*
     let g:syntastic_cpp_checkers = ['clang_check']
+    let g:syntastic_mode_map = {
+        \ "mode": "passive"}
     noremap <F9> :SyntasticCheck<CR>
 
 """"""""""vim-indent-guides""""""""""
