@@ -9,13 +9,11 @@ Plug 'tpope/vim-surround'
 "auto closing quotes,...
 Plug 'raimondi/delimitmate'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'scrooloose/syntastic'
 "status bar
 Plug 'bling/vim-airline'
 Plug 'tikhomirov/vim-glsl'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
-Plug 'ajh17/vimcompletesme'
+"Plug 'ajh17/vimcompletesme'
 "html auto-close tag
 Plug 'alvan/vim-closetag'
 "comment stuff out
@@ -24,6 +22,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
+Plug 'w0rp/ale'
+Plug 'junegunn/fzf'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
@@ -106,16 +106,6 @@ call plug#end()            " required
     set laststatus=2
     "show buffers list on the top of window
     let g:airline#extensions#tabline#enabled = 1
-
-""""""""""syntastic""""""""""
-    "syntastic syntax checking
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-    let g:syntastic_cpp_checkers = ['clang_check']
-    let g:syntastic_mode_map = {
-        \ "mode": "passive"}
-    noremap <F9> :SyntasticCheck<CR>
 
 """"""""""vim-indent-guides""""""""""
     let g:indent_guides_enable_on_vim_startup = 1
