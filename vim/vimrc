@@ -44,7 +44,9 @@ call plug#end()            " required
     set expandtab
     set tabstop=4
     "window default size
-    set columns=100
+    if has('gui_running')
+        set columns=100
+    endif
     "identation tab
     set shiftwidth=4
     "makes the backspace key treat the spaces like a tab

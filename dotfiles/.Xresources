@@ -7,4 +7,5 @@ XTerm.ttyModes: erase ^?
 XTerm.vt100.saveLines: 99999
 XTerm.vt100.scrollBar: true
 XTerm.vt100.scrollbar.width: 8
-xterm*faceName: DejaVu Sans Mono:pixelsize=14:antialias=true:style=Bold
+xterm*faceName: DejaVu Sans Mono:size=12:antialias=true:style=Bold
+XTerm.vt100.geometry: 80x32
