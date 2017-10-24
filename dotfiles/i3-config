@@ -181,7 +181,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 
 #Display key control
 bindsym $mod+p exec arandr
-bindsym $mod+d exec rofi -show Drun -font "DejaVu Sans Mono Bold 14" -opacity 85
+bindsym $mod+d exec rofi -show drun -font "DejaVu Sans Mono Bold 14" -opacity 85
 
 bindsym $mod+x move workspace to output left
 
