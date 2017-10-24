@@ -11,6 +11,7 @@ ln -s $PWD/rofi-config $HOME/.config/rofi/config
 ln -s $PWD/{.xinitrc,.xserverrc} $HOME
 ln -s $PWD/config.fish $HOME/.config/fish/config.fish
 ln -s $PWD/.Xmodmap $HOME
+ln -s $PWD/.tmux.conf $HOME
 ln -s $PWD/gruvbox.theme $HOME/.config/xfce4/terminal/colorschemes
 sudo ln -s $PWD/i3lock-blur.service /etc/systemd/system/
 sudo systemctl enable i3lock-blur
