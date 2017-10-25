@@ -56,9 +56,13 @@ call plug#end()            " required
     "Set color for column 100th
     set cc=100
     "Color scheme
-    set termguicolors
+    if has("unix")
+        set t_8f=[38;2;%lu;%lu;%lum
+        set t_8b=[48;2;%lu;%lu;%lum
+    endif
     let g:gruvbox_contrast_dark="hard"
     set background=dark
+    set termguicolors
     "Filetype config
     colorscheme gruvbox
     set softtabstop=4
