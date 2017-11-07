@@ -10,3 +10,4 @@ ln -s $PWD/termite-config $HOME/.config/termite/config
 ln -s $PWD/{.Xmodmap,.tmux.conf,.Xresources,gruvbox-dark.xresources,.xinitrc,.xserverrc} $HOME
 sudo ln -s $PWD/i3lock-blur.service /etc/systemd/system/
 sudo systemctl enable i3lock-blur
+echo Remember to install xsel dunst rofi fish termite xinit
