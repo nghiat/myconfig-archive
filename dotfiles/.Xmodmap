@@ -1,5 +1,0 @@
-clear Lock 
-keycode 66 = Hyper_L
-add mod4 = Hyper_L
-keycode 9 = Caps_Lock
-keycode 133 = Escape
