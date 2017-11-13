@@ -1,6 +1,5 @@
 #!/bin/bash
 mkdir -p $HOME/.config/{fish,termite}
-ln -s $PWD/{i3blocks.conf,i3lock-blur.sh} $HOME/.config/i3
 ln -s $PWD/config.fish $HOME/.config/fish/config.fish
 ln -s $PWD/termite-config $HOME/.config/termite/config
 ln -s $PWD/{.tmux.conf} $HOME
