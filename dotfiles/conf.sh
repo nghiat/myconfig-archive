@@ -43,10 +43,10 @@ create_symlink_from_array() {
         fi
         if [ ! -L "$des" ]; then
             if [ "$need_sudo" = true ]; then
-                sudo ln -s $src $des
+                sudo ln -s $PWD/$src $des
                 echo -e "${Blue} sudo $src ---> $des ${Nc}"
             else
-                ln -s $src $des
+                ln -s $PWD/$src $des
                 echo -e "${Blue} $src ---> $des ${Nc}"
             fi
         fi
@@ -89,13 +89,16 @@ clean() {
 case "$1" in
     "")
         setup
-        echo -e "${Yellow} Remember to install dunst i3lock-blur rofi ${Nc}"
         ;;
     "clean")
         clean
         ;;
+    "install")
+        echo -e "${Yellow}Installing: fish nm-applet compton dropbox redshift lxpolkit fsearch-git dunst i3blocks i3lock-blur rofi xort-xset xautolock ibus ibus-unikey ${Nc}"
+        yaourt -S fish network-manager-applet compton dropbox redshift gnome-keyring fsearch-git dunst i3blocks i3lock-blur rofi xorg-xset xautolock ibus ibus-unikey --noconfirm
+        ;;
     "help")
-        echo "conf.sh [ | clean]"
+        echo "conf.sh [ | clean | install ]"
         ;;
     *)
         ;;
