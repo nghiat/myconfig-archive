@@ -94,8 +94,10 @@ call plug#end()            " required
         nmap <leader>e :e<Space>
         nmap <leader>s :b<Space>
         nmap <leader>q :bd<CR>
-        nmap <leader>l <C-W>l<CR>
         nmap <leader>h <C-W>h<CR>
+        nmap <leader>j <C-W>j<CR>
+        nmap <leader>k <C-W>k<CR>
+        nmap <leader>l <C-W>l<CR>
         
 """"""""""nerdtree""""""""""
     " Toggle nerdtree
