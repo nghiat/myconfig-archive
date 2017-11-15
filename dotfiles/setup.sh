@@ -1,8 +1,9 @@
 #!/bin/bash
-Red="\033[0;31m"
-Blue="\033[1;34m"
-Yellow="\033[1;33m"
-Nc="\033[0m"
+export Red="\033[0;31m"
+export Blue="\033[1;34m"
+export Yellow="\033[1;33m"
+export Nc="\033[0m"
+
 declare -A dirs=(
     ["config"]="$HOME/.config"
     ["fish"]="$HOME/.config/fish"
@@ -11,6 +12,7 @@ declare -A dirs=(
     ["i3"]="$HOME/.config/i3"
     ["dunst"]="$HOME/.config/dunst"
     ["rofi"]="$HOME/.config/rofi"
+    ["xorg.conf.d"]="/etc/X11/xorg.conf.d"
 )
 
 declare -A symlink=(
@@ -30,6 +32,17 @@ declare -A symlink=(
 declare -A sudo_symlink=(
     ["i3lock-blur.service"]="/etc/systemd/system"
 )
+
+declare -A laptop_sudo_symlink=(
+    ["30-touchpad.conf"]="${dirs[xorg.conf.d]}"
+)
+
+is_laptop=false
+
+get_distro() {
+    id=$(cat /etc/*-release | grep ID=)
+    echo "${id:3}"
+}
 
 create_symlink_from_array() {
     need_sudo="${1}"
@@ -54,6 +67,9 @@ create_symlink_from_array() {
 }
 
 setup() {
+    if [ -d /sys/module/battery ]; then
+        is_laptop=true
+    fi
     for name in "${!dirs[@]}"; do
         dir="${dirs[$name]}"
         if [ ! -d "$dir" ]; then
@@ -63,6 +79,13 @@ setup() {
 
     create_symlink_from_array "" "symlink"
     create_symlink_from_array "true" "sudo_symlink"
+    if [ "$is_laptop" = true ]; then
+        create_symlink_from_array "true" "laptop_sudo_symlink"
+    fi
+    sudo sed -i 's/#HandleLidSwitch=suspend.*/HandleLidSwitch=ignore/' /etc/systemd/logind.conf
+    sudo sed -i 's/#DefaultTimeoutStartSec.*/DefaultTimeoutStartSec=10s/' /etc/systemd/system.conf
+    sudo sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=10s/' /etc/systemd/system.conf
+    sudo systemctl daemon-reload
 }
 
 clean_from_array() {
@@ -84,7 +107,12 @@ clean_from_array() {
 clean() {
     clean_from_array "symlink"
     clean_from_array "sudo_symlink"
+    if [ "$is_laptop" = true ]; then
+        clean_from_array "laptop_sudo_symlink"
+    fi
 }
+
+distro=$(get_distro)
 
 case "$1" in
     "")
@@ -94,11 +122,13 @@ case "$1" in
         clean
         ;;
     "install")
-        echo -e "${Yellow}Installing: fish nm-applet compton dropbox redshift lxpolkit fsearch-git dunst i3blocks i3lock-blur rofi xort-xset xautolock ibus ibus-unikey ${Nc}"
-        yaourt -S fish network-manager-applet compton dropbox redshift gnome-keyring fsearch-git dunst i3blocks i3lock-blur rofi xorg-xset xautolock ibus ibus-unikey --noconfirm
+        bash $PWD/$distro.sh install
+        ;;
+    "uninstall")
+        bash $PWD/$distro.sh uninstall
         ;;
     "help")
-        echo "conf.sh [ | clean | install ]"
+        echo "setup.sh [ | clean | install ]"
         ;;
     *)
         ;;
