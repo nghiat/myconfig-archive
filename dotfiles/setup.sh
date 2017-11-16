@@ -13,6 +13,8 @@ declare -A dirs=(
     ["dunst"]="$HOME/.config/dunst"
     ["rofi"]="$HOME/.config/rofi"
     ["xorg.conf.d"]="/etc/X11/xorg.conf.d"
+    ["acpi"]="/etc/acpi/events"
+    ["acpi_actions"]="/etc/acpi/actions"
 )
 
 declare -A symlink=(
@@ -35,6 +37,8 @@ declare -A sudo_symlink=(
 
 declare -A laptop_sudo_symlink=(
     ["30-touchpad.conf"]="${dirs[xorg.conf.d]}"
+    ["lid"]="${dirs[acpi]}"
+    ["lid.sh"]="${dirs[acpi_actions]}"
 )
 
 is_laptop=false
@@ -69,11 +73,12 @@ create_symlink_from_array() {
 setup() {
     if [ -d /sys/module/battery ]; then
         is_laptop=true
+        sudo systemctl enable acpid
     fi
     for name in "${!dirs[@]}"; do
         dir="${dirs[$name]}"
         if [ ! -d "$dir" ]; then
-            mkdir -p $dir
+            sudo mkdir -p $dir
         fi
     done
 
@@ -112,7 +117,7 @@ clean() {
     fi
 }
 
-distro=$(get_distro)
+export distro=$(get_distro)
 
 case "$1" in
     "")
