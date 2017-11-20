@@ -1,6 +1,6 @@
 #!/bin/bash
 script_dir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
-bash $script_dir/../export_vars.sh
+source $script_dir/../export_vars.sh
 source $script_dir/../utils/parse_args.sh "$@"
 laptop_symlink=(
     "/etc/X11/xorg.conf.d/30-touchpad.conf"

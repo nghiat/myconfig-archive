@@ -1,6 +1,6 @@
 #!/bin/bash
 script_dir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
-source ${script_dir}/../setup.sh
+source ${script_dir}/../export_vars.sh
 print_help() {
     echo "create_symlink.sh symlink..."
     echo options:
@@ -19,8 +19,9 @@ while true; do
     esac
 done
 num_files=$#
+echo $config_root_dir
 for file in "$@"; do
-    src="${config_root_dir}/config/$file"
+    src="$config_root_dir/config/$file"
     des=${file/home/~}
     if [ "$clean" = true ]; then
         if [ -L "$des" ]; then
