@@ -24,4 +24,4 @@ fi
 
 bash $script_dir/../utils/create_symlink.sh ${general_symlink[@]}
 change_power_settings
-echo -e "${Red}fish tmux termite${Nc}"
+echo -e "${Red}fish tmux termite redshift gtk-theme-arc-git${Nc}"
