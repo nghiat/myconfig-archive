@@ -96,16 +96,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 "1:Terminal"
-set $ws2 "2:Browser"
-set $ws3 "3: Dev"
-set $ws4 "4:Other"
-set $ws5 "5:Other"
-set $ws6 "6:Other"
-set $ws7 "7:Other"
-set $ws8 "8:Other"
-set $ws9 "9:Other"
-set $ws0 "0:Other"
+set $ws1 " 1:Terminal"
+set $ws2 " 2:Browser"
+set $ws3 " 3: Dev"
+set $ws4 " 4:Other"
+set $ws5 " 5:Other"
+set $ws6 " 6:Other"
+set $ws7 " 7:Other"
+set $ws8 " 8:Other"
+set $ws9 " 9:Other"
+set $ws0 " 0:Other"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -191,6 +191,7 @@ exec --no-startup-id ibus-daemon &
 exec --no-startup-id dropbox start &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id lxpolkit &
+exec --no-startup-id polybar mybar
 
 for_window [class="Fsearch"] floating enable
 # Start FSearch
