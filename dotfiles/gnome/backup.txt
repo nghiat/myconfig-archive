@@ -1,40 +1,19 @@
-[nautilus/preferences]
-search-view='list-view'
-default-folder-viewer='icon-view'
-search-filter-time-type='last_modified'
-
-[nautilus/window-state]
-geometry='890x550+69+178'
-maximized=false
-
-[settings-daemon/plugins/power]
-sleep-inactive-battery-type='nothing'
-sleep-inactive-ac-timeout=3600
-sleep-inactive-ac-type='nothing'
-sleep-inactive-battery-timeout=1800
-
-[settings-daemon/plugins/color]
-night-light-enabled=true
-
-[settings-daemon/plugins/xsettings]
-antialiasing='rgba'
-hinting='full'
-
-[settings-daemon/peripherals/keyboard]
-numlock-state='off'
-
-[settings-daemon/peripherals/mouse]
-locate-pointer=false
-
 [shell]
-enabled-extensions=['drive-menu@gnome-shell-extensions.gcampax.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'temperature@xtranophilist', 'caffeine@patapon.info', 'TopIcons@phocean.net', 'suspend-button@laserb', 'extra-panels@darkxst.feathertop.org', 'panel-osd@berend.de.schouwer.gmail.com', 'refresh-wifi@kgshank.net', 'bettervolume@tudmotu.com', 'todolist@bsaleil.org', 'dash-to-dock@micxgx.gmail.com', 'topIcons@adel.gadllah@gmail.com', 'netspeed@hedayaty.gmail.com', 'redshift@tommie-lie.de', 'mediaplayer@patapon.info', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'pixel-saver@deadalnix.me']
+enabled-extensions=['drive-menu@gnome-shell-extensions.gcampax.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'temperature@xtranophilist', 'caffeine@patapon.info', 'TopIcons@phocean.net', 'suspend-button@laserb', 'extra-panels@darkxst.feathertop.org', 'panel-osd@berend.de.schouwer.gmail.com', 'refresh-wifi@kgshank.net', 'bettervolume@tudmotu.com', 'todolist@bsaleil.org', 'dash-to-dock@micxgx.gmail.com', 'mediaplayer@patapon.info', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'alternate-tab@gnome-shell-extensions.gcampax.github.com', 'dynamic-panel-transparency@rockon999.github.io', 'unite@hardpixel.eu', 'simplenetspeed@biji.extension']
 favorite-apps=['termite.desktop', 'doublecmd.desktop', 'google-chrome.desktop']
 
 [shell/extensions/extra-panels]
 available-list=['drive-menu', 'Caffeine', 'netspeed', 'workspace-indicator']
 
-[shell/extensions/redshift]
-active=true
+[shell/extensions/panel-osd]
+test-notification=false
+x-pos=100.0
+
+[shell/extensions/topicons]
+tray-pos='right'
+
+[shell/extensions/caffeine]
+user-enabled=true
 
 [shell/extensions/dash-to-dock]
 extend-height=false
@@ -46,22 +25,64 @@ pressure-threshold=50.0
 apply-custom-theme=true
 dock-position='BOTTOM'
 
-[shell/extensions/panel-osd]
-test-notification=false
-x-pos=100.0
+[shell/extensions/simplenetspeed]
+mode=2
 
-[shell/extensions/caffeine]
-user-enabled=true
+[nautilus/preferences]
+search-view='list-view'
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
 
-[shell/extensions/netspeed]
-show-sum=false
+[nautilus/window-state]
+geometry='890x550+69+178'
+maximized=false
 
-[shell/extensions/topicons]
-tray-pos='right'
+[file-roller/listing]
+sort-method='name'
+name-column-width=250
+sort-type='ascending'
+list-mode='as-folder'
+show-path=false
+
+[file-roller/ui]
+sidebar-width=200
+window-height=1010
+window-width=958
+
+[settings-daemon/plugins/power]
+sleep-inactive-battery-type='nothing'
+sleep-inactive-ac-timeout=900
+sleep-inactive-ac-type='suspend'
+sleep-inactive-battery-timeout=1800
+
+[settings-daemon/plugins/color]
+night-light-enabled=true
+
+[settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>f'
+command='fsearch'
+name='Fsearch'
+
+[settings-daemon/plugins/xsettings]
+antialiasing='rgba'
+hinting='full'
+
+[settings-daemon/peripherals/keyboard]
+numlock-state='off'
+
+[settings-daemon/peripherals/mouse]
+locate-pointer=false
+
+[cheese]
+burst-delay=1000
 
 [desktop/interface]
 clock-show-date=true
-gtk-im-module='gtk-im-context-simple'
+toolkit-accessibility=false
+gtk-im-module='ibus'
 show-battery-percentage=true
 gtk-theme='Arc-Darker'
 monospace-font-name='DejaVu Sans Mono Bold 11'
@@ -75,6 +96,9 @@ application-id='gnome-tweak-tool.desktop'
 [desktop/notifications/application/gnome-network-panel]
 application-id='gnome-network-panel.desktop'
 
+[desktop/media-handling]
+autorun-never=true
+
 [desktop/peripherals/touchpad]
 tap-to-click=true
 
@@ -87,9 +111,17 @@ sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gn
 [desktop/wm/preferences]
 button-layout='appmenu:minimize,maximize,close'
 
+[desktop/wm/keybindings]
+switch-input-source-backward=['<Shift><Alt>z']
+switch-input-source=['<Alt>z']
+
 [desktop/a11y/applications]
 screen-reader-enabled=false
 
+[desktop/datetime]
+automatic-timezone=true
+
 [desktop/input-sources]
 show-all-sources=false
-sources=[('xkb', 'us')]
+sources=[('xkb', 'us'), ('ibus', 'Unikey')]
+xkb-options=@as []
