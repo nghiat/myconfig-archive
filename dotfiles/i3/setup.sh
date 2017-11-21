@@ -1,7 +1,7 @@
 #!/bin/bash
 script_dir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
 source $script_dir/../export_vars.sh
-bash $script_dir/../utils/parse_args.sh "$@"
+source $script_dir/../utils/parse_args.sh "$@"
 i3_symlink=(
     "/home/.xinitrc"
     "/home/.xserverrc"
@@ -20,7 +20,7 @@ if [ "$clean" = true ]; then
     exit 0
 fi
 
-bash $script_dir/../utils/create_symlink_from_array.sh ${i3_symlink[@]}
+bash $script_dir/../utils/create_symlink.sh ${i3_symlink[@]}
 echo -e "${Red}fish network-manager-applet compton dropbox redshift gnome-keyring
 fsearch-git dunst i3blocks i3lock-blur rofi xorg-xset xautolock ibus
 ibus-unikey ttf-font-awesome ttf-dejavu ranger polybar w3m xf86-input-synaptics
