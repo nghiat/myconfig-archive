@@ -15,6 +15,7 @@ general_symlink=(
     "/home/.tmux.conf"
     "/home/.config/fish/config.fish"
     "/home/.config/termite/config"
+    "/home/.tmux"
 )
 
 if [ "$clean" = true ]; then

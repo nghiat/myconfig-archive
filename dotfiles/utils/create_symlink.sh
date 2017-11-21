@@ -19,7 +19,6 @@ while true; do
     esac
 done
 num_files=$#
-echo $config_root_dir
 for file in "$@"; do
     src="$config_root_dir/config/$file"
     des=${file/home/~}
