@@ -12,6 +12,7 @@
 (require 'init-general)
 (require 'init-ranger)
 (require 'init-spaceline)
+(require 'init-irony-mode)
 
 (if (eq system-type 'windows-nt)
   (require 'init-windows)

@@ -30,5 +30,8 @@
 (use-package company)
 (use-package spaceline)
 (use-package evil-commentary)
+(use-package company-irony)
+(use-package irony-mode)
 
 (provide 'init-packages)
+
