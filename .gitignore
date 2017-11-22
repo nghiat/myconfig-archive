@@ -1,3 +1,6 @@
 vim/vimfiles/plugged
 emacs/.emacs.d/*
 !emacs/.emacs.d/*.el
+!emacs/.emacs.d/share
+!emacs/.emacs.d/specific
+emacs/.emacs.d/custom.el
