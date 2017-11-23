@@ -5,16 +5,6 @@ favorite-apps=['termite.desktop', 'doublecmd.desktop', 'google-chrome.desktop']
 [shell/extensions/extra-panels]
 available-list=['drive-menu', 'Caffeine', 'netspeed', 'workspace-indicator']
 
-[shell/extensions/panel-osd]
-test-notification=false
-x-pos=100.0
-
-[shell/extensions/topicons]
-tray-pos='right'
-
-[shell/extensions/caffeine]
-user-enabled=true
-
 [shell/extensions/dash-to-dock]
 extend-height=false
 intellihide-mode='FOCUS_APPLICATION_WINDOWS'
@@ -25,8 +15,18 @@ pressure-threshold=50.0
 apply-custom-theme=true
 dock-position='BOTTOM'
 
+[shell/extensions/panel-osd]
+test-notification=false
+x-pos=100.0
+
+[shell/extensions/caffeine]
+user-enabled=true
+
 [shell/extensions/simplenetspeed]
 mode=2
+
+[shell/extensions/topicons]
+tray-pos='right'
 
 [nautilus/preferences]
 search-view='list-view'
@@ -81,9 +81,10 @@ burst-delay=1000
 
 [desktop/interface]
 clock-show-date=true
-toolkit-accessibility=false
+gtk-key-theme='Default'
 gtk-im-module='ibus'
 show-battery-percentage=true
+toolkit-accessibility=false
 gtk-theme='Arc-Darker'
 monospace-font-name='DejaVu Sans Mono Bold 11'
 
@@ -124,4 +125,4 @@ automatic-timezone=true
 [desktop/input-sources]
 show-all-sources=false
 sources=[('xkb', 'us'), ('ibus', 'Unikey')]
-xkb-options=@as []
+xkb-options=['ctrl:swapcaps']

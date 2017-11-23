@@ -16,6 +16,7 @@ general_symlink=(
     "/home/.config/fish/config.fish"
     "/home/.config/termite/config"
     "/home/.tmux"
+    "/etc/X11/xorg.conf.d/90-custom-kdb.conf"
 )
 
 if [ "$clean" = true ]; then
