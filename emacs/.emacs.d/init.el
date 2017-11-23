@@ -1,7 +1,6 @@
 (package-initialize)
 
-(add-to-list 'load-path (expand-file-name "share" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "specific" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "init.d" user-emacs-directory))
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 (require 'init-packages)
