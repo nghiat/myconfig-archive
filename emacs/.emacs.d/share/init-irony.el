@@ -6,4 +6,4 @@
 
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-(provide 'init-irony-mode)
+(provide 'init-irony)
