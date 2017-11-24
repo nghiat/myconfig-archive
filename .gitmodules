@@ -1,3 +1,6 @@
 [submodule "dotfiles/config/home/.tmux/tpm"]
 	path = dotfiles/config/home/.tmux/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "windows/dual"]
+	path = windows/dual
+	url = https://github.com/lydell/dual
