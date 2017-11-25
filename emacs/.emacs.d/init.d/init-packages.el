@@ -32,6 +32,8 @@
 (use-package evil-commentary)
 (use-package company-irony)
 (use-package irony)
+(use-package flycheck-irony)
+(use-package company-irony-c-headers)
 
 (provide 'init-packages)
 
