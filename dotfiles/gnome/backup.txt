@@ -125,4 +125,4 @@ automatic-timezone=true
 [desktop/input-sources]
 show-all-sources=false
 sources=[('xkb', 'us'), ('ibus', 'Unikey')]
-xkb-options=['ctrl:swapcaps']
+xkb-options=['ctrl:nocaps']
