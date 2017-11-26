@@ -12,4 +12,8 @@
 
 (setq inhibit-startup-screen t)
 
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(infer-indentation-style)
+
 (provide 'init-general)

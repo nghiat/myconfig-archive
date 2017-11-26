@@ -25,10 +25,10 @@
 (use-package magit)
 
 (use-package evil
-  :bind (("<tab>" . evil-next-buffer)
-	 ("<backtab>" . evil-prev-buffer))
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  (define-key evil-normal-state-map (kbd "<tab>") 'evil-next-buffer)
+  (define-key evil-normal-state-map (kbd "<backtab>") 'evil-prev-buffer))
 
 (use-package evil-commentary
   :config
@@ -64,7 +64,8 @@
 	 ("C-x r b" . helm-filter-bookmarks)
 	 ("C-x C-f" . helm-find-files))
   :init
-  (require 'helm-config))
+  (require 'helm-config)
+  (helm-mode 1))
 
 (use-package spaceline
   :init
