@@ -24,6 +24,16 @@
 
 (use-package magit)
 
+(use-package evil-leader
+  :config
+  (evil-leader/set-leader "<SPC>")
+  (global-evil-leader-mode)
+  (evil-leader/set-key
+   "h" 'evil-window-left
+   "j" 'evil-window-down
+   "k" 'evil-window-up
+   "l" 'evil-window-right))
+
 (use-package evil
   :config
   (evil-mode 1)
