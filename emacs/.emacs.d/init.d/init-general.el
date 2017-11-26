@@ -10,4 +10,6 @@
 (setq make-backup-files nil)
 (electric-pair-mode)
 
+(setq inhibit-startup-screen t)
+
 (provide 'init-general)
