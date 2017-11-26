@@ -13,7 +13,9 @@
 (setq inhibit-startup-screen t)
 
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
+(setq tab-width 2)
 (infer-indentation-style)
+
+(local-set-key (kbd "DEL") 'backward-delete-whitespace-to-column)
 
 (provide 'init-general)
