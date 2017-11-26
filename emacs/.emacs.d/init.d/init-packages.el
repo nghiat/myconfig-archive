@@ -77,11 +77,9 @@
   (require 'helm-config)
   (helm-mode 1))
 
-(use-package spaceline
-  :init
-  (require 'spaceline-config)
+(use-package powerline
   :config
-  (spaceline-spacemacs-theme))
+  (powerline-default-theme))
 
 (use-package company-irony)
 
