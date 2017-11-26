@@ -107,4 +107,10 @@
 
 (use-package org)
 
+(use-package cmake-mode)
+
+(use-package cmake-ide
+  :config
+  (cmake-ide-setup))
+
 (provide 'init-packages)
