@@ -1,4 +1,3 @@
-(load-theme 'gruvbox-dark-hard t)
 (let ((frame-background-mode 'light)) (frame-set-background-mode nil))
 (global-linum-mode t)
 (savehist-mode 1)

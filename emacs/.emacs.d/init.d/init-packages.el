@@ -9,9 +9,9 @@
         (setq package-archives '(("melpa" . "~/.emacs.d/mirror-elpa/melpa/")
                          ("org"   . "~/.emacs.d/mirror-elpa/org/")
                          ("gnu"   . "~/.emacs.d/mirror-elpa/gnu/"))))
-    (setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                         ("org"   . "http://marmalade-repo.org/packages/")
-                         ("gnu"   . "http://elpa.gnu.org/packages/"))))
+    (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org"   . "https://marmalade-repo.org/packages/")
+                         ("gnu"   . "https://elpa.gnu.org/packages/"))))
 (package-initialize)
 ;; Install 'use-package' if necessary
 (unless (package-installed-p 'use-package)
@@ -23,17 +23,79 @@
 (setq use-package-always-ensure t)
 
 (use-package magit)
-(use-package evil)
-(use-package gruvbox-theme)
-(use-package flycheck)
-(use-package ranger)
-(use-package company)
-(use-package spaceline)
-(use-package evil-commentary)
+
+(use-package evil
+  :bind (("<tab>" . evil-next-buffer)
+	 ("<backtab>" . evil-prev-buffer))
+  :config
+  (evil-mode 1))
+
+(use-package evil-commentary
+  :config
+  (evil-commentary-mode))
+
+(use-package gruvbox-theme
+  :config
+  (load-theme 'gruvbox-dark-hard t))
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode))
+
+(use-package flycheck-irony
+  :config
+  (eval-after-load 'flycheck
+    '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+
+(use-package ranger
+  :bind ("<f7>" . ranger))
+
+(use-package company
+  :bind (("C-n" . company-select-next-or-abort)
+	 ("C-p" . company-select-previous-or-abort))
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-idle-delay 0.1)
+  (setq company-minimum-prefix-length 2)
+  (setq company-show-numbers t))
+
+(use-package helm
+  :bind (("M-x" . helm-M-x)
+	 ("C-x r b" . helm-filter-bookmarks)
+	 ("C-x C-f" . helm-find-files))
+  :init
+  (require 'helm-config))
+
+(use-package spaceline
+  :init
+  (require 'spaceline-config)
+  :config
+  (spaceline-spacemacs-theme))
+
 (use-package company-irony)
-(use-package irony)
-(use-package flycheck-irony)
+
+(use-package irony
+  :config
+  (eval-after-load 'company
+    '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
+  
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
 (use-package company-irony-c-headers)
 
-(provide 'init-packages)
+(use-package projectile
+  :config
+  (projectile-mode))
 
+(use-package helm-projectile
+  :init
+  (require 'helm-projectile)
+  :config
+  (helm-projectile-on))
+
+(use-package org)
+
+(provide 'init-packages)
