@@ -75,6 +75,7 @@
 	 ("C-x C-f" . helm-find-files))
   :init
   (require 'helm-config)
+  :config
   (helm-mode 1))
 
 (use-package powerline
@@ -97,6 +98,8 @@
 
 (use-package projectile
   :config
+  (setq projectile-indexing-method 'alien)
+  (setq projectile-enable-caching t)
   (projectile-mode))
 
 (use-package helm-projectile
@@ -108,9 +111,5 @@
 (use-package org)
 
 (use-package cmake-mode)
-
-(use-package cmake-ide
-  :config
-  (cmake-ide-setup))
 
 (provide 'init-packages)
