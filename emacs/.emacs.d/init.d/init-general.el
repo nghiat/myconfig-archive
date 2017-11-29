@@ -14,6 +14,7 @@
 
 (setq-default indent-tabs-mode nil)
 (setq tab-width 2)
+(show-paren-mode 1)
 (infer-indentation-style)
 
 (local-set-key (kbd "DEL") 'backward-delete-whitespace-to-column)
