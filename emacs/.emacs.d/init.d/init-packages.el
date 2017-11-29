@@ -112,4 +112,6 @@
 
 (use-package cmake-mode)
 
+(use-package helm-ag)
+
 (provide 'init-packages)
