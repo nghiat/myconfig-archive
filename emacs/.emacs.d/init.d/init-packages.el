@@ -61,13 +61,13 @@
   :bind ("<f7>" . ranger))
 
 (use-package company
-  :bind (("C-n" . company-select-next-or-abort)
-	 ("C-p" . company-select-previous-or-abort))
   :config
   (add-hook 'after-init-hook 'global-company-mode)
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2)
-  (setq company-show-numbers t))
+  (setq company-show-numbers t)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 (use-package helm
   :bind (("M-x" . helm-M-x)
@@ -103,8 +103,6 @@
   (projectile-mode))
 
 (use-package helm-projectile
-  :init
-  (require 'helm-projectile)
   :config
   (helm-projectile-on))
 
@@ -113,5 +111,13 @@
 (use-package cmake-mode)
 
 (use-package helm-ag)
+
+(use-package lua-mode)
+
+(use-package evil-ediff)
+
+(use-package elpy
+  :config
+  (elpy-enable))
 
 (provide 'init-packages)
