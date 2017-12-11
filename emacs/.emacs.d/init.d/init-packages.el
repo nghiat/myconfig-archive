@@ -37,6 +37,7 @@
 (use-package evil
   :config
   (evil-mode 1)
+  (fset 'evil-visual-update-x-selection 'ignore)
   (define-key evil-normal-state-map (kbd "<tab>") 'evil-next-buffer)
   (define-key evil-normal-state-map (kbd "<backtab>") 'evil-prev-buffer))
 
