@@ -71,15 +71,6 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-(use-package helm
-  :bind (("M-x" . helm-M-x)
-	 ("C-x r b" . helm-filter-bookmarks)
-	 ("C-x C-f" . helm-find-files))
-  :init
-  (require 'helm-config)
-  :config
-  (helm-mode 1))
-
 (use-package powerline
   :config
   (powerline-default-theme))
@@ -104,15 +95,9 @@
   (setq projectile-enable-caching t)
   (projectile-mode))
 
-(use-package helm-projectile
-  :config
-  (helm-projectile-on))
-
 (use-package org)
 
 (use-package cmake-mode)
-
-(use-package helm-ag)
 
 (use-package lua-mode)
 
@@ -126,5 +111,24 @@
   :config
   (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
   (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode)))
+
+(use-package counsel)
+
+(use-package swiper)
+
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-on))
+
+(use-package ivy
+  :bind
+  ("M-x" . counsel-M-x)
+  ("C-x C-s" . swiper)
+  ("C-x C-f" . counsel-find-file)
+  ("<f1> f" . counsel-describe-function)
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
 
 (provide 'init-packages)
