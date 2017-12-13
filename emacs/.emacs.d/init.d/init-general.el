@@ -16,11 +16,12 @@
 (setq inhibit-startup-screen t)
 
 (setq-default indent-tabs-mode nil)
-(setq tab-width 2)
-(show-paren-mode 1)
+(setq-default tab-width 4)
+(setq tab-stop-list (number-sequence 4 200 4))
 (infer-indentation-style)
+(electric-indent-mode 1)
 
-(local-set-key (kbd "DEL") 'backward-delete-whitespace-to-column)
+(show-paren-mode 1)
 
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
