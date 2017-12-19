@@ -118,7 +118,7 @@
 
 (use-package counsel-projectile
   :config
-  (counsel-projectile-on))
+  (counsel-projectile-mode))
 
 (use-package ivy
   :bind
