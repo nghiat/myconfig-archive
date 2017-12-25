@@ -31,6 +31,7 @@
   :diminish auto-revert-mode)
 
 (use-package abbrev
+  :ensure nil
   :diminish abbrev-mode)
 
 (use-package magit)
@@ -146,5 +147,9 @@
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t))
+
+(use-package smex
+  :config
+  (smex-initialize))
 
 (provide 'init-packages)

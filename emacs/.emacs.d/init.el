@@ -6,6 +6,7 @@
 (require 'init-functions)
 (require 'init-packages)
 (require 'init-general)
+(require 'gn-mode)
 
 (if (eq system-type 'windows-nt)
   (require 'init-windows)

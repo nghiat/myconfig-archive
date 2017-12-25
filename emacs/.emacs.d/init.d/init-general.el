@@ -30,8 +30,4 @@
 
 (setq-default history-length 10000)
 
-(require 'cc-mode)
-    (add-to-list 'c-mode-common-hook
-      (lambda () (setq c-syntactic-indentation nil)))
-
 (provide 'init-general)
