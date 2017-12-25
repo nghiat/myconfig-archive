@@ -22,6 +22,17 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
+(use-package diminish)
+
+(use-package undo-tree
+  :diminish undo-tree-mode)
+
+(use-package autorevert
+  :diminish auto-revert-mode)
+
+(use-package abbrev
+  :diminish abbrev-mode)
+
 (use-package magit)
 
 (use-package evil-leader
@@ -43,6 +54,7 @@
   (define-key evil-normal-state-map (kbd "<backtab>") 'evil-prev-buffer))
 
 (use-package evil-commentary
+  :diminish evil-commentary-mode
   :config
   (evil-commentary-mode))
 
@@ -51,6 +63,7 @@
   (load-theme 'gruvbox-dark-hard t))
 
 (use-package flycheck
+  :diminish flycheck-mode
   :config
   (global-flycheck-mode))
 
@@ -78,6 +91,7 @@
 (use-package company-irony)
 
 (use-package irony
+  :diminish irony-mode
   :config
   (eval-after-load 'company
     '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))
@@ -90,6 +104,7 @@
 (use-package company-irony-c-headers)
 
 (use-package projectile
+  :diminish projectile-mode
   :config
   (setq projectile-indexing-method 'alien)
   (setq projectile-enable-caching t)
@@ -121,6 +136,7 @@
   (counsel-projectile-mode))
 
 (use-package ivy
+  :diminish ivy-mode
   :bind
   ("M-x" . counsel-M-x)
   ("C-x C-s" . swiper)
