@@ -74,7 +74,7 @@
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode)
-  (add-hook 'c-common-mode-hook
+  (add-hook 'c++-mode-hook
             (lambda ()
               (set (make-local-variable 'company-backends)
                    '(company-dabbrev))))
@@ -139,5 +139,9 @@
   (smex-initialize))
 
 (use-package evil-magit)
+
+(use-package evil-visualstar
+  :config
+  (global-evil-visualstar-mode))
 
 (provide 'init-packages)

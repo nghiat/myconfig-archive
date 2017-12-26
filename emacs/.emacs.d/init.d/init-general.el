@@ -31,6 +31,11 @@
 (setq-default history-length 10000)
 
 (add-hook 'c-mode-common-hook 
-          (lambda () (modify-syntax-entry ?_ "w")))
+          (lambda ()
+            (modify-syntax-entry ?_ "w")
+            (setq c-syntactic-indentation nil)
+            (setq c-basic-offset 2)))
+
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (provide 'init-general)
