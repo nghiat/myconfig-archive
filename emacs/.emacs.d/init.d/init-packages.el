@@ -68,41 +68,27 @@
   :config
   (global-flycheck-mode))
 
-(use-package flycheck-irony
-  :config
-  (eval-after-load 'flycheck
-    '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
-
 (use-package ranger
   :bind ("<f7>" . ranger))
 
 (use-package company
   :config
   (add-hook 'after-init-hook 'global-company-mode)
+  (add-hook 'c-common-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '(company-dabbrev))))
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2)
   (setq company-show-numbers t)
+  (setq company-dabbrev-downcase nil)
+  (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 (use-package powerline
   :config
   (powerline-default-theme))
-
-(use-package company-irony)
-
-(use-package irony
-  :diminish irony-mode
-  :config
-  (eval-after-load 'company
-    '(add-to-list 'company-backends '(company-irony-c-headers company-irony)))
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
-  
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
-
-(use-package company-irony-c-headers)
 
 (use-package projectile
   :diminish projectile-mode
@@ -151,5 +137,7 @@
 (use-package smex
   :config
   (smex-initialize))
+
+(use-package evil-magit)
 
 (provide 'init-packages)
