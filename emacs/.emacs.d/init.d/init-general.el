@@ -30,7 +30,7 @@
 
 (setq-default history-length 10000)
 
-(add-hook 'c-mode-common-hook 
+(add-hook 'c++-mode-hook 
           (lambda ()
             (modify-syntax-entry ?_ "w")
             (setq c-syntactic-indentation nil)

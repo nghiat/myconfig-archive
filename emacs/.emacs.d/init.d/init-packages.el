@@ -78,10 +78,19 @@
             (lambda ()
               (set (make-local-variable 'company-backends)
                    '(company-dabbrev))))
+  (add-hook 'c-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends)
+                   '(company-dabbrev))))
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2)
   (setq company-show-numbers t)
   (setq company-dabbrev-downcase nil)
+  (setq company-dabbrev-other-buffers 'all)
+  (setq company-dabbrev-code-everywhere t)
+  (setq company-dabbrev-code-other-buffers (quote all))
+  (setq company-dabbrev-code-modes t)
+  (setq company-dabbrev-ignore-buffers "nil")
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
@@ -143,5 +152,17 @@
 (use-package evil-visualstar
   :config
   (global-evil-visualstar-mode))
+
+(use-package ggtags
+  :config
+  (setq imenu-create-index-function #'ggtags-build-imenu-index)
+  (add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+              (ggtags-mode 1)))))
+
+(use-package sr-speedbar
+  :bind
+  ("<f8>" . sr-speedbar-toggle))
 
 (provide 'init-packages)
