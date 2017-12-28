@@ -38,4 +38,6 @@
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
+(setq-default frame-title-format '("%b"))
+
 (provide 'init-general)
