@@ -105,7 +105,7 @@ call plug#end()            " required
 
 """"""""""tagbar""""""""""
     if (has("win32"))
-        let g:tagbar_ctags_bin = "$HOME/myconfig/vim/ctags58/ctags.exe"
+        let g:tagbar_ctags_bin = "$HOME/myconfig/windows/ctags/ctags.exe"
     endif
     nmap <F8> :TagbarToggle<CR>
 
