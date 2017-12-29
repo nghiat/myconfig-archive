@@ -50,9 +50,7 @@
   :config
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
-  (setq evil-symbol-word-search t)
-  (define-key evil-normal-state-map (kbd "<tab>") 'evil-next-buffer)
-  (define-key evil-normal-state-map (kbd "<backtab>") 'evil-prev-buffer))
+  (setq evil-symbol-word-search t))
 
 (use-package evil-commentary
   :diminish evil-commentary-mode
@@ -123,9 +121,16 @@
   (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
   (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode)))
 
-(use-package counsel)
+(use-package counsel
+  :bind
+  ("M-x" . counsel-M-x)
+  ("C-c C-f" . counsel-find-file)
+  ("C-c C-g" . counsel-ag)
+  ("<f1> f" . counsel-describe-function))
 
-(use-package swiper)
+(use-package swiper
+  :bind
+  ("\C-s" . swiper))
 
 (use-package counsel-projectile
   :config
@@ -133,11 +138,6 @@
 
 (use-package ivy
   :diminish ivy-mode
-  :bind
-  ("M-x" . counsel-M-x)
-  ("C-x C-s" . swiper)
-  ("C-x C-f" . counsel-find-file)
-  ("<f1> f" . counsel-describe-function)
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
