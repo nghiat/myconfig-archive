@@ -53,12 +53,10 @@
   :config
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
-  (setq evil-symbol-word-search t))
-
-(use-package evil-commentary
-  :diminish evil-commentary-mode
-  :config
-  (evil-commentary-mode))
+  (setq evil-symbol-word-search t)
+  (add-hook 'c++-mode-hook
+            (lambda ()
+              (setq evil-shift-width 2))))
 
 (use-package gruvbox-theme
   :config
@@ -66,15 +64,17 @@
 
 (use-package flycheck
   :diminish flycheck-mode
-  :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+  :init
+  (global-flycheck-mode))
 
 (use-package ranger
   :bind ("<f7>" . ranger))
 
 (use-package company
   :config
-  (add-hook 'after-init-hook 'global-company-mode)
+  :init
+  (global-company-mode)
+  :config
   (add-hook 'c++-mode-hook
             (lambda ()
               (set (make-local-variable 'company-backends)
@@ -114,8 +114,6 @@
 (use-package cmake-mode)
 
 (use-package lua-mode)
-
-(use-package evil-ediff)
 
 (use-package elpy
   :config
