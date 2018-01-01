@@ -34,7 +34,10 @@
   :ensure nil
   :diminish abbrev-mode)
 
-(use-package magit)
+(use-package magit
+  :bind
+  ("C-c m s" . magit-status)
+  ("C-c m d" . magit-diff-buffer-file))
 
 (use-package evil-leader
   :config
@@ -64,7 +67,7 @@
 (use-package flycheck
   :diminish flycheck-mode
   :config
-  (global-flycheck-mode))
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package ranger
   :bind ("<f7>" . ranger))
@@ -104,7 +107,9 @@
   (setq projectile-enable-caching t)
   (projectile-mode))
 
-(use-package org)
+(use-package org
+  :config
+  (setq org-log-done 'time))
 
 (use-package cmake-mode)
 
@@ -124,9 +129,9 @@
 (use-package counsel
   :bind
   ("M-x" . counsel-M-x)
-  ("C-c C-f" . counsel-find-file)
-  ("C-c C-g" . counsel-ag)
-  ("<f1> f" . counsel-describe-function))
+  ("C-c c f" . counsel-find-file)
+  ("C-c c g" . counsel-ag)
+  ("C-c c r" . counsel-recentf))
 
 (use-package swiper
   :bind
@@ -146,8 +151,6 @@
 (use-package smex
   :config
   (smex-initialize))
-
-(use-package evil-magit)
 
 (use-package evil-visualstar
   :config
