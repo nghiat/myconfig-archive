@@ -36,4 +36,6 @@
 
 (setq-default frame-title-format '("%b"))
 
+(global-set-key (kbd "M-o") 'mode-line-other-buffer)
+
 (provide 'init-general)
