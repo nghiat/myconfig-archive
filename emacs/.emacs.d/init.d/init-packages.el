@@ -154,14 +154,6 @@
   :config
   (global-evil-visualstar-mode))
 
-(use-package ggtags
-  :config
-  (setq imenu-create-index-function #'ggtags-build-imenu-index)
-  (add-hook 'c-mode-common-hook
-          (lambda ()
-            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-              (ggtags-mode 1)))))
-
 (use-package sr-speedbar
   :bind
   ("<f8>" . sr-speedbar-toggle))

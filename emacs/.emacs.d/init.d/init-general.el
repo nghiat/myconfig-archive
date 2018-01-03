@@ -30,12 +30,16 @@
           (lambda ()
             (modify-syntax-entry ?_ "w")
             (setq c-syntactic-indentation nil)
-            (setq c-basic-offset 2)))
+            (setq c-basic-offset 2)
+            (setq whitespace-line-column 100)
+            (setq whitespace-style '(face lines-tail))
+            (whitespace-mode)))
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (setq-default frame-title-format '("%b"))
 
 (global-set-key (kbd "M-o") 'mode-line-other-buffer)
+
 
 (provide 'init-general)
