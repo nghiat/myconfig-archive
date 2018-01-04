@@ -31,7 +31,7 @@
             (modify-syntax-entry ?_ "w")
             (setq c-syntactic-indentation nil)
             (setq c-basic-offset 2)
-            (setq whitespace-line-column 100)
+            (setq whitespace-line-column 99)
             (setq whitespace-style '(face lines-tail))
             (whitespace-mode)))
 
