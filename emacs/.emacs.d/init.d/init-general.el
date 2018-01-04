@@ -41,5 +41,6 @@
 
 (global-set-key (kbd "M-o") 'mode-line-other-buffer)
 
+(when window-system (set-frame-size (selected-frame) 100 40))
 
 (provide 'init-general)
