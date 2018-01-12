@@ -154,8 +154,7 @@
   :config
   (global-evil-visualstar-mode))
 
-(use-package sr-speedbar
+(use-package clang-format
   :bind
-  ("<f8>" . sr-speedbar-toggle))
-
+  ("\C-c l" . clang-format-region))
 (provide 'init-packages)
