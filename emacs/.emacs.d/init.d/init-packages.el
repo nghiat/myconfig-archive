@@ -157,4 +157,8 @@
 (use-package clang-format
   :bind
   ("\C-c l" . clang-format-region))
+
+(use-package sr-speedbar
+  :bind
+  ("<f8>" . sr-speedbar-toggle))
 (provide 'init-packages)

@@ -43,4 +43,6 @@
 
 (when window-system (set-frame-size (selected-frame) 100 40))
 
+(semantic-mode 1)
+
 (provide 'init-general)
