@@ -161,4 +161,12 @@
 (use-package sr-speedbar
   :bind
   ("<f8>" . sr-speedbar-toggle))
+
+(use-package nyan-mode
+  :config
+  (nyan-mode)
+  (nyan-start-animation)
+  (nyan-toggle-wavy-trail)
+  (setq nyan-animate-nyancat t))
+
 (provide 'init-packages)
