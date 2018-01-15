@@ -140,7 +140,11 @@
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t))
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-initial-inputs-alist nil)
+  (setq ivy-re-builders-alist
+      '((ivy-switch-buffer . ivy--regex-plus)
+        (t . ivy--regex-fuzzy))))
 
 (use-package smex
   :config
@@ -173,5 +177,7 @@
                 (ggtags-mode 1)))))
 
 (use-package counsel-gtags)
+
+(use-package flx)
 
 (provide 'init-packages)
