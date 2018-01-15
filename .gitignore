@@ -3,3 +3,4 @@ emacs/.emacs.d/*
 !emacs/.emacs.d/*.el
 !emacs/.emacs.d/init.d
 emacs/.emacs.d/custom.el
+.tmux
