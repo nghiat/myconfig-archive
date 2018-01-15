@@ -45,4 +45,6 @@
 
 (semantic-mode 1)
 
+(setq column-number-mode t)
+
 (provide 'init-general)

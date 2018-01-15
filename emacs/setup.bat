@@ -8,3 +8,4 @@ if exist %USERPROFILE%\.emacs.d (
     rd /S /Q %USERPROFILE%\.emacs.d
 )
 mklink /D %USERPROFILE%\.emacs.d %USERPROFILE%\myconfig\emacs\.emacs.d
+setx GTAGSCONF "%USERPROFILE%\myconfig\.globalrc"

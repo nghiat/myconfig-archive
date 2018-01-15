@@ -96,10 +96,6 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-(use-package powerline
-  :config
-  (powerline-default-theme))
-
 (use-package projectile
   :diminish projectile-mode
   :config
@@ -168,5 +164,14 @@
   (nyan-start-animation)
   (nyan-toggle-wavy-trail)
   (setq nyan-animate-nyancat t))
+
+(use-package ggtags
+  :config
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                (ggtags-mode 1)))))
+
+(use-package counsel-gtags)
 
 (provide 'init-packages)
