@@ -86,6 +86,7 @@
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2)
   (setq company-show-numbers t)
+  (setq company-dabbrev-ignore-case t)
   (setq company-dabbrev-downcase nil)
   (setq company-dabbrev-other-buffers 'all)
   (setq company-dabbrev-code-everywhere t)
