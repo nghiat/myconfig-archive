@@ -19,3 +19,6 @@ mklink /D %USERPROFILE%\vimfiles %~dp0\vim\vimfiles
 
 rem cygwin
 mklink %USERPROFILE%\.minttyrc %~dp0\windows\.minttyrc
+mklink %USERPROFILE%\.vimrc %~dp0\vim\vimrc
+mklink %USERPROFILE%\.tmux.conf %~dp0\dotfiles\config\home\.tmux.conf
+mklink /D %USERPROFILE%\.vim %~dp0\vim\vimfiles
