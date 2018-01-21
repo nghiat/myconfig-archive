@@ -137,15 +137,13 @@
   (counsel-projectile-mode))
 
 (use-package ivy
+  :bind
+  ("C-c i r" . ivy-resume)
   :diminish ivy-mode
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-initial-inputs-alist nil)
-  (setq ivy-re-builders-alist
-      '((ivy-switch-buffer . ivy--regex-plus)
-        (t . ivy--regex-fuzzy))))
+  (setq enable-recursive-minibuffers t))
 
 (use-package smex
   :config
