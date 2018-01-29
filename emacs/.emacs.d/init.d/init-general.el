@@ -40,6 +40,7 @@
 (setq-default frame-title-format '("%b"))
 
 (global-set-key (kbd "M-o") 'mode-line-other-buffer)
+(global-set-key (kbd "M-f") 'ff-find-other-file)
 
 (when window-system (set-frame-size (selected-frame) 100 40))
 
