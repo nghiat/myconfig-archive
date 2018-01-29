@@ -171,6 +171,8 @@
 
 (use-package ggtags
   :config
+  (add-hook 'ggtags-mode-hook
+            (lambda () (setq-local eldoc-documentation-function #'ignore)))
   (add-hook 'c-mode-common-hook
             (lambda ()
               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
