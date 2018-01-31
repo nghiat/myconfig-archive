@@ -139,7 +139,7 @@
 (use-package ivy
   :bind
   ("C-c i r" . ivy-resume)
-  ("C-c c l" . ivy-switch-buffer)
+  ("M-l" . ivy-switch-buffer)
   :diminish ivy-mode
   :config
   (ivy-mode 1)
