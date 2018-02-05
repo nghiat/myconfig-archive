@@ -22,58 +22,20 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
-(use-package diminish)
-
-(use-package undo-tree
-  :diminish undo-tree-mode)
+(use-package abbrev
+  :diminish abbrev-mode
+  :ensure nil)
 
 (use-package autorevert
   :diminish auto-revert-mode)
 
-(use-package abbrev
-  :ensure nil
-  :diminish abbrev-mode)
-
-(use-package magit
+(use-package clang-format
   :bind
-  ("C-c m s" . magit-status)
-  ("C-c m d" . magit-diff-buffer-file))
+  ("\C-c l" . clang-format-region))
 
-(use-package evil-leader
-  :config
-  (evil-leader/set-leader "<SPC>")
-  (global-evil-leader-mode)
-  (evil-leader/set-key
-   "h" 'evil-window-left
-   "j" 'evil-window-down
-   "k" 'evil-window-up
-   "l" 'evil-window-right))
-
-(use-package evil
-  :config
-  (evil-mode 1)
-  (fset 'evil-visual-update-x-selection 'ignore)
-  (setq evil-symbol-word-search t)
-  (add-hook 'c++-mode-hook
-            (lambda ()
-              (setq evil-shift-width 2))))
-
-(use-package gruvbox-theme
-  :config
-  (load-theme 'gruvbox-dark-hard t))
-
-(use-package flycheck
-  :diminish flycheck-mode
-  :init
-  (global-flycheck-mode))
-
-(use-package ranger
-  :bind ("<f7>" . ranger))
+(use-package cmake-mode)
 
 (use-package company
-  :config
-  :init
-  (global-company-mode)
   :config
   (add-hook 'c++-mode-hook
             (lambda ()
@@ -83,84 +45,100 @@
             (lambda ()
               (set (make-local-variable 'company-backends)
                    '(company-dabbrev))))
+  (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous)
+  (setq company-dabbrev-code-everywhere t)
+  (setq company-dabbrev-code-modes t)
+  (setq company-dabbrev-code-other-buffers (quote all))
+  (setq company-dabbrev-downcase nil)
+  (setq company-dabbrev-ignore-buffers "nil")
+  (setq company-dabbrev-ignore-case t)
+  (setq company-dabbrev-other-buffers 'all)
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2)
   (setq company-show-numbers t)
-  (setq company-dabbrev-ignore-case t)
-  (setq company-dabbrev-downcase nil)
-  (setq company-dabbrev-other-buffers 'all)
-  (setq company-dabbrev-code-everywhere t)
-  (setq company-dabbrev-code-other-buffers (quote all))
-  (setq company-dabbrev-code-modes t)
-  (setq company-dabbrev-ignore-buffers "nil")
-  (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
-  (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
-
-(use-package projectile
-  :diminish projectile-mode
-  :config
-  (setq projectile-indexing-method 'alien)
-  (setq projectile-enable-caching t)
-  (projectile-mode))
-
-(use-package org
-  :config
-  (setq org-log-done 'time))
-
-(use-package cmake-mode)
-
-(use-package lua-mode)
-
-(use-package elpy
-  :config
-  (elpy-enable))
-
-(use-package qml-mode
-  :config
-  (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
-  (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode)))
+  :init
+  (global-company-mode))
 
 (use-package counsel
   :bind
-  ("M-x" . counsel-M-x)
-  ("C-c c f" . counsel-find-file)
   ("C-c c g" . counsel-ag)
+  ("C-c c f" . counsel-find-file)
+  ("M-x" . counsel-M-x)
   ("C-c c r" . counsel-recentf))
 
-(use-package swiper
-  :bind
-  ("\C-s" . swiper))
+(use-package counsel-gtags)
 
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode))
 
-(use-package ivy
-  :bind
-  ("C-c i r" . ivy-resume)
-  ("M-l" . ivy-switch-buffer)
-  :diminish ivy-mode
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t))
+(use-package diminish)
 
-(use-package smex
+(use-package elpy
   :config
-  (smex-initialize))
+  (elpy-enable))
+
+(use-package evil
+  :config
+  (add-hook 'c++-mode-hook
+	    (lambda ()
+	      (setq evil-shift-width 2)))
+  (evil-mode 1)
+  (fset 'evil-visual-update-x-selection 'ignore)
+  (setq evil-symbol-word-search t))
+
+(use-package evil-leader
+  :config
+  (evil-leader/set-key
+   "h" 'evil-window-left
+   "j" 'evil-window-down
+   "k" 'evil-window-up
+   "l" 'evil-window-right)
+  (evil-leader/set-leader "<SPC>")
+  (global-evil-leader-mode))
 
 (use-package evil-visualstar
   :config
   (global-evil-visualstar-mode))
 
-(use-package clang-format
-  :bind
-  ("\C-c l" . clang-format-region))
+(use-package flx)
 
-(use-package sr-speedbar
+(use-package flycheck
+  :diminish flycheck-mode
+  :init
+  (global-flycheck-mode))
+
+(use-package ggtags
+  :config
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                (ggtags-mode 1))))
+  (add-hook 'ggtags-mode-hook
+            (lambda () (setq-local eldoc-documentation-function #'ignore))))
+
+(use-package gruvbox-theme
+  :config
+  (load-theme 'gruvbox-dark-hard t))
+
+(use-package ivy
   :bind
-  ("<f8>" . sr-speedbar-toggle))
+  ("C-c i r" . ivy-resume)
+  ("M-l" . ivy-switch-buffer)
+  :config
+  (ivy-mode 1)
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-use-virtual-buffers t)
+  :diminish ivy-mode)
+
+(use-package lua-mode)
+
+(use-package magit
+  :bind
+  ("C-c m d" . magit-diff-buffer-file)
+  ("C-c m s" . magit-status))
 
 (use-package nyan-mode
   :config
@@ -169,17 +147,38 @@
   (nyan-toggle-wavy-trail)
   (setq nyan-animate-nyancat t))
 
-(use-package ggtags
+(use-package org
   :config
-  (add-hook 'ggtags-mode-hook
-            (lambda () (setq-local eldoc-documentation-function #'ignore)))
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-                (ggtags-mode 1)))))
+  (setq org-log-done 'time))
 
-(use-package counsel-gtags)
+(use-package projectile
+  :config
+  (projectile-mode)
+  (setq projectile-indexing-method 'alien)
+  (setq projectile-enable-caching t)
+  :diminish projectile-mode)
 
-(use-package flx)
+(use-package qml-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
+  (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t))
+
+(use-package ranger
+  :bind ("<f7>" . ranger))
+
+(use-package smex
+  :config
+  (smex-initialize))
+
+(use-package sr-speedbar
+  :bind
+  ("<f8>" . sr-speedbar-toggle))
+
+(use-package swiper
+  :bind
+  ("\C-s" . swiper))
+
+(use-package undo-tree
+  :diminish undo-tree-mode)
 
 (provide 'init-packages)
