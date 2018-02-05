@@ -26,7 +26,7 @@
 
 (global-set-key (kbd "M-o") 'mode-line-other-buffer)
 (global-set-key (kbd "M-f") 'ff-find-other-file)
-(global-set-key (kbd "f6") 'compile)
+(global-set-key (kbd "<f6>") 'compile)
 
 (add-hook 'c++-mode-hook 
           (lambda ()
