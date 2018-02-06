@@ -1,3 +1,4 @@
+(setq auto-save-default nil)
 (setq column-number-mode t)
 ;Ignore whitespace
 (setq ediff-diff-options "-w")
