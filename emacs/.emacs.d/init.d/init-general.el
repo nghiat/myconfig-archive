@@ -31,6 +31,7 @@
 
 (add-hook 'c++-mode-hook 
           (lambda ()
+	    (diminish 'whitespace-mode)
             (modify-syntax-entry ?_ "w")
             (setq c-basic-offset 2)
             (setq c-syntactic-indentation nil)
@@ -39,6 +40,8 @@
             (whitespace-mode)))
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
+
+(diminish 'hs-minor-mode)
 
 (when window-system (set-frame-size (selected-frame) 150 35))
 

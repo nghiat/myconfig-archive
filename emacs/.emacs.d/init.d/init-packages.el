@@ -117,7 +117,8 @@
               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                 (ggtags-mode 1))))
   (add-hook 'ggtags-mode-hook
-            (lambda () (setq-local eldoc-documentation-function #'ignore))))
+            (lambda () (setq-local eldoc-documentation-function #'ignore)))
+  :diminish ggtags-mode)
 
 (use-package gruvbox-theme
   :config
