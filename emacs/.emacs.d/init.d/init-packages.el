@@ -29,6 +29,11 @@
 (use-package autorevert
   :diminish auto-revert-mode)
 
+(use-package beacon
+  :config
+  (beacon-mode 1)
+  (setq beacon-blink-duration 2.0))
+
 (use-package clang-format
   :bind
   ("\C-c l" . clang-format-region))
@@ -103,6 +108,13 @@
   :config
   (global-evil-visualstar-mode))
 
+(use-package fill-column-indicator
+  :config
+  (fci-mode)
+  (add-hook 'c++-mode-hook
+	    (lambda ()
+	      (setq fci-rule-column 100))))
+
 (use-package flx)
 
 (use-package flycheck
@@ -123,6 +135,10 @@
 (use-package gruvbox-theme
   :config
   (load-theme 'gruvbox-dark-hard t))
+
+(use-package indent-guide
+  :config
+  (indent-guide-global-mode))
 
 (use-package ivy
   :bind
@@ -164,12 +180,20 @@
   (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
   (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t))
 
+(use-package rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
 (use-package ranger
   :bind ("<f7>" . ranger))
 
 (use-package smex
   :config
   (smex-initialize))
+
+(use-package smooth-scrolling
+  :config
+  (smooth-scrolling-mode))
 
 (use-package sr-speedbar
   :bind

@@ -20,10 +20,13 @@
 (global-auto-revert-mode t)
 (global-linum-mode t)
 (infer-indentation-style)
+(menu-bar-mode -1)
 (recentf-mode 1)
 (savehist-mode 1)
+(scroll-bar-mode -1)
 (semantic-mode 1)
 (show-paren-mode 1)
+(tool-bar-mode -1)
 
 (global-set-key (kbd "M-o") 'mode-line-other-buffer)
 (global-set-key (kbd "M-f") 'ff-find-other-file)
@@ -41,8 +44,8 @@
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
-(diminish 'hs-minor-mode)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-(when window-system (set-frame-size (selected-frame) 150 35))
+(diminish 'hs-minor-mode)
 
 (provide 'init-general)
