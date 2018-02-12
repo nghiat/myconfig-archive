@@ -92,7 +92,8 @@
 	      (setq evil-shift-width 2)))
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
-  (setq evil-symbol-word-search t))
+  (setq evil-symbol-word-search t)
+  (setq evil-want-fine-undo t))
 
 (use-package evil-leader
   :config
