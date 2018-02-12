@@ -27,48 +27,47 @@ Plug 'junegunn/fzf'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
-    "Enable syntax highlighting
-    syntax enable
+    colorscheme gruvbox
+    filetype plugin indent on    " required
+    filetype plugin on
+    "matching braces color
+    highlight MatchParen cterm=bold ctermfg=cyan
+    let g:gruvbox_contrast_dark="hard"
+    set background=dark
+    "makes backspace work like most other apps
+    set backspace=indent,eol,start
+    "Set color for column 100th
+    set cc=100
+    set encoding=utf-8
+    set expandtab
+    "Enable switching between tabs without saving
+    set foldmethod=manual
+    set hidden
     "Enable line number
     set number
-    "Enable switching between tabs without saving
-    set hidden
-    filetype plugin on
-    filetype plugin indent on    " required
+    "identation tab
+    set shiftwidth=4
+    "makes the backspace key treat the spaces like a tab
+    set softtabstop=4
+    set tabstop=4
+    set termguicolors
+    "Enable syntax highlighting
+    syntax enable
     "X11 clipboard
     if has("unix")
         set clipboard=unnamedplus
     elseif has("win32")
         set clipboard=unnamed
     endif
-    set expandtab
-    set tabstop=4
     "window default size
     if has('gui_running')
         set columns=100
     endif
-    "identation tab
-    set shiftwidth=4
-    "makes the backspace key treat the spaces like a tab
-    set softtabstop=4
-    "makes backspace work like most other apps
-    set backspace=indent,eol,start
-    "Set color for column 100th
-    set cc=100
     "Color scheme
     if has("unix")
         set t_8f=[38;2;%lu;%lu;%lum
         set t_8b=[48;2;%lu;%lu;%lum
     endif
-    let g:gruvbox_contrast_dark="hard"
-    set background=dark
-    set termguicolors
-    "Filetype config
-    colorscheme gruvbox
-    set softtabstop=4
-    set encoding=utf-8
-    "matching braces color
-    highlight MatchParen cterm=bold ctermfg=cyan
 
     "set gui font
     if has('gui_running')
@@ -77,6 +76,10 @@ call plug#end()            " required
         elseif has("win32")
             set guifont=Consolas:h12:b:cANSI
         endif
+        set guioptions-=L
+        set guioptions-=m
+        set guioptions-=r
+        set guioptions-=T
     endif
 
     " Shortcuts
@@ -109,16 +112,16 @@ call plug#end()            " required
     endif
     nmap <F8> :TagbarToggle<CR>
 
+""""""""""utilsnips""""""""""
+    let g:UltiSnipsExpandTrigger="<c-k>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+    let g:UltiSnipsJumpForwardTrigger="<c-k>"
+
 """"""""""vim-airline""""""""""
-    "vim-airline always show
-    set laststatus=2
     "show buffers list on the top of window
     let g:airline#extensions#tabline#enabled = 1
+    "vim-airline always show
+    set laststatus=2
 
 """"""""""vim-indent-guides""""""""""
     let g:indent_guides_enable_on_vim_startup = 1
-
-""""""""""utilsnips""""""""""
-    let g:UltiSnipsExpandTrigger="<c-k>"
-    let g:UltiSnipsJumpForwardTrigger="<c-k>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-j>"
