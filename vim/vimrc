@@ -3,20 +3,14 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'morhetz/gruvbox'
-"The plugin provides mappings to easily delete, change and add such surroundings in pairs
 Plug 'tpope/vim-surround'
-"auto closing quotes,...
 Plug 'raimondi/delimitmate'
 Plug 'nathanaelkane/vim-indent-guides'
-"status bar
 Plug 'bling/vim-airline'
 Plug 'tikhomirov/vim-glsl'
 Plug 'majutsushi/tagbar'
 Plug 'ajh17/vimcompletesme'
-"html auto-close tag
 Plug 'alvan/vim-closetag'
-"comment stuff out
 Plug 'tpope/vim-commentary'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-fugitive'
@@ -24,16 +18,15 @@ Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf'
+Plug 'tomasr/molokai'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
-    colorscheme gruvbox
+    colorscheme molokai
     filetype plugin indent on    " required
     filetype plugin on
     "matching braces color
     highlight MatchParen cterm=bold ctermfg=cyan
-    let g:gruvbox_contrast_dark="hard"
-    set background=dark
     "makes backspace work like most other apps
     set backspace=indent,eol,start
     "Set color for column 100th
@@ -62,6 +55,8 @@ call plug#end()            " required
     "window default size
     if has('gui_running')
         set columns=100
+    else
+        let g:rehash256 = 1
     endif
     "Color scheme
     if has("unix")

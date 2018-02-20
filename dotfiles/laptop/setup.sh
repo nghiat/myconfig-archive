@@ -16,5 +16,5 @@ fi
 
 bash $script_dir/../utils/create_symlink.sh ${laptop_symlink[@]}
 sudo systemctl enable acpid
-sudo systemctl enable tlpd
+sudo systemctl enable tlp
 echo -e "${Red}acpi, tlp${Nc}"
