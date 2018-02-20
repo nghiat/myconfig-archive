@@ -19,6 +19,7 @@
 (electric-pair-mode)
 (global-auto-revert-mode t)
 (global-linum-mode t)
+(global-hl-line-mode)
 (infer-indentation-style)
 (menu-bar-mode -1)
 (recentf-mode 1)
@@ -34,7 +35,6 @@
 
 (add-hook 'c++-mode-hook 
           (lambda ()
-	    (diminish 'whitespace-mode)
             (modify-syntax-entry ?_ "w")
             (setq c-basic-offset 2)
             (setq c-syntactic-indentation nil)
@@ -45,7 +45,5 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(diminish 'hs-minor-mode)
 
 (provide 'init-general)

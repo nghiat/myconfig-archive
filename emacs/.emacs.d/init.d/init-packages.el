@@ -79,7 +79,12 @@
   :config
   (counsel-projectile-mode))
 
-(use-package diminish)
+(use-package diminish
+  :config
+  (add-hook 'c++-mode-hook
+	    (lambda ()
+	      (diminish 'whitespace-mode)))
+  :diminish hs-minor-mode)
 
 (use-package elpy
   :config
@@ -133,9 +138,10 @@
             (lambda () (setq-local eldoc-documentation-function #'ignore)))
   :diminish ggtags-mode)
 
-(use-package gruvbox-theme
+(use-package monokai-theme
   :config
-  (load-theme 'gruvbox-dark-hard t))
+  (load-theme 'monokai t)
+  (setq monokai-use-variable-pitch t))
 
 (use-package indent-guide
   :config
