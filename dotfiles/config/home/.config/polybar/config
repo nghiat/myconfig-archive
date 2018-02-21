@@ -1,45 +1,51 @@
 [colors]
 ; Base colors from .Xresources
-bg          =  ${xrdb:background}
-fg          =  ${xrdb:foreground}
-fg-alt      =  ${xrdb:color8}
-red         =  ${xrdb:color1}
-red-alt     =  ${xrdb:color9}
-green       =  ${xrdb:color2}
-green-alt   =  ${xrdb:color10}
-yellow      =  ${xrdb:color3}
-yellow-alt  =  ${xrdb:color11}
-blue        =  ${xrdb:color4}
-blue-alt    =  ${xrdb:color12}
-magenta     =  ${xrdb:color5}
-magenta-alt =  ${xrdb:color13}
-cyan        =  ${xrdb:color6}
-cyan-alt    =  ${xrdb:color14}
-white       =  ${xrdb:color7}
-white-alt   =  ${xrdb:color15}
+bg          =  #88000000
+bg-alt      =  #aa000000
+fg          =  #fff
+fg-alt      =  #88ffffff
+red         =  #ff0000
+red-alt     =  #88ff0000
+green       =  #0f0
+green-alt   =  #8800ff00
+yellow      =  #ff0
+yellow-alt  =  #88ffff00
+blue        =  #3399ff
+blue-alt    =  #883399ff
+magenta     =  #f0f
+magenta-alt =  #88ff00ff
+cyan        =  #0ff
+cyan-alt    =  #8800ffff
+white       =  #fff
+white-alt   =  #88ffffff
 
 [bar/mybar]
 width = 100%
-height = 24
-border-top-size = 6
-border-top-color = ${colors.bg}
-separator = "   "
-font-0 = "FontAwesome:size=12;0"
-font-1 = "DejaVu Sans Mono Bold:size=12;0"
+height = 36
+font-0 = "SourceCodePro-Bold:size=12;0"
+font-1 = "FontAwesome:size=12;0"
+padding-right = 1
+module-margin-right = 1
+line-size = 3
 background =${colors.bg}
 foreground =${colors.fg}
-tray-position = right
-tray-maxsize = 20
-tray-detached = truetray-detached = true
 modules-left = i3
 modules-center = date
-modules-right = temperature cpu memory battery
+modules-right = redshift dropbox ibus cpu memory network volume battery
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+label-mode-foreground = #000
+label-mode-background = ${colors.bg}
+label-focused-padding = 1
+label-focused-background = ${colors.bg-alt}
+label-focused-underline = ${colors.white-alt}
+label-unfocused-padding = 1
 
 [module/date]
 type = internal/date
@@ -48,41 +54,30 @@ date = %H:%M %m-%b-%Y
 
 [module/temperature]
 type = internal/temperature
-interval = 2.0
+interval = 1.0
 thermal-zone = 0
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input
 warn-temperature = 65
-format-prefix = ""
-format-prefix-foreground = ${colors.blue}
+format-prefix = " "
+format-prefix-foreground = ${colors.blue-alt}
 label-warn-foreground = ${colors.red}
+format-underline = ${colors.blue-alt}
+format-warn-underline = ${colors.red-alt}
 
 [module/cpu]
 type = internal/cpu
 interval = 1
-format-prefix = ""
-format-prefix-foreground = ${colors.magenta}
-ramp-coreload-foreground = ${colors.red}
-ramp-coreload-0-foreground = ${colors.cyan}
-ramp-coreload-1-foreground = ${colors.cyan}
-ramp-coreload-2-foreground = ${colors.yellow}
-ramp-coreload-3-foreground = ${colors.yellow}
-ramp-coreload-4-foreground = ${colors.yellow}
-format = <label> <ramp-coreload>
+format-prefix = " "
+format-prefix-foreground = ${colors.fg-alt}
+format-underline = ${colors.green-alt}
 
-ramp-coreload-0 = ▁
-ramp-coreload-1 = ▂
-ramp-coreload-2 = ▃
-ramp-coreload-3 = ▄
-ramp-coreload-4 = ▅
-ramp-coreload-5 = ▆
-ramp-coreload-6 = ▇
-ramp-coreload-7 = █
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = ""
-format-prefix-foreground = ${colors.yellow}
-label = %gb_used%/%gb_free%
+format-prefix = " "
+format-prefix-foreground = ${colors.fg-alt}
+format-underline = ${colors.yellow-alt}
+label = %gb_used%/%gb_total%
 
 [module/battery]
 type = internal/battery
@@ -93,10 +88,11 @@ battery = BAT0
 adapter = ADP1
 
 poll-interval = 5
-format-charging = <label-charging>
+format-charging =  <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-label-charging = ⚡ %percentage%%
+label-charging = %percentage%%
 label-discharging = %percentage%%
+label-charging-foreground = ${colors.fg}
 ramp-capacity-foreground = ${colors.green-alt}
 ramp-capacity-0-foreground = ${colors.red-alt}
 ramp-capacity-1-foreground = ${colors.red-alt}
@@ -109,3 +105,41 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 bar-capacity-width = 10
+
+[module/keyboard]
+type = internal/xkeyboard
+format = <label-layout> <label-indicator>
+
+[module/ibus]
+type = custom/script
+exec = ~/myconfig/dotfiles/config/home/.config/polybar/ibus.sh
+interval = 1
+format-underline = ${colors.cyan-alt}
+
+[module/redshift]
+type = custom/script
+exec = ~/myconfig/dotfiles/config/home/.config/polybar/redshift.sh
+interval = 10
+format-underline = ${colors.yellow-alt}
+
+[module/dropbox]
+type = custom/script
+exec = ~/myconfig/dotfiles/config/home/.config/polybar/dropbox.sh
+format-underline = ${colors.blue-alt}
+interval = 5
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume>
+label-volume = " %percentage%%"
+label-volume-foreground = ${colors.fg}
+label-muted = " %percentage%%"
+label-muted-foreground = ${colors.red}
+
+[module/network]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-connected =  <label-connected>
+label-connected = %essid%
