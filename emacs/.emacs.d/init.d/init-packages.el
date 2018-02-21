@@ -92,9 +92,7 @@
 
 (use-package evil
   :config
-  (add-hook 'c++-mode-hook
-	    (lambda ()
-	      (setq evil-shift-width 2)))
+  (add-hook 'c++-mode-hook (lambda () (setq evil-shift-width 2)))
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
   (setq evil-symbol-word-search t)
@@ -137,11 +135,6 @@
   (add-hook 'ggtags-mode-hook
             (lambda () (setq-local eldoc-documentation-function #'ignore)))
   :diminish ggtags-mode)
-
-(use-package monokai-theme
-  :config
-  (load-theme 'monokai t)
-  (setq monokai-use-variable-pitch t))
 
 (use-package indent-guide
   :config
@@ -201,6 +194,14 @@
 (use-package smooth-scrolling
   :config
   (smooth-scrolling-mode))
+
+(use-package solarized-theme
+  :bind
+  ("<f1>" . (lambda()
+	      (interactive)
+	      (switch-theme '(solarized-light solarized-dark))))
+  :config
+  (load-theme 'solarized-light t))
 
 (use-package sr-speedbar
   :bind

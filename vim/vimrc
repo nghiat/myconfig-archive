@@ -7,6 +7,7 @@ Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tikhomirov/vim-glsl'
 Plug 'majutsushi/tagbar'
 Plug 'ajh17/vimcompletesme'
@@ -18,11 +19,12 @@ Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf'
-Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
-    colorscheme molokai
+    colorscheme solarized
+    set background=light
     filetype plugin indent on    " required
     filetype plugin on
     "matching braces color
@@ -55,8 +57,6 @@ call plug#end()            " required
     "window default size
     if has('gui_running')
         set columns=100
-    else
-        let g:rehash256 = 1
     endif
     "Color scheme
     if has("unix")

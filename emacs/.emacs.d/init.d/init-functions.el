@@ -21,4 +21,15 @@ or just one char if that's not possible"
             (backward-delete-char-untabify (- (match-end 1) (match-beginning 1)))
         (call-interactively 'backward-delete-char-untabify))))))
 
+(setq current-theme-index 0)
+(defun switch-theme (themes-list)
+  "Switch theme in THEMES-LIST."
+  (interactive)
+  (setq current-theme-index
+	(mod (+ current-theme-index 1) (length themes-list)))
+  (setq current-theme-name (nth current-theme-index themes-list))
+  (load-theme current-theme-name t)
+  (princ "Loaded theme: ")
+  (princ current-theme-name))
+
 (provide 'init-functions)
