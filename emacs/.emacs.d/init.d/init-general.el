@@ -17,8 +17,7 @@
 (setq tab-stop-list (number-sequence 4 200 4))
 (setq x-select-enable-clipboard t)
 
-(fset 'format-code (lambda()())
-      "Each major mode should set this variable to the appropriate format function")
+(fset 'format-code (lambda()()))
 
 (electric-indent-mode 1)
 (electric-pair-mode)
