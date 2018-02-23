@@ -35,8 +35,9 @@
   (setq beacon-blink-duration 2.0))
 
 (use-package clang-format
-  :bind
-  ("\C-c l" . clang-format-region))
+  :config
+  (dolist (hook '(c++-mode-hook c-mode-hook))
+    (add-hook hook (lambda()  (fset 'format-code 'clang-format-region)))))
 
 (use-package cmake-mode)
 
@@ -88,7 +89,8 @@
 
 (use-package elpy
   :config
-  (elpy-enable))
+  (elpy-enable)
+  (add-hook 'python-mode-hook (lambda() (fset 'format-code 'elpy-format-code))))
 
 (use-package evil
   :config
@@ -201,6 +203,12 @@
 	      (interactive)
 	      (switch-theme '(solarized-light solarized-dark))))
   :config
+  ;; Avoid all font-size changes
+  (setq solarized-height-minus-1 1.0)
+  (setq solarized-height-plus-1 1.0)
+  (setq solarized-height-plus-2 1.0)
+  (setq solarized-height-plus-3 1.0)
+  (setq solarized-height-plus-4 1.0)
   (load-theme 'solarized-light t))
 
 (use-package sr-speedbar

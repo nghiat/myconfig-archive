@@ -10,10 +10,15 @@
 (setq indent-tabs-mode nil)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
+(setq python-shell-interpreter "py")
+(setq python-shell-interpreter-arg '("-3"))
 (setq recentf-max-menu-items 100)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
 (setq x-select-enable-clipboard t)
+
+(fset 'format-code (lambda()())
+      "Each major mode should set this variable to the appropriate format function")
 
 (electric-indent-mode 1)
 (electric-pair-mode)
@@ -32,6 +37,7 @@
 (global-set-key (kbd "M-o") 'mode-line-other-buffer)
 (global-set-key (kbd "M-f") 'ff-find-other-file)
 (global-set-key (kbd "<f6>") 'compile)
+(global-set-key (kbd "\C-c f") 'format-code)
 
 (add-hook 'c++-mode-hook 
           (lambda ()
