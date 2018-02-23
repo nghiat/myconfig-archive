@@ -138,9 +138,9 @@
             (lambda () (setq-local eldoc-documentation-function #'ignore)))
   :diminish ggtags-mode)
 
-(use-package indent-guide
+(use-package highlight-indentation
   :config
-  (indent-guide-global-mode))
+  (add-hook 'prog-mode-hook 'highlight-indentation-mode))
 
 (use-package ivy
   :bind
