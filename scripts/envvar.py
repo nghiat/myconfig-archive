@@ -28,8 +28,8 @@ def set_envvar(name, value):
     print("Setting environment variable: " + name + "=" + value)
     if os.name == "nt":
         set_envvar_windows(name, value)
-    else:
-        set_envvar_unix(name, value)
+    #else:
+    #    set_envvar_unix(name, value)
 
 
 def set_envvars(maps):

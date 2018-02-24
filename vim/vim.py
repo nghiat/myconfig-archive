@@ -1,4 +1,5 @@
 links = {
     "~/.vimrc": "vimrc",
-    "~/vimfiles": "vimfiles"
+    "~/vimfiles": "vimfiles",
+    "~/.vim": "vimfiles",
 }

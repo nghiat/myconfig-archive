@@ -6,7 +6,7 @@ links = {
     "/etc/acpi/actions/lid.sh": "lid.sh"
 }
 
-note = "acpi, tlp"
+note = "acpid, tlp"
 
 
 def setup():
