@@ -4,10 +4,11 @@ links = {
     "~/.tmux.conf": ".tmux.conf",
     "~/.config/fish/config.fish": "config.fish",
     "~/.config/termite/config": "termite",
-    "/etc/X11/xorg.conf.d/90-custom-kdb.conf": "90-custom-kdb.conf" 
+    "/etc/X11/xorg.conf.d/00-custom-kdb.conf": "00-custom-kdb.conf" 
 }
 
-note = "fish tmux xsel termite redshift python-xdg gtk-theme-arc-git"
+note = 'fish tmux xsel termite redshift python-xdg gtk-theme-arc-git
+setxkbmap -option "ctrl:nocaps"'
 
 
 def setup():
