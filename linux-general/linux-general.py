@@ -7,7 +7,7 @@ links = {
     "/etc/X11/xorg.conf.d/90-custom-kdb.conf": "90-custom-kdb.conf" 
 }
 
-note = "fish tmux xsel termite redshift gtk-theme-arc-git"
+note = "fish tmux xsel termite redshift python-xdg gtk-theme-arc-git"
 
 
 def setup():

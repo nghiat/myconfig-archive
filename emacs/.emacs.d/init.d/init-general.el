@@ -10,8 +10,6 @@
 (setq indent-tabs-mode nil)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
-(setq python-shell-interpreter "py")
-(setq python-shell-interpreter-arg '("-3"))
 (setq recentf-max-menu-items 100)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
