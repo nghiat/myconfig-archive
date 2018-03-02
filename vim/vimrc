@@ -20,6 +20,7 @@ Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
@@ -120,3 +121,6 @@ call plug#end()            " required
 
 """"""""""vim-indent-guides""""""""""
     let g:indent_guides_enable_on_vim_startup = 1
+
+""""""""""ctrlp""""""""""
+    :nnoremap <M-l> :CtrlPBuffer<CR>
