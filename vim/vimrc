@@ -38,6 +38,7 @@ call plug#end()            " required
     "Enable switching between tabs without saving
     set foldmethod=manual
     set hidden
+    set incsearch
     "Enable line number
     set number
     "identation tab
@@ -79,8 +80,7 @@ call plug#end()            " required
 
     " Shortcuts
         " Switch between buffers
-        :nnoremap <Tab> :bnext<CR>
-        :nnoremap <S-Tab> :bprevious<CR>
+        :nnoremap <M-o> :b#<CR>
         " Press Space to turn off highlighting and clear any message already displayed.
         :noremap <Space> :set hlsearch! hlsearch?<CR>
         "map Ctrl-S to save
