@@ -23,11 +23,7 @@
 (setq use-package-always-ensure t)
 
 (use-package abbrev
-  :diminish abbrev-mode
   :ensure nil)
-
-(use-package autorevert
-  :diminish auto-revert-mode)
 
 (use-package beacon
   :config
@@ -80,13 +76,6 @@
   :config
   (counsel-projectile-mode))
 
-(use-package diminish
-  :config
-  (add-hook 'c++-mode-hook
-	    (lambda ()
-	      (diminish 'whitespace-mode)))
-  :diminish hs-minor-mode)
-
 (use-package elpy
   :config
   (elpy-enable)
@@ -124,7 +113,6 @@
 (use-package flx)
 
 (use-package flycheck
-  :diminish flycheck-mode
   :init
   (global-flycheck-mode))
 
@@ -135,8 +123,7 @@
               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                 (ggtags-mode 1))))
   (add-hook 'ggtags-mode-hook
-            (lambda () (setq-local eldoc-documentation-function #'ignore)))
-  :diminish ggtags-mode)
+            (lambda () (setq-local eldoc-documentation-function #'ignore))))
 
 (use-package highlight-indentation
   :config
@@ -149,8 +136,7 @@
   :config
   (ivy-mode 1)
   (setq enable-recursive-minibuffers t)
-  (setq ivy-use-virtual-buffers t)
-  :diminish ivy-mode)
+  (setq ivy-use-virtual-buffers t))
 
 (use-package lua-mode)
 
@@ -174,8 +160,7 @@
   :config
   (projectile-mode)
   (setq projectile-indexing-method 'alien)
-  (setq projectile-enable-caching t)
-  :diminish projectile-mode)
+  (setq projectile-enable-caching t))
 
 (use-package qml-mode
   :config
@@ -192,10 +177,6 @@
 (use-package smex
   :config
   (smex-initialize))
-
-(use-package smooth-scrolling
-  :config
-  (smooth-scrolling-mode))
 
 (use-package solarized-theme
   :bind
@@ -226,9 +207,6 @@
 	    (lambda ()
               (tide-setup)
 	      (tide-hl-identifier-mode +1))))
-
-(use-package undo-tree
-  :diminish undo-tree-mode)
 
 (use-package web-mode
   :config
