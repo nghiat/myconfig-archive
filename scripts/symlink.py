@@ -17,8 +17,8 @@ def create_symlink(target, symlink):
     symlink_prefix = symlink[:symlink.rfind(os.path.basename(symlink))]
     if is_symlink_need_root(symlink):
         if not os.path.exists(symlink_prefix):
-            run_command(["sudo", "mkdir", "-p", symlink_prefix])
-        run_command(["sudo", "ln", "-s", target, symlink])
+            run_command("sudo mkdir -p " + symlink_prefix)
+        run_command("sudo ln -s " + target + " " + symlink)
         return
     if not os.path.exists(symlink_prefix):
         os.makedirs(symlink_prefix, exist_ok=True)
@@ -34,7 +34,7 @@ def create_symlink(target, symlink):
 
 def delete_symlink(symlink):
     if is_symlink_need_root(symlink):
-        run_command(["sudo", "rm", symlink])
+        run_command("sudo rm " + symlink)
         return
     symlink = os.path.expanduser(symlink)
     if os.path.islink(symlink):

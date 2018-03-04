@@ -1,15 +1,22 @@
-from scripts.subprocess_wrapper import run_script
+from scripts.subprocess_wrapper import run_script, run_command
 
 links = {
     "~/.tmux.conf": ".tmux.conf",
-    "~/.config/fish/config.fish": "config.fish",
+    "~/.xprofile": ".xprofile",
     "~/.config/termite/config": "termite",
-    "/etc/X11/xorg.conf.d/00-custom-kdb.conf": "00-custom-kdb.conf" 
+    "/etc/X11/xorg.conf.d/00-custom-kdb.conf": "00-custom-kdb.conf",
+    "~/.zshrc": ".zshrc"
 }
 
-note = 'fish tmux xsel termite redshift python-xdg gtk-theme-arc-git
-setxkbmap -option "ctrl:nocaps"'
+note = '''zsh tmux xsel termite redshift python-xdg gtk-theme-arc-git
+setxkbmap -option "ctrl:nocaps"'''
 
 
 def setup():
-   run_script("change-power-settings.sh")
+    run_script("change-power-settings.sh")
+    run_command("git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh")
+    run_command("git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions")
+
+
+def clean():
+    run_command("rm -rf ~/.oh-my-zsh")

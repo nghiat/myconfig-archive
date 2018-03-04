@@ -3,16 +3,15 @@ import os
 
 
 def set_envvar_windows(name, value):
-    run_command(["setx", name, value])
+    run_command("setx " + name + " " + value)
 
 
 def set_envvar_bash_like(name, value):
-    run_command(["export", name + "=" + "value"])
+    run_command("export " + name + "=" + value)
 
 
 def set_envvar_fish(name, value):
-    command = '"set -gx ' + name + ' ' + 'value"'
-    run_command(["fish", "-c", command])
+    run_command("set -gx " + name + " " + "value")
 
 
 def set_envvar_unix(name, value):
