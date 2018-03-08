@@ -167,30 +167,12 @@
   (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
   (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t))
 
-(use-package rainbow-delimiters
-  :config
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
-
 (use-package ranger
   :bind ("<f7>" . ranger))
 
 (use-package smex
   :config
   (smex-initialize))
-
-(use-package solarized-theme
-  :bind
-  ("<f1>" . (lambda()
-	      (interactive)
-	      (switch-theme '(solarized-light solarized-dark))))
-  :config
-  ;; Avoid all font-size changes
-  (setq solarized-height-minus-1 1.0)
-  (setq solarized-height-plus-1 1.0)
-  (setq solarized-height-plus-2 1.0)
-  (setq solarized-height-plus-3 1.0)
-  (setq solarized-height-plus-4 1.0)
-  (load-theme 'solarized-light t))
 
 (use-package sr-speedbar
   :bind

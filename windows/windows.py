@@ -1,1 +1,1 @@
-note = """Cmder, autohotkey"""
+note = """Cmder, autohotkey, vs-ez"""

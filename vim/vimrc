@@ -5,9 +5,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tikhomirov/vim-glsl'
 Plug 'majutsushi/tagbar'
 Plug 'ajh17/vimcompletesme'
@@ -19,12 +17,13 @@ Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf'
-Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
-    colorscheme solarized
+    syntax on
+    color ez 
+    set cursorline
     set background=light
     filetype plugin indent on    " required
     filetype plugin on
@@ -48,8 +47,6 @@ call plug#end()            " required
     set softtabstop=4
     set tabstop=4
     set termguicolors
-    "Enable syntax highlighting
-    syntax enable
     "X11 clipboard
     if has("unix")
         set clipboard=unnamedplus
@@ -69,9 +66,9 @@ call plug#end()            " required
     "set gui font
     if has('gui_running')
         if has("unix")
-            set guifont=DejaVu\ Sans\ Mono\ Bold\ 12
+            set guifont=DejaVu\ Sans\ Mono\ 12
         elseif has("win32")
-            set guifont=Consolas:h12:b:cANSI
+            set guifont=Consolas:h12:cANSI
         endif
         set guioptions-=L
         set guioptions-=m
@@ -114,8 +111,6 @@ call plug#end()            " required
     let g:UltiSnipsJumpForwardTrigger="<c-k>"
 
 """"""""""vim-airline""""""""""
-    "show buffers list on the top of window
-    let g:airline#extensions#tabline#enabled = 1
     "vim-airline always show
     set laststatus=2
 
