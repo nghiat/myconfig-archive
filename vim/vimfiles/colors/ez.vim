@@ -19,10 +19,6 @@ highlight clear Identifier
 
 highlight clear String
 highlight clear Comment
-highlight clear Error
-highlight clear LineNr
-highlight clear NonText
-highlight clear SpecialKey
 
 let s:red = '#880000'
 let s:green = '#008800'

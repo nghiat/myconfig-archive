@@ -21,7 +21,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
-    syntax on
+    syntax enable
     color ez 
     set cursorline
     set background=light
