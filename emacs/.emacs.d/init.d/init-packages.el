@@ -116,18 +116,7 @@
   :init
   (global-flycheck-mode))
 
-(use-package ggtags
-  :config
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-                (ggtags-mode 1))))
-  (add-hook 'ggtags-mode-hook
-            (lambda () (setq-local eldoc-documentation-function #'ignore))))
-
-(use-package highlight-indentation
-  :config
-  (add-hook 'prog-mode-hook 'highlight-indentation-mode))
+(use-package ggtags)
 
 (use-package ivy
   :bind
