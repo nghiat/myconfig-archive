@@ -31,22 +31,13 @@
   (setq beacon-blink-duration 2.0))
 
 (use-package clang-format
-  :config
-  (dolist (hook '(c++-mode-hook c-mode-hook))
-    (add-hook hook (lambda()  (fset 'format-code 'clang-format-region)))))
+  :hook
+  ((c-mode c++-mode) . (lambda()  (fset 'format-code 'clang-format-region))))
 
 (use-package cmake-mode)
 
 (use-package company
   :config
-  (add-hook 'c++-mode-hook
-            (lambda ()
-              (set (make-local-variable 'company-backends)
-                   '(company-dabbrev))))
-  (add-hook 'c-mode-hook
-            (lambda ()
-              (set (make-local-variable 'company-backends)
-                   '(company-dabbrev))))
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous)
@@ -60,6 +51,10 @@
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2)
   (setq company-show-numbers t)
+  :hook
+  ((c-mode c++-mode) . (lambda ()
+			 (set (make-local-variable 'company-backends)
+			      '(company-dabbrev))))
   :init
   (global-company-mode))
 
@@ -79,15 +74,17 @@
 (use-package elpy
   :config
   (elpy-enable)
-  (add-hook 'python-mode-hook (lambda() (fset 'format-code 'elpy-format-code))))
+  :hook
+  (python-mode . (lambda() (fset 'format-code 'elpy-format-code))))
 
 (use-package evil
   :config
-  (add-hook 'c++-mode-hook (lambda () (setq evil-shift-width 2)))
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
   (setq evil-symbol-word-search t)
-  (setq evil-want-fine-undo t))
+  (setq evil-want-fine-undo t)
+  :hook
+  (c++-mode . (lambda () (setq evil-shift-width 2))))
 
 (use-package evil-leader
   :config
@@ -106,9 +103,7 @@
 (use-package fill-column-indicator
   :config
   (fci-mode)
-  (add-hook 'c++-mode-hook
-	    (lambda ()
-	      (setq fci-rule-column 100))))
+  :hook (c++-mode . (lambda () (setq fci-rule-column 100))))
 
 (use-package flx)
 
@@ -172,12 +167,11 @@
   ("\C-s" . swiper))
 
 (use-package tide
-  :config
-  (add-hook 'before-save-hook 'tide-format-before-save)
-  (add-hook 'typescript-mode-hook
-	    (lambda ()
-              (tide-setup)
-	      (tide-hl-identifier-mode +1))))
+  :hook
+  (before-save . 'tide-format-before-save)
+  (typescript-mode . (lambda ()
+		       (tide-setup)
+		       (tide-hl-identifier-mode +1))))
 
 (use-package web-mode
   :config
