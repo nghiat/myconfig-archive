@@ -25,11 +25,6 @@
 (use-package abbrev
   :ensure nil)
 
-(use-package beacon
-  :config
-  (beacon-mode 1)
-  (setq beacon-blink-duration 2.0))
-
 (use-package clang-format
   :hook
   ((c-mode c++-mode) . (lambda()  (fset 'format-code 'clang-format-region))))
