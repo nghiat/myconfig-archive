@@ -8,7 +8,7 @@ links = {
     "~/.zshrc": ".zshrc"
 }
 
-note = '''zsh tmux xsel termite redshift python-xdg gtk-theme-arc-git
+note = '''zsh tmux xsel termite redshift-gtk python-xdg gtk-theme-arc-git
 setxkbmap -option "ctrl:nocaps"'''
 
 

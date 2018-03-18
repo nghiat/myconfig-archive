@@ -7,8 +7,6 @@ def is_symlink_need_root(symlink):
         return False
     expanded_symlink = os.path.expanduser(symlink)
     if expanded_symlink == symlink:
-        print("need_root: " + symlink)
-        print("need_root: " + expanded_symlink)
         return True
     return False
 
