@@ -1,0 +1,75 @@
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            50
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
+
+/* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=18
+URxvt*boldFont: xft:DejaVu Sans Mono:pixelsize=18
+
+! Fix font space
+URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #000000
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+*background: #ffffff
+*foreground: #000000
+*cursorColor: #000000
+
+!! black dark/light
+*color0: #000000
+*color8: #888888
+
+!! red dark/light
+*color1: #880000
+*color9: #880000
+
+!! green dark/light
+*color2: #008800
+*color10: #008800
+
+!! yellow dark/light
+*color3: #888800
+*color11: #888800
+
+!! blue dark/light
+*color4: #000088
+*color12: #000088
+
+!! magenta dark/light
+*color5: #880088
+*color13: #880088
+
+!! cyan dark/light
+*color6: #008888
+*color14: #008888
+
+!! white dark/light
+*color7: #888888
+*color15: #ffffff

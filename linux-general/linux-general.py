@@ -5,7 +5,8 @@ links = {
     "~/.xprofile": ".xprofile",
     "~/.config/termite/config": "termite",
     "/etc/X11/xorg.conf.d/00-custom-kdb.conf": "00-custom-kdb.conf",
-    "~/.zshrc": ".zshrc"
+    "~/.zshrc": ".zshrc",
+    "~/.Xdefaults": ".Xdefaults",
 }
 
 note = '''zsh tmux xsel termite redshift-gtk python-xdg gtk-theme-arc-git
@@ -18,6 +19,7 @@ def setup():
     run_command("git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions")
     run_command("sed -i 's/%c/%d/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme")
     run_command("dconf load /apps/guake/ < ~/myconfig/linux-general/guake.conf")
+    run_command("git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm")
 
 
 def clean():
