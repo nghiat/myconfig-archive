@@ -7,29 +7,32 @@ def is_symlink_need_root(symlink):
         return False
     expanded_symlink = os.path.expanduser(symlink)
     if expanded_symlink == symlink:
+        print("need_root: " + symlink)
+        print("need_root: " + expanded_symlink)
         return True
     return False
 
 
 def create_symlink(target, symlink):
     target = os.path.abspath(target)
-    symlink = os.path.expanduser(symlink)
-    symlink_prefix = symlink[:symlink.rfind(os.path.basename(symlink))]
+    expanded_symlink = os.path.expanduser(symlink)
+    symlink_prefix = expanded_symlink[:expanded_symlink.rfind(
+        os.path.basename(expanded_symlink))]
     if is_symlink_need_root(symlink):
         if not os.path.exists(symlink_prefix):
             run_command("sudo mkdir -p " + symlink_prefix)
-        run_command("sudo ln -s " + target + " " + symlink)
+        run_command("sudo ln -s " + target + " " + expanded_symlink)
         return
     if not os.path.exists(symlink_prefix):
         os.makedirs(symlink_prefix, exist_ok=True)
-    if os.path.exists(symlink):
-        if os.path.islink(symlink):
-            print("Symlink exists: " + symlink)
+    if os.path.exists(expanded_symlink):
+        if os.path.islink(expanded_symlink):
+            print("Symlink exists: " + expanded_symlink)
         else:
-            print("File that is not a symlink exists: " + symlink)
+            print("File that is not a symlink exists: " + expanded_symlink)
     else:
-        os.symlink(target, symlink)
-        print("Symlink created: " + target + " -> " + symlink)
+        os.symlink(target, expanded_symlink)
+        print("Symlink created: " + target + " -> " + expanded_symlink)
 
 
 def delete_symlink(symlink):
