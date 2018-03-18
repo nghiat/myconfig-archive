@@ -17,6 +17,7 @@ def setup():
     run_command("git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh")
     run_command("git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions")
     run_command("sed -i 's/%c/%d/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme")
+    run_command("dconf load /apps/guake/ < ~/myconfig/linux-general/guake.conf")
 
 
 def clean():
