@@ -56,9 +56,9 @@
 (use-package counsel
   :bind
   ("C-c c g" . counsel-ag)
-  ("C-c c f" . counsel-find-file)
+  ("M-f" . counsel-find-file)
   ("M-x" . counsel-M-x)
-  ("C-c c r" . counsel-recentf))
+  ("M-r" . counsel-recentf))
 
 (use-package counsel-gtags)
 
@@ -178,5 +178,10 @@
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
+
+(use-package yascroll
+  :config
+  (global-yascroll-bar-mode 1)
+  (setq yascroll:delay-to-hide nil))
 
 (provide 'init-packages)

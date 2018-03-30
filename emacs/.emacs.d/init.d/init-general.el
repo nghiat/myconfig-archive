@@ -1,4 +1,6 @@
 (setq auto-save-default nil)
+; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
+(setq auto-window-vscroll nil)
 (setq column-number-mode t)
 ;Ignore whitespace
 (setq ediff-diff-options "-w")
@@ -27,13 +29,14 @@
 (menu-bar-mode -1)
 (recentf-mode 1)
 (savehist-mode 1)
-(scroll-bar-mode -1)
 (semantic-mode 1)
+(scroll-bar-mode -1)
 (show-paren-mode 1)
 (tool-bar-mode -1)
 
 (global-set-key (kbd "M-o") 'mode-line-other-buffer)
 (global-set-key (kbd "M-f") 'ff-find-other-file)
+(global-set-key (kbd "<f5>") 'shell-command)
 (global-set-key (kbd "<f6>") 'compile)
 (global-set-key (kbd "\C-c f") 'format-code)
 
