@@ -6,7 +6,10 @@ links = {
     "/etc/acpi/actions/lid.sh": "lid.sh"
 }
 
-note = "acpid, tlp"
+note = """acpid, tlp
+# disable pc speaker
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+"""
 
 
 def setup():
