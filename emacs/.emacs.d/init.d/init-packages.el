@@ -122,7 +122,10 @@
 (use-package magit
   :bind
   ("C-c m d" . magit-diff-buffer-file)
-  ("C-c m s" . magit-status))
+  ("C-c m s" . magit-status)
+  :config
+  (setq git-commit-summary-max-length 100)
+  (setq fill-column -1))
 
 (use-package nyan-mode
   :config
