@@ -1,1 +1,3 @@
+; (setq python-shell-interpreter "py")	
+; (setq python-shell-interpreter-arg '("-3"))
 (provide 'init-local)

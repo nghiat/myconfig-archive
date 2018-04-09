@@ -102,9 +102,7 @@
 
 (use-package flx)
 
-(use-package flycheck
-  :init
-  (global-flycheck-mode))
+(use-package flycheck)
 
 (use-package ggtags)
 
@@ -116,6 +114,10 @@
   (ivy-mode 1)
   (setq enable-recursive-minibuffers t)
   (setq ivy-use-virtual-buffers t))
+
+(use-package json-mode
+  :hook
+  (json-mode . (lambda()  (fset 'format-code 'json-reformat-region))))
 
 (use-package lua-mode)
 
