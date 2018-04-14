@@ -17,10 +17,13 @@ Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-scripts/a.vim'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
+    set autochdir
     syntax enable
     color ez 
     set cursorline
@@ -118,4 +121,25 @@ call plug#end()            " required
     let g:indent_guides_enable_on_vim_startup = 1
 
 """"""""""ctrlp""""""""""
-    :nnoremap <M-l> :CtrlPBuffer<CR>
+    nnoremap <silent> <M-l> :CtrlPBuffer<CR>
+    vnoremap <silent> <M-l> :CtrlPBuffer<CR>
+    inoremap <silent> <M-l> :CtrlPBuffer<CR>
+    noremap <silent> <M-r> :CtrlPMRUFiles<CR>
+    vnoremap <silent> <M-r> :CtrlPMRUFiles<CR>
+    inoremap <silent> <M-r> :CtrlPMRUFiles<CR>
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")': ['<c-n>'],
+    \ 'PrtSelectMove("k")': ['<c-p>'],
+    \ 'PrtHistory(-1)': ['<down>'],
+    \ 'PrtHistory(1)': ['<up>'],
+    \ }
+        
+""""""""""fzf""""""""""
+    noremap <silent> <M-f> :Files<CR>
+    vnoremap <silent> <M-f> :Files<CR>
+    inoremap <silent> <M-f> :Files<CR>
+
+""""""""""A""""""""""
+    noremap <silent> <M-s> :A<CR>
+    vnoremap <silent> <M-s> :A<CR>
+    inoremap <silent> <M-s> :A<CR>
