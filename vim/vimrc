@@ -16,10 +16,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
-Plug 'junegunn/fzf'
+Plug 'nghiat/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/a.vim'
+Plug 'nelstrom/vim-visual-star-search'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
