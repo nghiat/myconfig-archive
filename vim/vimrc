@@ -8,7 +8,7 @@ Plug 'raimondi/delimitmate'
 Plug 'bling/vim-airline'
 Plug 'tikhomirov/vim-glsl'
 Plug 'majutsushi/tagbar'
-Plug 'ajh17/vimcompletesme'
+" Plug 'ajh17/vimcompletesme'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -22,6 +22,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/vim-clang-format'
+Plug 'valloric/youcompleteme'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
