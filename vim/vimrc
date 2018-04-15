@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'rhysd/vim-clang-format'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
@@ -158,3 +159,7 @@ let g:ctrlp_prompt_mappings = {
     noremap <silent> <M-s> :A<CR>
     vnoremap <silent> <M-s> :A<CR>
     inoremap <silent> <M-s> :A<CR>
+
+""""""""""vim-clang-format""""""""""
+    autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
+    autocmd FileType c,cpp,objc vnoremap <buffer><Leader>f :ClangFormat<CR>
