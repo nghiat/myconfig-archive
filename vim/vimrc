@@ -11,7 +11,6 @@ Plug 'majutsushi/tagbar'
 " Plug 'ajh17/vimcompletesme'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
@@ -26,6 +25,8 @@ Plug 'valloric/youcompleteme'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
+    set ignorecase
+    set smartcase
     set autochdir
     syntax enable
     color ez 
@@ -33,12 +34,10 @@ call plug#end()            " required
     set background=light
     filetype plugin indent on    " required
     filetype plugin on
-    "matching braces color
-    highlight MatchParen cterm=bold ctermfg=cyan
     "makes backspace work like most other apps
     set backspace=indent,eol,start
-    "Set color for column 100th
-    set cc=100
+    "Set color for column 80th
+    set cc=80
     set encoding=utf-8
     set expandtab
     "Enable switching between tabs without saving
