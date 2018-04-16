@@ -85,13 +85,13 @@ call plug#end()            " required
         " Switch between buffers
         nnoremap <silent> <M-o> :b#<CR>
         vnoremap <silent> <M-o> <C-c>:b#<CR>
-        inoremap <silent> <M-o> <C-c>:b#<CR>
+        inoremap <silent> <M-o> <C-o>:b#<CR>
         " Press Space to turn off highlighting and clear any message already displayed.
         noremap <Space> :set hlsearch! hlsearch?<CR>
         "map Ctrl-S to save
         noremap <silent> <C-s> :update<CR>
-        vnoremap <silent> <C-s> :update<CR>
-        inoremap <silent> <C-s> :update<CR>
+        vnoremap <silent> <C-s> <C-c>:update<CR>
+        inoremap <silent> <C-s> <C-o>:update<CR>
         "Set Leader key
         let mapleader="\<Space>"
         nmap <leader>e :e<Space>
