@@ -1,0 +1,64 @@
+{
+  "editor.fontSize": 15,
+  "editor.fontFamily": "Consolas, 'DejaVu Sans Mono'",
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.overviewRulerBorder": false,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.horizontal.vertical": "hidden",
+  // Add a line at 80 characters.
+  "editor.rulers": [
+    80
+  ],
+  "typescript.tsc.autoDetect": "off",
+  "grunt.autoDetect": "off",
+  "jake.autoDetect": "off",
+  "gulp.autoDetect": "off",
+  "npm.autoDetect": "off",
+  "window.menuBarVisibility": "toggle",
+  "workbench.colorTheme": "Default Light+",
+  "workbench.editor.showTabs": false,
+  "editor.tokenColorCustomizations": {
+    "functions": "#000000",
+    "comments": "#880000",
+    "strings": "#008800",
+    "keywords": "#000088",
+    "numbers": "#000000",
+    "types": "#000000",
+    "variables": "#000000"
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.activityBar.visible": false,
+
+  // Vim
+  "vim.hlsearch": true,
+  "vim.ignorecase": false,
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  "vim.visualstar": true,
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "h"],
+      "after": ["<C-w>", "h"],
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["<C-w>", "l"],
+    },
+    {
+      "before": ["<leader>", "f"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.formatSelection",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "workbench.statusBar.feedback.visible": false
+}
