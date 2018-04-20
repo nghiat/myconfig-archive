@@ -8,7 +8,6 @@ Plug 'raimondi/delimitmate'
 Plug 'bling/vim-airline'
 Plug 'tikhomirov/vim-glsl'
 Plug 'majutsushi/tagbar'
-" Plug 'ajh17/vimcompletesme'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -22,6 +21,7 @@ Plug 'vim-scripts/a.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/vim-clang-format'
 Plug 'valloric/youcompleteme'
+Plug 'bronson/vim-trailing-whitespace'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
 """"""""""Vim config""""""""""
@@ -29,7 +29,7 @@ call plug#end()            " required
     set smartcase
     set autochdir
     syntax enable
-    color ez 
+    color ez
     set cursorline
     set background=light
     filetype plugin indent on    " required
@@ -101,7 +101,7 @@ call plug#end()            " required
         nmap <leader>j <C-W>j<CR>
         nmap <leader>k <C-W>k<CR>
         nmap <leader>l <C-W>l<CR>
-        
+
 """"""""""nerdtree""""""""""
     " Toggle nerdtree
     nnoremap <F7> :NERDTreeToggle<CR>
@@ -137,7 +137,7 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtHistory(-1)': ['<down>'],
     \ 'PrtHistory(1)': ['<up>'],
     \ }
-        
+
 """"""""""fzf""""""""""
     noremap <silent> <M-f> :Files<CR>
     vnoremap <silent> <M-f> :Files<CR>
@@ -159,8 +159,8 @@ let g:ctrlp_prompt_mappings = {
 
 """"""""""A""""""""""
     noremap <silent> <M-s> :A<CR>
-    vnoremap <silent> <M-s> :A<CR>
-    inoremap <silent> <M-s> :A<CR>
+    vnoremap <silent> <M-s> <C-c>:A<CR>
+    inoremap <silent> <M-s> <C-o>:A<CR>
 
 """"""""""vim-clang-format""""""""""
     autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>
