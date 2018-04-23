@@ -36,7 +36,8 @@
 
   // Vim
   "vim.hlsearch": true,
-  "vim.ignorecase": false,
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
   "vim.leader": "<space>",
   "vim.useSystemClipboard": true,
   "vim.visualstar": true,
@@ -60,5 +61,6 @@
       ]
     }
   ],
-  "workbench.statusBar.feedback.visible": false
+  "workbench.statusBar.feedback.visible": false,
+  "vsicons.dontShowNewVersionMessage": true
 }
