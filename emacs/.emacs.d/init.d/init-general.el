@@ -15,6 +15,7 @@
 (setq recentf-max-menu-items 100)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
+(setq visible-bell 1)
 (setq x-select-enable-clipboard t)
 
 (fset 'format-code (lambda()()))
@@ -39,6 +40,7 @@
 (global-set-key (kbd "<f5>") 'shell-command)
 (global-set-key (kbd "<f6>") 'compile)
 (global-set-key (kbd "\C-c f") 'format-code)
+(global-set-key (kbd "\C-s") 'save-buffer)
 
 (add-hook 'c++-mode-hook 
           (lambda ()

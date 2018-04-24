@@ -78,6 +78,7 @@
   (fset 'evil-visual-update-x-selection 'ignore)
   (setq evil-symbol-word-search t)
   (setq evil-want-fine-undo t)
+  (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
   :hook
   (c++-mode . (lambda () (setq evil-shift-width 2))))
 
@@ -98,7 +99,7 @@
 (use-package fill-column-indicator
   :config
   (fci-mode)
-  :hook (c++-mode . (lambda () (setq fci-rule-column 100))))
+  :hook (c++-mode . (lambda () (setq fci-rule-column 80))))
 
 (use-package flx)
 
@@ -164,7 +165,9 @@
 
 (use-package swiper
   :bind
-  ("\C-s" . swiper))
+  ("C-/" . swiper)
+  :config
+  (eval-after-load 'undo-tree '(define-key undo-tree-map (kbd "C-/") 'swiper)))
 
 (use-package tide
   :hook
