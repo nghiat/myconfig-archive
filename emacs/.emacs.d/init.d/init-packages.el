@@ -25,6 +25,14 @@
 (use-package abbrev
   :ensure nil)
 
+(use-package anaconda-mode
+  :hook python-mode
+  :config
+  (use-package company-anaconda
+    :config
+    (eval-after-load "company"
+      '(add-to-list 'company-backends 'company-anaconda))))
+
 (use-package clang-format
   :hook
   ((c-mode c++-mode) . (lambda()  (fset 'format-code 'clang-format-region))))
@@ -65,12 +73,6 @@
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode))
-
-(use-package elpy
-  :config
-  (elpy-enable)
-  :hook
-  (python-mode . (lambda() (fset 'format-code 'elpy-format-code))))
 
 (use-package evil
   :config
