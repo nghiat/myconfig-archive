@@ -39,7 +39,6 @@
 (global-set-key (kbd "M-s") 'ff-find-other-file)
 (global-set-key (kbd "<f5>") 'shell-command)
 (global-set-key (kbd "<f6>") 'compile)
-(global-set-key (kbd "\C-c f") 'format-code)
 (global-set-key (kbd "\C-s") 'save-buffer)
 
 (add-hook 'c++-mode-hook 
