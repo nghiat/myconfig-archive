@@ -20,7 +20,7 @@ def setup():
     run_command("sed -i 's/%c/%d/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme")
     run_command("dconf load /apps/guake/ < ~/myconfig/linux-general/guake.conf")
     run_command("git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm")
-
+    run_command("echo kernel.yama.ptrace_scope=0 | sudo tee /etc/sysctl.d/10-ptrace.conf > /dev/null")
 
 def clean():
     run_command("rm -rf ~/.oh-my-zsh")
