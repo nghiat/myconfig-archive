@@ -46,7 +46,8 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous)
   (setq company-dabbrev-code-everywhere t)
   (setq company-dabbrev-code-modes t)
-  (setq company-dabbrev-code-other-buffers (quote all))
+  (setq company-dabbrev-code-other-buffers 'all)
+  (setq company-dabbrev-code-ignore-case t)
   (setq company-dabbrev-downcase nil)
   (setq company-dabbrev-ignore-buffers "nil")
   (setq company-dabbrev-ignore-case t)
@@ -57,7 +58,7 @@
   :hook
   ((c-mode c++-mode) . (lambda ()
 			 (set (make-local-variable 'company-backends)
-			      '(company-dabbrev))))
+			      '(company-dabbrev-code))))
   :init
   (global-company-mode))
 
