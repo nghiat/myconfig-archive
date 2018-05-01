@@ -58,7 +58,7 @@
   :hook
   ((c-mode c++-mode) . (lambda ()
 			 (set (make-local-variable 'company-backends)
-			      '(company-dabbrev-code))))
+			      '((company-dabbrev-code company-gtags)))))
   :init
   (global-company-mode))
 
