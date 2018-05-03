@@ -9,7 +9,9 @@ links = {
     "~/.Xdefaults": ".Xdefaults",
 }
 
-note = '''zsh tmux xsel termite redshift-gtk python-xdg gtk-theme-arc-git
+note = '''zsh tmux xsel urxvt redshift-gtk python-xdg
+ibus: Ubuntu im-config, Untick Use system keyboard layout
+tmux <prefix>-I
 setxkbmap -option "ctrl:nocaps"'''
 
 
@@ -21,6 +23,7 @@ def setup():
     run_command("dconf load /apps/guake/ < ~/myconfig/linux-general/guake.conf")
     run_command("git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm")
     run_command("echo kernel.yama.ptrace_scope=0 | sudo tee /etc/sysctl.d/10-ptrace.conf > /dev/null")
+    run_command("chsh -s /usr/bin/zsh")
 
 def clean():
     run_command("rm -rf ~/.oh-my-zsh")
