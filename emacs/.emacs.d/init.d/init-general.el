@@ -13,6 +13,7 @@
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
 (setq recentf-max-menu-items 100)
+(setq-default show-trailing-whitespace t)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
 (setq visible-bell 1)
@@ -49,6 +50,8 @@
             (setq whitespace-line-column 79)
             (setq whitespace-style '(face lines-tail))
             (whitespace-mode)))
+
+(add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 

@@ -6,3 +6,9 @@ Capslock::Control
 #v::
   Run "gvim.exe"
   Return
+#c::
+  Run "chrome.exe"
+  Return
+#t::
+  Run "ConEmu.exe"
+  Return
