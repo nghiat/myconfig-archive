@@ -17,7 +17,7 @@ Plug 'w0rp/ale'
 Plug 'nghiat/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-scripts/a.vim'
+Plug 'nacitar/a.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/vim-clang-format'
 Plug 'valloric/youcompleteme'
@@ -83,9 +83,9 @@ call plug#end()            " required
 
     " Shortcuts
         " Switch between buffers
-        nnoremap <silent> <M-o> :b#<CR>
-        vnoremap <silent> <M-o> <C-c>:b#<CR>
-        inoremap <silent> <M-o> <C-o>:b#<CR>
+        nnoremap <silent> <C-c>o :b#<CR>
+        vnoremap <silent> <C-c>o <C-c>:b#<CR>
+        inoremap <silent> <C-c>o <C-o>:b#<CR>
         " Press Space to turn off highlighting and clear any message already displayed.
         noremap <Space> :set hlsearch! hlsearch?<CR>
         "map Ctrl-S to save
@@ -94,13 +94,13 @@ call plug#end()            " required
         inoremap <silent> <C-s> <C-o>:update<CR>
         "Set Leader key
         let mapleader="\<Space>"
-        nmap <leader>e :e<Space>
-        nmap <leader>s :b<Space>
-        nmap <leader>q :bd<CR>
-        nmap <leader>h <C-W>h<CR>
-        nmap <leader>j <C-W>j<CR>
-        nmap <leader>k <C-W>k<CR>
-        nmap <leader>l <C-W>l<CR>
+        noremap <leader>e :e<Space>
+        noremap <leader>s :b<Space>
+        noremap <leader>q :bd<CR>
+        noremap <leader>h <C-W>h<CR>
+        noremap <leader>j <C-W>j<CR>
+        noremap <leader>k <C-W>k<CR>
+        noremap <leader>l <C-W>l<CR>
 
 """"""""""nerdtree""""""""""
     " Toggle nerdtree
@@ -139,9 +139,9 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 """"""""""fzf""""""""""
-    noremap <silent> <M-f> :Files<CR>
-    vnoremap <silent> <M-f> :Files<CR>
-    inoremap <silent> <M-f> :Files<CR>
+    noremap <silent> <C-c>ff :Files<CR>
+    vnoremap <silent> <C-c>ff <C-c>:Files<CR>
+    inoremap <silent> <C-c>ff <C-o>:Files<CR>
     let g:fzf_colors =
     \ { 'fg':      ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
