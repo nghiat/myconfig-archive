@@ -1,7 +1,7 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (if (getenv "http_proxy")
-    ;Use local mirror 
+    ;Use local mirror
     (progn
         (unless (file-directory-p "~/.emacs.d/mirror-elpa")
 	    ((let ((default-directory "~/.emacs.d"))
@@ -57,9 +57,10 @@
 (use-package counsel
   :bind
   ("C-c c g" . counsel-ag)
-  ("M-f" . counsel-find-file)
+  ; Files browsing
+  ("C-c f e" . counsel-find-file)
   ("M-x" . counsel-M-x)
-  ("M-r" . counsel-recentf))
+  ("C-c f r" . counsel-recentf))
 
 (use-package counsel-gtags)
 
@@ -68,6 +69,7 @@
   (counsel-projectile-mode))
 
 (use-package elpy
+  :after python
   :config
   (elpy-enable)
   :hook
@@ -79,7 +81,6 @@
   (fset 'evil-visual-update-x-selection 'ignore)
   (setq evil-symbol-word-search t)
   (setq evil-want-fine-undo t)
-  (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
   :hook
   (c++-mode . (lambda () (setq evil-shift-width 2))))
 
@@ -111,8 +112,7 @@
 
 (use-package ivy
   :bind
-  ("C-c i r" . ivy-resume)
-  ("M-l" . ivy-switch-buffer)
+  ("C-c b l" . ivy-switch-buffer)
   :config
   (ivy-mode 1)
   (setq enable-recursive-minibuffers t)
@@ -169,7 +169,7 @@
   :bind
   ("C-/" . swiper)
   :config
-  (eval-after-load 'undo-tree '(define-key undo-tree-map (kbd "C-/") 'swiper)))
+  (eval-after-load 'evil '(fset 'evil-search-forward 'swiper)))
 
 (use-package tide
   :hook

@@ -44,6 +44,7 @@ call plug#end()            " required
     set foldmethod=manual
     set hidden
     set incsearch
+    set notimeout
     "Enable line number
     set number
     "identation tab
@@ -83,9 +84,9 @@ call plug#end()            " required
 
     " Shortcuts
         " Switch between buffers
-        nnoremap <silent> <C-c>o :b#<CR>
-        vnoremap <silent> <C-c>o <C-c>:b#<CR>
-        inoremap <silent> <C-c>o <C-o>:b#<CR>
+        nnoremap <silent> <C-c>bp :b#<CR>
+        vnoremap <silent> <C-c>bp <C-c>:b#<CR>
+        inoremap <silent> <C-c>bp <C-o>:b#<CR>
         " Press Space to turn off highlighting and clear any message already displayed.
         noremap <Space> :set hlsearch! hlsearch?<CR>
         "map Ctrl-S to save
@@ -94,9 +95,6 @@ call plug#end()            " required
         inoremap <silent> <C-s> <C-o>:update<CR>
         "Set Leader key
         let mapleader="\<Space>"
-        noremap <leader>e :e<Space>
-        noremap <leader>s :b<Space>
-        noremap <leader>q :bd<CR>
         noremap <leader>h <C-W>h<CR>
         noremap <leader>j <C-W>j<CR>
         noremap <leader>k <C-W>k<CR>
@@ -125,12 +123,12 @@ call plug#end()            " required
     let g:indent_guides_enable_on_vim_startup = 1
 
 """"""""""ctrlp""""""""""
-    nnoremap <silent> <M-l> :CtrlPBuffer<CR>
-    vnoremap <silent> <M-l> :CtrlPBuffer<CR>
-    inoremap <silent> <M-l> :CtrlPBuffer<CR>
-    noremap <silent> <M-r> :CtrlPMRUFiles<CR>
-    vnoremap <silent> <M-r> :CtrlPMRUFiles<CR>
-    inoremap <silent> <M-r> :CtrlPMRUFiles<CR>
+    nnoremap <silent> <C-c>bl :CtrlPBuffer<CR>
+    vnoremap <silent> <C-c>bl <C-c>:CtrlPBuffer<CR>
+    inoremap <silent> <C-c>bl <C-o>:CtrlPBuffer<CR>
+    noremap <silent> <C-c>fr :CtrlPMRUFiles<CR>
+    vnoremap <silent> <C-c>fr <C-c>:CtrlPMRUFiles<CR>
+    inoremap <silent> <C-c>fr <C-o>:CtrlPMRUFiles<CR>
 let g:ctrlp_prompt_mappings = {
     \ 'PrtSelectMove("j")': ['<c-n>'],
     \ 'PrtSelectMove("k")': ['<c-p>'],
@@ -139,9 +137,9 @@ let g:ctrlp_prompt_mappings = {
     \ }
 
 """"""""""fzf""""""""""
-    noremap <silent> <C-c>ff :Files<CR>
-    vnoremap <silent> <C-c>ff <C-c>:Files<CR>
-    inoremap <silent> <C-c>ff <C-o>:Files<CR>
+    noremap <silent> <C-c>fe :Files<CR>
+    vnoremap <silent> <C-c>fe <C-c>:Files<CR>
+    inoremap <silent> <C-c>fe <C-o>:Files<CR>
     let g:fzf_colors =
     \ { 'fg':      ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
@@ -158,9 +156,9 @@ let g:ctrlp_prompt_mappings = {
       \ 'header':  ['fg', 'Comment'] }
 
 """"""""""A""""""""""
-    noremap <silent> <M-s> :A<CR>
-    vnoremap <silent> <M-s> <C-c>:A<CR>
-    inoremap <silent> <M-s> <C-o>:A<CR>
+    noremap <silent> <C-c>fs :A<CR>
+    vnoremap <silent> <C-c>fs <C-c>:A<CR>
+    inoremap <silent> <C-c>fs <C-o>:A<CR>
 
 """"""""""vim-clang-format""""""""""
     autocmd FileType c,cpp,objc nnoremap <buffer><Leader>f :<C-u>ClangFormat<CR>

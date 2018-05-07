@@ -36,13 +36,14 @@
 (show-paren-mode 1)
 (tool-bar-mode -1)
 
-(global-set-key (kbd "M-o") 'mode-line-other-buffer)
-(global-set-key (kbd "M-s") 'ff-find-other-file)
+; Previous recently buffer
+(global-set-key (kbd "C-c b p") 'mode-line-other-buffer)
+(global-set-key (kbd "C-c f s") 'ff-find-other-file)
 (global-set-key (kbd "<f5>") 'shell-command)
 (global-set-key (kbd "<f6>") 'compile)
 (global-set-key (kbd "\C-s") 'save-buffer)
 
-(add-hook 'c++-mode-hook 
+(add-hook 'c++-mode-hook
           (lambda ()
             (modify-syntax-entry ?_ "w")
             (setq c-basic-offset 2)
