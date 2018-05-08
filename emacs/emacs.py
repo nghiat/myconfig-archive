@@ -7,7 +7,7 @@ links = {
     "~/.globalrc": ".globalrc"
 }
 
-note = "pip install jedi flake8 autopep8"
+note = "pip install jedi flake8 yapf"
 
 
 def setup():
@@ -15,6 +15,8 @@ def setup():
     if os.name == "nt":
         run_command(
             "copy .emacs.d/init.d/init-local.el.template .emacs.d/init.d/init-local.el")
+        run_command("pip install jedi flake8 yapf")
     else:
         run_command(
             "cp .emacs.d/init.d/init-local.el.template .emacs.d/init.d/init-local.el")
+        run_command("sudo pip3 install jedi flake8 yapf")

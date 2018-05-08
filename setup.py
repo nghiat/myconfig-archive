@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 from scripts.symlink import create_symlinks, delete_symlinks
 import importlib
 import os
