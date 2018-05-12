@@ -58,9 +58,9 @@
   :bind
   ("C-c c g" . counsel-ag)
   ; Files browsing
-  ("C-c f e" . counsel-find-file)
+  ("C-c e" . counsel-find-file)
   ("M-x" . counsel-M-x)
-  ("C-c f r" . counsel-recentf))
+  ("C-c r" . counsel-recentf))
 
 (use-package counsel-gtags)
 
@@ -112,7 +112,7 @@
 
 (use-package ivy
   :bind
-  ("C-c b l" . ivy-switch-buffer)
+  ("C-c l" . ivy-switch-buffer)
   :config
   (ivy-mode 1)
   (setq enable-recursive-minibuffers t)
@@ -166,8 +166,6 @@
   ("<f8>" . sr-speedbar-toggle))
 
 (use-package swiper
-  :bind
-  ("C-/" . swiper)
   :config
   (eval-after-load 'evil '(fset 'evil-search-forward 'swiper)))
 

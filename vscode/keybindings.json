@@ -11,7 +11,7 @@
     "when": "inQuickOpen"
   },
   {
-    "key": "alt+s",
+    "key": "ctrl+c s",
     "command": "C_Cpp.SwitchHeaderSource",
     "when": "editorTextFocus && editorLangId == 'cpp'"
   },
@@ -21,7 +21,7 @@
     "when": "editorTextFocus && editorLangId == 'cpp'"
   },
   {
-    "key": "alt+s",
+    "key": "ctrl+c s",
     "command": "C_Cpp.SwitchHeaderSource",
     "when": "editorTextFocus && editorLangId == 'c'"
   },
@@ -47,7 +47,7 @@
     "command": "-workbench.action.quickOpen"
   },
   {
-    "key": "alt+r",
+    "key": "ctrl+c r",
     "command": "workbench.action.openRecent"
   },
   {
@@ -55,11 +55,11 @@
     "command": "-workbench.action.openRecent"
   },
   {
-    "key": "alt+f",
+    "key": "ctrl+c l",
     "command": "workbench.action.quickOpen"
   },
   {
-    "key": "alt+l",
+    "key": "ctrl+c e",
     "command": "workbench.action.quickOpen"
   },
   {
@@ -67,7 +67,7 @@
     "command": "-workbench.action.quickOpen"
   },
   {
-    "key": "alt+o",
+    "key": "ctrl+c p",
     "command": "workbench.action.openPreviousRecentlyUsedEditorInGroup"
   },
   {
@@ -92,7 +92,7 @@
     "command": "workbench.action.tasks.runTask"
   },
   {
-    "key": "ctrl+shift+d",
+    "key": "alt+t c",
     "command": "workbench.debug.action.toggleRepl"
   },
   {
@@ -100,11 +100,7 @@
     "command": "-workbench.debug.action.toggleRepl"
   },
   {
-    "key": "ctrl+shift+d",
-    "command": "-workbench.view.debug"
-  },
-  {
-    "key": "ctrl+shift+t",
+    "key": "alt+t t",
     "command": "workbench.action.terminal.toggleTerminal"
   },
   {
@@ -134,5 +130,62 @@
   {
     "key": "ctrl+j",
     "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "alt+l",
+    "command": "-toggleFindInSelection",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+s d",
+    "command": "workbench.view.debug"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "-workbench.view.debug"
+  },
+  {
+    "key": "alt+s x",
+    "command": "workbench.view.extensions"
+  },
+  {
+    "key": "ctrl+shift+x",
+    "command": "-workbench.view.extensions"
+  },
+  {
+    "key": "alt+s v",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm"
+  },
+  {
+    "key": "alt+s e",
+    "command": "workbench.view.explorer"
+  },
+  {
+    "key": "ctrl+shift+e",
+    "command": "-workbench.view.explorer"
+  },
+  {
+    "key": "alt+e",
+    "command": "workbench.action.maximizeEditor"
+  },
+  {
+    "key": "alt+t o",
+    "command": "workbench.action.output.toggleOutput"
+  },
+  {
+    "key": "ctrl+shift+u",
+    "command": "-workbench.action.output.toggleOutput"
+  },
+  {
+    "key": "alt+t p",
+    "command": "workbench.actions.view.problems"
+  },
+  {
+    "key": "ctrl+shift+m",
+    "command": "-workbench.actions.view.problems"
   }
 ]

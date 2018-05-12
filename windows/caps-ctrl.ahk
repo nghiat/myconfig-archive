@@ -1,14 +1,17 @@
 +Capslock::Capslock
 Capslock::Control
+#b::
+  Run "chrome.exe"
+  Return
+#c::
+  Run "code.exe"
+  Return
 #m::
   Run "runemacs.exe"
   Return
-#v::
-  Run "gvim.exe"
-  Return
-#c::
-  Run "chrome.exe"
-  Return
 #t::
   Run "ConEmu.exe"
+  Return
+#v::
+  Run "gvim.exe"
   Return
