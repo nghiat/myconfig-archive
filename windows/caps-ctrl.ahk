@@ -6,6 +6,9 @@ Capslock::Control
 #c::
   Run "code.exe"
   Return
+#f::
+  Run "Everything.exe"
+  Return
 #m::
   Run "runemacs.exe"
   Return
