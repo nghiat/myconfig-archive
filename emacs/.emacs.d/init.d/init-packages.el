@@ -82,7 +82,7 @@
   (setq evil-symbol-word-search t)
   (setq evil-want-fine-undo t)
   :hook
-  (c++-mode . (lambda () (setq evil-shift-width 2))))
+  ((c++-mode gn-mode). (lambda () (setq evil-shift-width 2))))
 
 (use-package evil-leader
   :config
@@ -166,8 +166,8 @@
   ("<f8>" . sr-speedbar-toggle))
 
 (use-package swiper
-  :config
-  (eval-after-load 'evil '(fset 'evil-search-forward 'swiper)))
+  :bind
+  ("C-c f" . swiper))
 
 (use-package tide
   :hook

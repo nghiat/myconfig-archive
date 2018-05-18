@@ -37,7 +37,7 @@
 (tool-bar-mode -1)
 
 ; Previous recently buffer
-(global-set-key (kbd "C-c p") 'mode-line-other-buffer)
+(global-set-key (kbd "C-c o") 'mode-line-other-buffer)
 (global-set-key (kbd "C-c s") 'ff-find-other-file)
 (global-set-key (kbd "<f5>") 'shell-command)
 (global-set-key (kbd "<f6>") 'compile)

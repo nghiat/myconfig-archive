@@ -67,7 +67,7 @@
     "command": "-workbench.action.quickOpen"
   },
   {
-    "key": "ctrl+c p",
+    "key": "ctrl+c o",
     "command": "workbench.action.openPreviousRecentlyUsedEditorInGroup"
   },
   {

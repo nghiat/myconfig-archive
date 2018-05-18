@@ -62,5 +62,8 @@
     }
   ],
   "workbench.statusBar.feedback.visible": false,
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "python.unitTest.unittestEnabled": false,
+  "python.unitTest.pyTestEnabled": true,
+  "python.unitTest.nosetestsEnabled": false,
 }
