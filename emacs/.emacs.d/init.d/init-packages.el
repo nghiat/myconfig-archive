@@ -118,6 +118,10 @@
   (setq enable-recursive-minibuffers t)
   (setq ivy-use-virtual-buffers t))
 
+(use-package js2-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+
 (use-package json-mode
   :hook
   (json-mode . (lambda()  (fset 'format-code 'json-reformat-region))))
@@ -169,23 +173,11 @@
   :bind
   ("C-c f" . swiper))
 
-(use-package tide
+(use-package web-beautify
   :hook
-  (before-save . 'tide-format-before-save)
-  (typescript-mode . (lambda ()
-		       (tide-setup)
-		       (tide-hl-identifier-mode +1))))
-
-(use-package web-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
+  ((js2-mode js-mode json-mode) . (lambda()  (fset 'format-code 'web-beautify-js)))
+  (sgml-mode . (lambda()  (fset 'format-code 'web-beautify-html)))
+  (css-mode . (lambda()  (fset 'format-code 'web-beautify-css))))
 
 (use-package yascroll
   :config
