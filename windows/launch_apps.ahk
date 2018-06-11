@@ -11,7 +11,7 @@
   run, "runemacs.exe"
   Return
 #t::
-  run, "ConEmu.exe"
+  run, "cmd.exe"
   Return
 #v::
   run, "gvim.exe"

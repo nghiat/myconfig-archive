@@ -1,12 +1,12 @@
 import os
 from scripts.subprocess_wrapper import run_command
 
-note = """Cmder, autohotkey, vs-ez
-cmder/vender/clink.lua: search for cmder_prompt and comment clink.prompt.register_filter(git_prompt_filter)"""
+note = """clink, autohotkey, vs-ez"""
 
 links = {
     "~/.minttyrc": ".minttyrc"
 }
+
 
 def setup():
     current_folder = os.path.dirname(os.path.realpath(__file__))
