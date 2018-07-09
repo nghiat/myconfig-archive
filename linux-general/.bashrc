@@ -2,6 +2,10 @@ export PATH="/bin:/usr/bin:$PATH";
 export EDITOR="vim"
 export PS1="\u:\w$ "
 
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
+
 # Autocorrect typos when using cd
 shopt -s cdspell;
 # Avoid duplicates
