@@ -43,33 +43,33 @@ URxvt.pointerBlank:         true
 *cursorColor: #000000
 
 !! black dark/light
-*color0: #000000
-*color8: #888888
+!*color0: #000000
+!*color8: #888888
 
-!! red dark/light
-*color1: #880000
-*color9: #880000
+!!! red dark/light
+!*color1: #880000
+!*color9: #880000
 
-!! green dark/light
-*color2: #008800
-*color10: #008800
+!!! green dark/light
+!*color2: #008800
+!*color10: #008800
 
-!! yellow dark/light
-*color3: #888800
-*color11: #888800
+!!! yellow dark/light
+!*color3: #888800
+!*color11: #888800
 
-!! blue dark/light
-*color4: #000088
-*color12: #000088
+!!! blue dark/light
+!*color4: #000088
+!*color12: #000088
 
-!! magenta dark/light
-*color5: #880088
-*color13: #880088
+!!! magenta dark/light
+!*color5: #880088
+!*color13: #880088
 
-!! cyan dark/light
-*color6: #008888
-*color14: #008888
+!!! cyan dark/light
+!*color6: #008888
+!*color14: #008888
 
-!! white dark/light
-*color7: #888888
-*color15: #ffffff
+!!! white dark/light
+!*color7: #888888
+!*color15: #ffffff

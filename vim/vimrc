@@ -19,7 +19,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nacitar/a.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/vim-clang-format'
-Plug 'valloric/youcompleteme'
 Plug 'bronson/vim-trailing-whitespace'
 " All of your Plugs must be added before the following line
 call plug#end()            " required
