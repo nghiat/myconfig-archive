@@ -1,4 +1,6 @@
 export PATH="/bin:/usr/bin:$PATH";
+export EDITOR="vim"
+export PS1="\u:\w$ "
 
 # Autocorrect typos when using cd
 shopt -s cdspell;
