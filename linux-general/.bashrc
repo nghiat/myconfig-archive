@@ -8,3 +8,5 @@ shopt -s cdspell;
 export HISTCONTROL=ignoredups:erasedups
 # Append history
 shopt -s histappend
+# Disable Ctrl-S
+stty -ixon
