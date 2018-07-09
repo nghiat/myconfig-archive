@@ -46,10 +46,10 @@ call plug#end()            " required
     "Enable line number
     set number
     "identation tab
-    set shiftwidth=4
+    set shiftwidth=2
     "makes the backspace key treat the spaces like a tab
-    set softtabstop=4
-    set tabstop=4
+    set softtabstop=2
+    set tabstop=2
     set termguicolors
     "X11 clipboard
     if has("unix")
