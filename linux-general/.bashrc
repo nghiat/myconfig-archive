@@ -1,6 +1,6 @@
 export PATH="/bin:/usr/bin:$PATH";
 export EDITOR="vim"
-export PS1="\u:\w$ "
+export PS1="\[\e[1;30m\]\u:\w$ \[\e[0m\]"
 
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
