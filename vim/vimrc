@@ -7,7 +7,6 @@ Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
 Plug 'bling/vim-airline'
 Plug 'tikhomirov/vim-glsl'
-Plug 'majutsushi/tagbar'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -28,7 +27,7 @@ call plug#end()            " required
     set ignorecase
     set smartcase
     set autochdir
-    syntax enable
+    syntax off
     color ez
     set cursorline
     set background=light
@@ -103,12 +102,6 @@ call plug#end()            " required
 """"""""""nerdtree""""""""""
     " Toggle nerdtree
     nnoremap <F7> :NERDTreeToggle<CR>
-
-""""""""""tagbar""""""""""
-    if (has("win32"))
-        let g:tagbar_ctags_bin = "$HOME/myconfig/windows/ctags/ctags.exe"
-    endif
-    nmap <F8> :TagbarToggle<CR>
 
 """"""""""utilsnips""""""""""
     let g:UltiSnipsExpandTrigger="<c-k>"

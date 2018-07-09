@@ -1,18 +1,18 @@
 #b::
-  run, "chrome.exe"
+  Run, "chrome.exe"
   Return
 #c::
-  run, "code.exe"
+  Run, "code.exe"
   Return
 #f::
-  run, "Everything.exe"
+  Run, "Everything.exe"
   Return
 #m::
-  run, "runemacs.exe"
+  Run, "runemacs.exe"
   Return
 #t::
-  run, "cmd.exe"
+  Run, "cmd.exe"
   Return
 #v::
-  run, "gvim.exe"
+  Run, "gvim.exe"
   Return

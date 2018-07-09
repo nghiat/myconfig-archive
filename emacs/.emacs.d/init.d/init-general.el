@@ -9,7 +9,7 @@
 ;Filename filepath
 (setq frame-title-format '("%b %f"))
 (setq history-length 100)
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
 (setq recentf-max-menu-items 100)
@@ -24,6 +24,7 @@
 (electric-indent-mode 1)
 (electric-pair-mode)
 (global-auto-revert-mode t)
+(global-font-lock-mode 0)
 (global-hl-line-mode)
 (global-linum-mode t)
 (infer-indentation-style)
