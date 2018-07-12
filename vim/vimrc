@@ -26,7 +26,7 @@ call plug#end()            " required
     set ignorecase
     set smartcase
     set autochdir
-    syntax off
+    syntax on
     color ez
     set cursorline
     set background=light
