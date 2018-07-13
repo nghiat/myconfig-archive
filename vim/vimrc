@@ -1,21 +1,13 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-surround'
 Plug 'raimondi/delimitmate'
-Plug 'bling/vim-airline'
 Plug 'tikhomirov/vim-glsl'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
-Plug 'nghiat/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nacitar/a.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rhysd/vim-clang-format'
@@ -45,12 +37,17 @@ call plug#end()            " required
     set notimeout
     "Enable line number
     set number
+    " Show line, column number
+    set ruler
     "identation tab
     set shiftwidth=2
     "makes the backspace key treat the spaces like a tab
     set softtabstop=2
     set tabstop=2
     set termguicolors
+    set wildcharm=<Tab>
+    set wildmenu
+    set wildmode=longest:full,full
     "X11 clipboard
     if has("unix")
         set clipboard=unnamedplus
@@ -97,55 +94,24 @@ call plug#end()            " required
         noremap <leader>j <C-W>j<CR>
         noremap <leader>k <C-W>k<CR>
         noremap <leader>l <C-W>l<CR>
-
-""""""""""nerdtree""""""""""
-    " Toggle nerdtree
-    nnoremap <F7> :NERDTreeToggle<CR>
+        nnoremap <C-c>e :e<Space><Tab>
+        vnoremap <C-c>e <C-c>:e<Space><Tab>
+        inoremap <C-c>e <C-o>:e<Space><Tab>
+        nnoremap <C-c>l :buffers<CR>:buffer<Space><Tab>
+        vnoremap <C-c>l <C-c>:buffers<CR>:buffer<Space><Tab>
+        inoremap <C-c>l <C-o>:buffers<CR>:buffer<Space><Tab>
+        nnoremap <C-c>r :browse oldfiles<CR>
+        vnoremap <C-c>r <C-c>:browse oldfiles<CR>
+        inoremap <C-c>r <C-o>:browse oldfiles<CR>
 
 """"""""""utilsnips""""""""""
     let g:UltiSnipsExpandTrigger="<c-k>"
     let g:UltiSnipsJumpBackwardTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-k>"
 
-""""""""""vim-airline""""""""""
-    "vim-airline always show
-    set laststatus=2
-
 """"""""""vim-indent-guides""""""""""
     let g:indent_guides_enable_on_vim_startup = 1
-
-""""""""""ctrlp""""""""""
-    nnoremap <silent> <C-c>l :CtrlPBuffer<CR>
-    vnoremap <silent> <C-c>l <C-c>:CtrlPBuffer<CR>
-    inoremap <silent> <C-c>l <C-o>:CtrlPBuffer<CR>
-    nnoremap <silent> <C-c>r :CtrlPMRUFiles<CR>
-    vnoremap <silent> <C-c>r <C-c>:CtrlPMRUFiles<CR>
-    inoremap <silent> <C-c>r <C-o>:CtrlPMRUFiles<CR>
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")': ['<c-n>'],
-    \ 'PrtSelectMove("k")': ['<c-p>'],
-    \ 'PrtHistory(-1)': ['<down>'],
-    \ 'PrtHistory(1)': ['<up>'],
-    \ }
-
-""""""""""fzf""""""""""
-    nnoremap <silent> <C-c>e :Files<CR>
-    vnoremap <silent> <C-c>e <C-c>:Files<CR>
-    inoremap <silent> <C-c>e <C-o>:Files<CR>
-    let g:fzf_colors =
-    \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
+    let g:airline_theme='ez'
 
 """"""""""A""""""""""
     nnoremap <silent> <C-c>s :A<CR>
