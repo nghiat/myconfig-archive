@@ -1,7 +1,10 @@
 __pycache__
 vim/vimfiles/plugged
+vim/vimfiles/colors/ez.vim
 emacs/.emacs.d/*
 !emacs/.emacs.d/*.el
+emacs/.emacs.d/ez-theme.el
+!emacs/.emacs.d/*.template
 !emacs/.emacs.d/init.d
 emacs/.emacs.d/init.d/init-local.el
 emacs/.emacs.d/custom.el

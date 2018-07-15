@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 from scripts.symlink import create_symlinks, delete_symlinks
+from scripts.colors import generate_from_template_files, delete_generated_files
 import importlib
 import os
 import sys
@@ -29,6 +30,14 @@ if __name__ == "__main__":
         if module_name[0].isalpha():
             module = importlib.import_module(module_name + "." + module_name)
             os.chdir(module_name)
+            if hasattr(module, "colors_templates"):
+                colors_templates = getattr(module, "colors_templates")
+                if action == "setup":
+                    # Default setup
+                    generate_from_template_files(colors_templates)
+                elif action == "clean":
+                    # Default clean
+                    delete_generated_files(colors_templates)
             if hasattr(module, "links"):
                 links = getattr(module, "links")
                 if action == "setup":

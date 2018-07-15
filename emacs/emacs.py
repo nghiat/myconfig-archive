@@ -2,6 +2,10 @@ from scripts.envvar import set_envvar
 from scripts.subprocess_wrapper import run_command
 import os
 
+colors_templates = {
+    "./.emacs.d/ez-theme.el.template": "./.emacs.d/ez-theme.el"
+}
+
 links = {
     "~/.emacs.d": ".emacs.d",
     "~/.globalrc": ".globalrc"

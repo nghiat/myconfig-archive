@@ -12,7 +12,6 @@ let g:colors_name='ez'
 highlight clear Comment
 highlight clear Constant
 highlight clear CursorColumn
-highlight clear CursorLine
 highlight clear Identifier
 highlight clear MatchParen
 highlight clear Number
@@ -23,16 +22,15 @@ highlight clear String
 highlight clear Statement
 highlight clear Type
 
-let s:black = '#000000'
-let s:maroon = '#800000'
-let s:green = '#008000'
-let s:navy = '#000080'
-let s:grey89 = '#e4e4e4'
-
-exe 'highlight Comment guifg='.s:maroon
-exe 'highlight String guifg='.s:green
-exe 'highlight ColorColumn guibg='.s:grey89
-exe 'highlight MatchParen gui=bold guibg='.s:grey89
-exe 'highlight Search gui=bold guibg='.s:grey89
-exe 'highlight LineNr guifg=Navy'
-exe 'highlight CursorLineNr gui=bold guifg='.s:navy
+highlight ColorColumn guibg={grey89}
+highlight Comment guifg={maroon}
+highlight CursorLine guibg={grey89}
+highlight CursorLineNr gui=bold guifg={navy}
+highlight LineNr guifg={navy}
+highlight MatchParen gui=bold guibg={palegreen1}
+highlight String guifg={green}
+highlight Search gui=bold guibg={palegreen1}
+highlight Statement guifg={navy}
+highlight StorageClass guifg={navy}
+highlight Structure guifg={navy}
+highlight Visual guifg=white guibg={dodgerblue2}

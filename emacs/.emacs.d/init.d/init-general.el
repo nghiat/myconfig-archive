@@ -24,7 +24,6 @@
 (electric-indent-mode 1)
 (electric-pair-mode)
 (global-auto-revert-mode t)
-(global-font-lock-mode 0)
 (global-hl-line-mode)
 (global-linum-mode t)
 (infer-indentation-style)
