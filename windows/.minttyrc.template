@@ -1,0 +1,26 @@
+BoldAsFont = no
+BoldAsColour = no
+Font = Consolas
+FontHeight = 12
+FontSmoothing = default
+Term = xterm-256color
+
+ForegroundColour = {blackRGB}
+BackgroundColour = {whiteRGB}
+CursorColour = {blackRGB}
+Black = {blackRGB}
+BoldBlack = {blackRGB}
+Red = {maroonRGB}
+BoldRed = {maroonRGB}
+Green = {greenRGB}
+BoldGreen = {greenRGB}
+Yellow = {oliveRGB}
+BoldYellow = {oliveRGB}
+Blue = {navyRGB}
+BoldBlue = {navyRGB}
+Magenta = {purpleRGB}
+BoldMagenta = {purpleRGB}
+Cyan = {tealRGB}
+BoldCyan = {tealRGB}
+White = {whiteRGB}
+BoldWhite = {whiteRGB}

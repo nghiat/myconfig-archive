@@ -33,4 +33,4 @@ highlight Search gui=bold guibg={palegreen1}
 highlight Statement guifg={navy}
 highlight StorageClass guifg={navy}
 highlight Structure guifg={navy}
-highlight Visual guifg=white guibg={dodgerblue2}
+highlight Visual guifg=white guibg={dodgerblue1}

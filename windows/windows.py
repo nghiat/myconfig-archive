@@ -3,8 +3,8 @@ from scripts.subprocess_wrapper import run_command
 
 note = """clink, autohotkey, vs-ez"""
 
-links = {
-    "~/.minttyrc": ".minttyrc"
+colors_templates = {
+    ".minttyrc.template": "~/.minttyrc"
 }
 
 
