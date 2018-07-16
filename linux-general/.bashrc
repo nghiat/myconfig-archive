@@ -14,3 +14,4 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 # Disable Ctrl-S
 stty -ixon
+force_color_prompt=yes

@@ -38,38 +38,38 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-*background: #ffffff
-*foreground: #000000
-*cursorColor: #000000
+*background: {white}
+*foreground: {black}
+*cursorColor: {black}
 
-!! black dark/light
-!*color0: #000000
-!*color8: #888888
+! black dark/light
+*color0: {black}
+*color8: {black}
 
-!!! red dark/light
-!*color1: #880000
-!*color9: #880000
+!! red dark/light
+*color1: {maroon}
+*color9: {maroon}
 
-!!! green dark/light
-!*color2: #008800
-!*color10: #008800
+!! green dark/light
+*color2: {green}
+*color10: {green}
 
-!!! yellow dark/light
-!*color3: #888800
-!*color11: #888800
+!! yellow dark/light
+*color3: {olive}
+*color11: {olive}
 
-!!! blue dark/light
-!*color4: #000088
-!*color12: #000088
+!! blue dark/light
+*color4: {navy}
+*color12: {navy}
 
-!!! magenta dark/light
-!*color5: #880088
-!*color13: #880088
+!! magenta dark/light
+*color5: {purple}
+*color13: {purple}
 
-!!! cyan dark/light
-!*color6: #008888
-!*color14: #008888
+!! cyan dark/light
+*color6: {teal}
+*color14: {teal}
 
-!!! white dark/light
-!*color7: #888888
-!*color15: #ffffff
+!! white dark/light
+*color7: {white}
+*color15: {white}

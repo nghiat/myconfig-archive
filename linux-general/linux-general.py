@@ -1,12 +1,15 @@
 from scripts.subprocess_wrapper import run_script, run_command
 
+colors_templates = {
+    ".Xdefaults.template": "~/.Xdefaults",
+}
+
 links = {
     "~/.tmux.conf": ".tmux.conf",
     "~/.xprofile": ".xprofile",
     "~/.config/termite/config": "termite",
     "/etc/X11/xorg.conf.d/00-custom-kdb.conf": "00-custom-kdb.conf",
     "~/.zshrc": ".zshrc",
-    "~/.Xdefaults": ".Xdefaults",
     "~/.bashrc": ".bashrc",
     "~/.inputrc": ".inputrc",
 }
