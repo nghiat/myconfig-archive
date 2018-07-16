@@ -10,5 +10,6 @@ emacs/.emacs.d/init.d/init-local.el
 emacs/.emacs.d/custom.el
 .tmux
 setup.log
+windows/.minttyrc
 *.exe
 *.swp

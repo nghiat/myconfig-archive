@@ -9,7 +9,7 @@ colors256 = {
     "xpurple": "5", "purple": "#800080", "purpleRGB": "128, 0, 128",
     "xteal": "5", "teal": "#008080", "tealRGB": "0, 128, 128",
     "xwhite": "15", "white": "#ffffff", "whiteRGB": "255, 255, 255",
-    "xdodgerblue1": "33", "dodgerblue2": "#0087ff", "dodgerblue2RGB": "0, 135, 255",
+    "xdodgerblue1": "33", "dodgerblue1": "#0087ff", "dodgerblue1RGB": "0, 135, 255",
     "xpalegreen1": "121", "palegreen1": "#87ffaf", "palegreen1RGB": "135, 255, 175",
     "xgrey89": "254", "grey89": "#e4e4e4", "grey89RGB": "228, 228, 228"
 }
