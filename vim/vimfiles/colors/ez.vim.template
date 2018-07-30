@@ -34,3 +34,5 @@ highlight Statement guifg={navy}
 highlight StorageClass guifg={navy}
 highlight Structure guifg={navy}
 highlight Visual guifg=white guibg={dodgerblue1}
+highlight Pmenu guifg=black guibg={grey89}
+highlight PmenuSel gui=bold guifg=black guibg={grey89}
