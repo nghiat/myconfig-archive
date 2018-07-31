@@ -13,3 +13,4 @@ setup.log
 windows/.minttyrc
 *.exe
 *.swp
+.Xdefaults

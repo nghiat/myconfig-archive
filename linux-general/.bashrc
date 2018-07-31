@@ -3,7 +3,7 @@ export EDITOR="vim"
 export PS1="\[\e[1;30m\]\u:\w$ \[\e[0m\]"
 export HISTSIZE=100000
 export HISTFILESIZE=100000
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r;"
 
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
