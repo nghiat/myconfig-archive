@@ -23,10 +23,16 @@
 "google-chrome-stable"
   Mod4 + b
 
+"chromium"
+  Mod4 + b
+
 "code"
   Mod4 + c
 
 "dolphin"
+  Mod4 + e
+
+"thunar"
   Mod4 + e
 
 "nautilus"

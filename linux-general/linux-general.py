@@ -15,10 +15,9 @@ links = {
     "~/.xbindkeysrc": ".xbindkeysrc",
 }
 
-note = '''zsh tmux xsel urxvt redshift-gtk python-xdg xbindkeys
+note = '''zsh tmux xsel urxvt redshift-gtk python-xdg xbindkeys albert
 ibus: Ubuntu im-config, Untick Use system keyboard layout
-tmux <prefix>-I
-setxkbmap -option "ctrl:nocaps"'''
+tmux <prefix>-I'''
 
 
 def setup():
