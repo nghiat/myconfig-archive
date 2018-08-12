@@ -2,7 +2,7 @@ set $mod Mod4
 
 font pango:DejaVu Sans Mono 12
 
-new_window pixel 4
+default_border pixel
 floating_modifier $mod
 bindsym $mod+Shift+q kill
 
@@ -13,10 +13,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
 # horizontal = vim vertical
@@ -104,14 +104,15 @@ exec --no-startup-id compton &
 exec --no-startup-id dropbox start &
 exec --no-startup-id redshift-gtk &
 exec --no-startup-id lxpolkit &
-exec --no-startup-id pasystray &
+exec --no-startup-id volumeicon &
 exec --no-startup-id xset -display :0.0 dpms 300 300
 exec --no-startup-id xautolock -time 10 -locker "systemctl suspend" -detectsleep
 exec --no-startup-id syndaemon -i 0.2 -t -K -R -d
 # Disable bells
 exec --no-startup-id xset -b
 
-for_window [class="Fsearch"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="vlc"] floating enable
 
 bar {
   status_command i3status --config ~/.config/i3/i3status.conf

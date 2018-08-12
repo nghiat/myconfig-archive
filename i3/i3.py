@@ -22,11 +22,14 @@ rofi
 xorg-xset
 xautolock
 ttf-dejavu
-pasystray
+volumeicon
 xf86-input-synaptics
 acpid
 xsel
 xorg-xbacklight
 pulseaudio
 arandr
-xinit"""
+xinit
+udisks2
+gvfs
+lxsession"""

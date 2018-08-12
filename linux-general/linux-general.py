@@ -14,6 +14,7 @@ links = {
     "~/.bash_profile": ".bash_profile",
     "~/.inputrc": ".inputrc",
     "~/.xbindkeysrc": ".xbindkeysrc",
+    "~/.config/mpv/mpv.conf": "mpv.conf",
 }
 
 note = '''
@@ -24,7 +25,7 @@ urxvt
 redshift-gtk
 python-xdg
 xbindkeys
-albert
+mpv
 ibus: Ubuntu im-config, Untick Use system keyboard layout
 tmux <prefix>-I'''
 
