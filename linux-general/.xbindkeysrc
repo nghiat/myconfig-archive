@@ -42,7 +42,7 @@
   Mod4 + m
 
 "urxvt"
-  Mod4 + t
+  Mod4 + Return
 
 "gvim"
-  Mod4 + v
+  Mod4 + x

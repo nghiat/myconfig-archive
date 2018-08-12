@@ -11,23 +11,27 @@ links = {
     "/etc/X11/xorg.conf.d/00-custom-kdb.conf": "00-custom-kdb.conf",
     "~/.zshrc": ".zshrc",
     "~/.bashrc": ".bashrc",
+    "~/.bash_profile": ".bash_profile",
     "~/.inputrc": ".inputrc",
     "~/.xbindkeysrc": ".xbindkeysrc",
 }
 
-note = '''zsh tmux xsel urxvt redshift-gtk python-xdg xbindkeys albert
+note = '''
+zsh
+tmux
+xsel
+urxvt
+redshift-gtk
+python-xdg
+xbindkeys
+albert
 ibus: Ubuntu im-config, Untick Use system keyboard layout
 tmux <prefix>-I'''
 
 
 def setup():
     run_script("change-power-settings.sh")
-    # run_command("git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh")
-    # run_command("git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions")
-    # run_command("sed -i 's/%c/%d/g' ~/.oh-my-zsh/themes/robbyrussell.zsh-theme")
     run_command("dconf load /apps/guake/ < ~/myconfig/linux-general/guake.conf")
     run_command("git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm")
+    # Intel vtune
     run_command("echo kernel.yama.ptrace_scope=0 | sudo tee /etc/sysctl.d/10-ptrace.conf > /dev/null")
-
-def clean():
-    run_command("rm -rf ~/.oh-my-zsh")

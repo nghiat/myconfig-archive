@@ -4,15 +4,15 @@
 #c::
   Run, "code.exe"
   Return
-#f::
+#d::
   Run, "Everything.exe"
   Return
 #m::
   Run, "emacsclient.exe" -c -n
   Return
-#t::
+#Return::
   Run, "cmd.exe"
   Return
-#v::
+#x::
   Run, "gvim.exe"
   Return

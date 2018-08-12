@@ -28,4 +28,5 @@ acpid
 xsel
 xorg-xbacklight
 pulseaudio
-arandr"""
+arandr
+xinit"""
