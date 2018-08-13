@@ -7,9 +7,7 @@ colors_templates = {
 links = {
     "~/.tmux.conf": ".tmux.conf",
     "~/.xprofile": ".xprofile",
-    "~/.config/termite/config": "termite",
     "/etc/X11/xorg.conf.d/00-custom-kdb.conf": "00-custom-kdb.conf",
-    "~/.zshrc": ".zshrc",
     "~/.bashrc": ".bashrc",
     "~/.bash_profile": ".bash_profile",
     "~/.inputrc": ".inputrc",
@@ -18,7 +16,6 @@ links = {
 }
 
 note = '''
-zsh
 tmux
 xsel
 urxvt
@@ -32,7 +29,6 @@ tmux <prefix>-I'''
 
 def setup():
     run_script("change-power-settings.sh")
-    run_command("dconf load /apps/guake/ < ~/myconfig/linux-general/guake.conf")
     run_command("git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm")
     # Intel vtune
     run_command("echo kernel.yama.ptrace_scope=0 | sudo tee /etc/sysctl.d/10-ptrace.conf > /dev/null")

@@ -7,7 +7,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r;"
 
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+[[ -z "$TMUX" && -x "$(command -v tmux)" ]] && exec tmux
 
 # Autocorrect typos when using cd
 shopt -s cdspell;
