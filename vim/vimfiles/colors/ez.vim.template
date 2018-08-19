@@ -1,4 +1,5 @@
-"Inspimaroon by chromium code search: https://cs.chromium.org
+"Inspired by chromium code search: https://cs.chromium.org
+" :hi
 set background=light
 hi clear
 
@@ -22,17 +23,19 @@ highlight clear String
 highlight clear Statement
 highlight clear Type
 
-highlight ColorColumn guibg={grey89}
-highlight Comment guifg={maroon}
-highlight CursorLine guibg={grey89}
-highlight CursorLineNr gui=bold guifg={navy}
-highlight LineNr guifg={navy}
-highlight MatchParen gui=bold guibg={palegreen1}
-highlight String guifg={green}
-highlight Search gui=bold guibg={palegreen1}
-highlight Statement guifg={navy}
-highlight StorageClass guifg={navy}
-highlight Structure guifg={navy}
-highlight Visual guifg=white guibg={dodgerblue1}
-highlight Pmenu guifg=black guibg={grey89}
-highlight PmenuSel gui=bold guifg=black guibg={grey89}
+highlight Normal ctermbg={tLB} ctermfg={tLF} guibg={LB} guifg={LF}
+
+highlight ColorColumn ctermbg={tLMaxColumnB} guibg={LMaxColumnB}
+highlight Comment ctermfg={tLCommentF} guifg={LCommentF}
+highlight CursorLine ctermbg={tLCurrentLineB} guibg={LCurrentLineB}
+highlight CursorLineNr cterm=bold ctermfg={tLLineNumberF} gui=bold guifg={LLineNumberF}
+highlight LineNr ctermfg={tLLineNumberF} guifg={LLineNumberF}
+highlight MatchParen cterm=bold ctermbg={tLMatchBracketB} gui=bold guibg={LMatchBracketB}
+highlight String ctermfg={tLStringF} guifg={LStringF}
+highlight Search cterm=bold ctermbg={tLStringF} ctermfg={tLF} gui=bold guibg={LStringF} guifg={LF}
+highlight Statement ctermfg={tLKeywordF} guifg={LKeywordF}
+highlight StorageClass ctermfg={tLKeywordF} guifg={LKeywordF}
+highlight Structure ctermfg={tLKeywordF} guifg={LKeywordF}
+highlight Visual ctermbg={tLSelectionB} ctermfg={tLSelectionF} guibg={LSelectionB} guifg={LSelectionF}
+highlight Pmenu ctermbg={tLCompletePopupB} ctermfg={tLCompletePopupF} guibg={LCompletePopupB} guifg={LCompletePopupF}
+highlight PmenuSel cterm=bold ctermbg={tLCompletePopupB} ctermfg={tLCompletePopupF} gui=bold guibg={LCompletePopupB} guifg={LCompletePopupF}

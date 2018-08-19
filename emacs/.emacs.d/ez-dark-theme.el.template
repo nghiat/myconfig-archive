@@ -1,0 +1,33 @@
+(deftheme ez-dark)
+
+(custom-theme-set-faces
+  'ez-dark
+  '(default ((t (:background "{DB}" :foreground "{DF}"))))
+  '(font-lock-comment-face ((t (:foreground "{DCommentF}"))))
+  '(font-lock-string-face ((t (:foreground "{DStringF}"))))
+  '(font-lock-keyword-face ((t (:foreground "{DKeywordF}"))))
+  '(font-lock-builtin-face ((t (:foreground "{DF}"))))
+  '(font-lock-function-name-face ((t (:foreground "{DF}"))))
+  '(font-lock-variable-name-face ((t (:foreground "{DF}"))))
+  '(font-lock-type-face ((t (:foreground "{DF}"))))
+  '(font-lock-constant-face ((t (:foreground "{DF}"))))
+  '(highlight ((t (:background "{DCurrentLineB}"))))
+  '(isearch ((t (:background "{DSearchB}"))))
+  '(region ((t (:background "{DSelectionB}" :foreground "{DSelectionF}"))))
+
+  ;; company
+  '(company-preview-common ((t (:background "{DB}" :foreground "{DF}" :weight bold))))
+  '(company-scrollbar-bg ((t (:background "{DF}"))))
+  '(company-scrollbar-fg ((t (:foreground "{DB}"))))
+  '(company-tooltip ((t (:inherit 'highlight))))
+  '(company-tooltip-common ((t (:foreground "{DF}"))))
+  '(company-tooltip-common-selection ((t (:foreground "{DF}"))))
+  '(company-tooltip-selection ((t (:inherit 'highlight :weight bold))))
+
+  ;; evil
+  '(evil-ex-search ((t (:inherit 'isearch))))
+  '(evil-ex-lazy-highlight ((t (:inherit 'isearch))))
+  '(evil-ex-substitute-matches ((t (:inherit 'isearch))))
+  '(evil-ex-substitute-replacement ((t (:inherit 'isearch))))
+)
+(provide-theme 'ez)

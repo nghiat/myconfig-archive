@@ -19,7 +19,7 @@ call plug#end()            " required
     set smartcase
     set autochdir
     syntax on
-    color ez
+    colorscheme ez
     set cursorline
     set background=light
     filetype plugin indent on    " required

@@ -1,17 +1,45 @@
 import os
 
 colors256 = {
-    "xblack": "0", "black": "#000000", "blackRGB": "0, 0, 0",
-    "xmaroon": "1", "maroon": "#800000", "maroonRGB": "128, 0, 0",
-    "xgreen": "2", "green": "#008000", "greenRGB": "0, 128, 0",
-    "xolive": "3", "olive": "#808000", "oliveRGB": "128, 128, 0",
-    "xnavy": "4", "navy": "#000080", "navyRGB": "0, 0, 128",
-    "xpurple": "5", "purple": "#800080", "purpleRGB": "128, 0, 128",
-    "xteal": "5", "teal": "#008080", "tealRGB": "0, 128, 128",
-    "xwhite": "15", "white": "#ffffff", "whiteRGB": "255, 255, 255",
-    "xdodgerblue1": "33", "dodgerblue1": "#0087ff", "dodgerblue1RGB": "0, 135, 255",
-    "xpalegreen1": "121", "palegreen1": "#87ffaf", "palegreen1RGB": "135, 255, 175",
-    "xgrey89": "254", "grey89": "#e4e4e4", "grey89RGB": "228, 228, 228"
+    # Light
+    "tLB": "15", "LB": "#ffffff",
+    "tLF": "0", "LF": "#000000",
+    "tLCommentF": "1", "LCommentF": "#800000",
+    "tLStringF": "2", "LStringF": "#008000",
+    "tLKeywordF": "4", "LKeywordF": "#000080",
+    "tLLineNumberF": "4", "LLineNumberF": "#000080",
+    "tLSelectionB": "33", "LSelectionB": "#0087ff",
+    "tLSelectionF": "15", "LSelectionF": "#ffffff",
+    "tLSearchB": "121", "LSearchB": "#87ffaf",
+    "tLMatchBracketB": "121", "LMatchBracketB": "#87ffaf",
+    "tLCurrentLineB": "254", "LCurrentLineB": "#e4e4e4",
+    "tLMaxColumnB": "254", "LMaxColumnB": "#e4e4e4",
+    "tLCompletePopupB": "254", "LCompletePopupB": "#e4e4e4",
+    "tLCompletePopupF": "0", "LCompletePopupF": "#000000",
+    # Dark
+    "tDB": "0", "DB": "#000000",
+    "tDF": "15", "DF": "#ffffff",
+    "tDCommentF": "87", "DCommentF": "#5fffff",
+    "tDStringF": "207", "DStringF": "#ff5fff",
+    "tDKeywordF": "227", "DKeywordF": "#ffff5f",
+    "tDLineNumberF": "4", "DLineNumberF": "#ffff5f",
+    "tDSelectionB": "33", "DSelectionB": "#0087ff",
+    "tDSelectionF": "15", "DSelectionF": "#000000",
+    "tDSearchB": "89", "DSearchB": "#87005f",
+    "tDMatchBracketB": "89", "DMatchBracketB": "#87005f",
+    "tDCurrentLineB": "238", "DCurrentLineB": "#444444",
+    "tDMaxColumnB": "238", "DMaxColumnB": "#444444",
+    "tDCompletePopupB": "238", "DCompletePopupB": "#444444",
+    "tDCompletePopupF": "15", "DCompletePopupF": "#ffffff",
+
+    "LBlack": "#000000",
+    "LWhite": "#ffffff",
+    "LRed": "#800000",
+    "LGreen": "#008000",
+    "LBlue": "#000080",
+    "LYellow": "#808000",
+    "LMagenta": "#800080",
+    "LCyan": "#008080",
 }
 
 
@@ -28,11 +56,19 @@ def generate_from_a_template_file(template_file, output_file):
 
 def generate_from_template_files(templates_map):
     for template, output_file in templates_map.items():
-        if not os.path.exists(output_file):
-            generate_from_a_template_file(template, output_file)
-        else:
-            print('Can\'t generate from template {0}, "{1}" already existed, '
-                  .format(template, output_file))
+        if os.path.exists(output_file):
+            backup_num = 0
+            while True:
+                backup_path = output_file + ".backup"
+                if backup_num:
+                    backup_path += "." + str(backup_num)
+                if not os.path.exists(backup_path):
+                    break
+                backup_num += 1
+            os.rename(output_file, backup_path)
+            print("{} file exists. Renaming it to {}"
+                  .format(output_file, backup_path))
+        generate_from_a_template_file(template, output_file)
 
 
 def delete_generated_files(templates_map):

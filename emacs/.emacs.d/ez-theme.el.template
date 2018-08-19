@@ -3,17 +3,27 @@
 
 (custom-theme-set-faces
   'ez
-  '(font-lock-comment-face ((t (:foreground "{maroon}"))))
-  '(font-lock-string-face ((t (:foreground "{green}"))))
-  '(font-lock-keyword-face ((t (:foreground "{navy}"))))
-  '(font-lock-builtin-face ((t (:foreground "{black}"))))
-  '(font-lock-function-name-face ((t (:foreground "{black}"))))
-  '(font-lock-variable-name-face ((t (:foreground "{black}"))))
-  '(font-lock-type-face ((t (:foreground "{black}"))))
-  '(font-lock-constant-face ((t (:foreground "{black}"))))
-  '(highlight ((t (:background "{grey89}"))))
-  '(isearch ((t (:background "{palegreen1}"))))
-  '(region ((t (:background "{dodgerblue1}" :foreground "{white}"))))
+  '(default ((t (:background "{LB}" :foreground "{LF}"))))
+  '(font-lock-comment-face ((t (:foreground "{LCommentF}"))))
+  '(font-lock-string-face ((t (:foreground "{LStringF}"))))
+  '(font-lock-keyword-face ((t (:foreground "{LKeywordF}"))))
+  '(font-lock-builtin-face ((t (:foreground "{LF}"))))
+  '(font-lock-function-name-face ((t (:foreground "{LF}"))))
+  '(font-lock-variable-name-face ((t (:foreground "{LF}"))))
+  '(font-lock-type-face ((t (:foreground "{LF}"))))
+  '(font-lock-constant-face ((t (:foreground "{LF}"))))
+  '(highlight ((t (:background "{LCurrentLineB}"))))
+  '(isearch ((t (:background "{LSearchB}"))))
+  '(region ((t (:background "{LSelectionB}" :foreground "{LSelectionF}"))))
+
+  ;; company
+  '(company-preview-common ((t (:background "{LB}" :foreground "{LF}" :weight bold))))
+  '(company-scrollbar-bg ((t (:background "{LF}"))))
+  '(company-scrollbar-fg ((t (:foreground "{LB}"))))
+  '(company-tooltip ((t (:inherit 'highlight))))
+  '(company-tooltip-common ((t (:foreground "{LF}"))))
+  '(company-tooltip-common-selection ((t (:foreground "{LF}"))))
+  '(company-tooltip-selection ((t (:inherit 'highlight :weight bold))))
 
   ;; evil
   '(evil-ex-search ((t (:inherit 'isearch))))

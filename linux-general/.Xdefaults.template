@@ -38,38 +38,38 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-*background: {white}
-*foreground: {black}
-*cursorColor: {black}
+*background: {LWhite}
+*foreground: {LBlack}
+*cursorColor: {LBlack}
 
 ! black dark/light
-*color0: {black}
-*color8: {black}
+*color0: {LBlack}
+*color8: {LBlack}
 
 !! red dark/light
-*color1: {maroon}
-*color9: {maroon}
+*color1: {LRed}
+*color9: {LRed}
 
 !! green dark/light
-*color2: {green}
-*color10: {green}
+*color2: {LGreen}
+*color10: {LGreen}
 
 !! yellow dark/light
-*color3: {olive}
-*color11: {olive}
+*color3: {LYellow}
+*color11: {LYellow}
 
 !! blue dark/light
-*color4: {navy}
-*color12: {navy}
+*color4: {LBlue}
+*color12: {LBlue}
 
 !! magenta dark/light
-*color5: {purple}
-*color13: {purple}
+*color5: {LMagenta}
+*color13: {LMagenta}
 
 !! cyan dark/light
-*color6: {teal}
-*color14: {teal}
+*color6: {LCyan}
+*color14: {LCyan}
 
 !! white dark/light
-*color7: {white}
-*color15: {white}
+*color7: {LWhite}
+*color15: {LWhite}

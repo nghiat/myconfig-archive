@@ -1,7 +1,8 @@
 import os
 
 colors_templates = {
-        "./vimfiles/colors/ez.vim.template": "./vimfiles/colors/ez.vim"
+        "./vimfiles/colors/ez.vim.template": "./vimfiles/colors/ez.vim",
+        "./vimfiles/colors/ez-dark.vim.template": "./vimfiles/colors/ez-dark.vim"
 }
 
 links = {
