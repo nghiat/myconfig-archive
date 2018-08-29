@@ -2,6 +2,7 @@
 ; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
 (setq auto-window-vscroll nil)
 (setq column-number-mode t)
+(setq custom-safe-themes t)
 ;Ignore whitespace
 (setq ediff-diff-options "-w")
 (setq ediff-split-window-function 'split-window-horizontally)
