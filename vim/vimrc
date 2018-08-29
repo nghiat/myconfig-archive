@@ -19,9 +19,13 @@ call plug#end()            " required
     set smartcase
     set autochdir
     syntax on
+    if strftime("%H") > 8 && strftime("%H") < 19
+      set background=light
+    else
+      set background=dark
+    endif
     colorscheme ez
     set cursorline
-    set background=light
     filetype plugin indent on    " required
     filetype plugin on
     "makes backspace work like most other apps
@@ -111,7 +115,6 @@ call plug#end()            " required
 
 """"""""""vim-indent-guides""""""""""
     let g:indent_guides_enable_on_vim_startup = 1
-    let g:airline_theme='ez'
 
 """"""""""A""""""""""
     nnoremap <silent> <C-c>s :A<CR>

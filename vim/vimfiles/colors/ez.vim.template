@@ -1,6 +1,5 @@
-"Inspired by chromium code search: https://cs.chromium.org
-" :hi
-set background=light
+" Light scheme is inspired by chromium code search: https://cs.chromium.org
+" Dark theme is my own.
 hi clear
 
 if exists("syntax_on")
@@ -23,19 +22,36 @@ highlight clear String
 highlight clear Statement
 highlight clear Type
 
-highlight Normal ctermbg={tLB} ctermfg={tLF} guibg={LB} guifg={LF}
-
-highlight ColorColumn ctermbg={tLMaxColumnB} guibg={LMaxColumnB}
-highlight Comment ctermfg={tLCommentF} guifg={LCommentF}
-highlight CursorLine ctermbg={tLCurrentLineB} guibg={LCurrentLineB}
-highlight CursorLineNr cterm=bold ctermfg={tLLineNumberF} gui=bold guifg={LLineNumberF}
-highlight LineNr ctermfg={tLLineNumberF} guifg={LLineNumberF}
-highlight MatchParen cterm=bold ctermbg={tLMatchBracketB} gui=bold guibg={LMatchBracketB}
-highlight String ctermfg={tLStringF} guifg={LStringF}
-highlight Search cterm=bold ctermbg={tLStringF} ctermfg={tLF} gui=bold guibg={LStringF} guifg={LF}
-highlight Statement ctermfg={tLKeywordF} guifg={LKeywordF}
-highlight StorageClass ctermfg={tLKeywordF} guifg={LKeywordF}
-highlight Structure ctermfg={tLKeywordF} guifg={LKeywordF}
-highlight Visual ctermbg={tLSelectionB} ctermfg={tLSelectionF} guibg={LSelectionB} guifg={LSelectionF}
-highlight Pmenu ctermbg={tLCompletePopupB} ctermfg={tLCompletePopupF} guibg={LCompletePopupB} guifg={LCompletePopupF}
-highlight PmenuSel cterm=bold ctermbg={tLCompletePopupB} ctermfg={tLCompletePopupF} gui=bold guibg={LCompletePopupB} guifg={LCompletePopupF}
+if &background == "light"
+  highlight Normal ctermbg={tLB} ctermfg={tLF} guibg={LB} guifg={LF}
+  highlight ColorColumn ctermbg={tLMaxColumnB} guibg={LMaxColumnB}
+  highlight Comment ctermfg={tLCommentF} guifg={LCommentF}
+  highlight CursorLine ctermbg={tLCurrentLineB} guibg={LCurrentLineB}
+  highlight CursorLineNr cterm=bold ctermfg={tLLineNumberF} gui=bold guifg={LLineNumberF}
+  highlight LineNr ctermfg={tLLineNumberF} guifg={LLineNumberF}
+  highlight MatchParen cterm=bold ctermbg={tLMatchBracketB} gui=bold guibg={LMatchBracketB}
+  highlight String ctermfg={tLStringF} guifg={LStringF}
+  highlight Search cterm=bold ctermbg={tLStringF} ctermfg={tLF} gui=bold guibg={LStringF} guifg={LF}
+  highlight Statement ctermfg={tLKeywordF} guifg={LKeywordF}
+  highlight StorageClass ctermfg={tLKeywordF} guifg={LKeywordF}
+  highlight Structure ctermfg={tLKeywordF} guifg={LKeywordF}
+  highlight Visual ctermbg={tLSelectionB} ctermfg={tLSelectionF} guibg={LSelectionB} guifg={LSelectionF}
+  highlight Pmenu ctermbg={tLCompletePopupB} ctermfg={tLCompletePopupF} guibg={LCompletePopupB} guifg={LCompletePopupF}
+  highlight PmenuSel cterm=bold ctermbg={tLCompletePopupB} ctermfg={tLCompletePopupF} gui=bold guibg={LCompletePopupB} guifg={LCompletePopupF}
+else
+  highlight Normal ctermbg={tDB} ctermfg={tDF} guibg={DB} guifg={DF}
+  highlight ColorColumn ctermbg={tDMaxColumnB} guibg={DMaxColumnB}
+  highlight Comment ctermfg={tDCommentF} guifg={DCommentF}
+  highlight CursorLine ctermbg={tDCurrentLineB} guibg={DCurrentLineB}
+  highlight CursorLineNr cterm=bold ctermfg={tDLineNumberF} gui=bold guifg={DLineNumberF}
+  highlight LineNr ctermfg={tDLineNumberF} guifg={DLineNumberF}
+  highlight MatchParen cterm=bold ctermbg={tDMatchBracketB} gui=bold guibg={DMatchBracketB}
+  highlight String ctermfg={tDStringF} guifg={DStringF}
+  highlight Search cterm=bold ctermbg={tDStringF} ctermfg={tDF} gui=bold guibg={DStringF} guifg={DF}
+  highlight Statement ctermfg={tDKeywordF} guifg={DKeywordF}
+  highlight StorageClass ctermfg={tDKeywordF} guifg={DKeywordF}
+  highlight Structure ctermfg={tDKeywordF} guifg={DKeywordF}
+  highlight Visual ctermbg={tDSelectionB} ctermfg={tDSelectionF} guibg={DSelectionB} guifg={DSelectionF}
+  highlight Pmenu ctermbg={tDCompletePopupB} ctermfg={tDCompletePopupF} guibg={DCompletePopupB} guifg={DCompletePopupF}
+  highlight PmenuSel cterm=bold ctermbg={tDCompletePopupB} ctermfg={tDCompletePopupF} gui=bold guibg={DCompletePopupB} guifg={DCompletePopupF}
+endif
