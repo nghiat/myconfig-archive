@@ -150,6 +150,7 @@
 (use-package projectile
   :config
   (projectile-mode)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-indexing-method 'alien)
   (setq projectile-enable-caching t))
 
