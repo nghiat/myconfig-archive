@@ -136,6 +136,8 @@
   (setq git-commit-summary-max-length 100)
   (setq fill-column -1))
 
+(use-package evil-magit)
+
 (use-package nyan-mode
   :config
   (nyan-mode)
