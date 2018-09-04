@@ -32,4 +32,6 @@ arandr
 xinit
 udisks2
 gvfs
+gvfs-mtp
+gvfs-smb
 lxsession"""
