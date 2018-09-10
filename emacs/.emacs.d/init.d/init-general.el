@@ -45,16 +45,18 @@
 (global-set-key (kbd "<f6>") 'compile)
 (global-set-key (kbd "\C-s") 'save-buffer)
 
+(add-hook 'after-change-major-mode-hook
+          (lambda ()
+            (modify-syntax-entry ?- "w")
+            (modify-syntax-entry ?_ "w")))
+
 (add-hook 'c++-mode-hook
           (lambda ()
-            (modify-syntax-entry ?_ "w")
             (setq c-basic-offset 2)
             (setq c-syntactic-indentation nil)
             (setq whitespace-line-column 79)
             (setq whitespace-style '(face lines-tail))
             (whitespace-mode)))
-
-(add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
