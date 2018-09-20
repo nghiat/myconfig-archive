@@ -25,6 +25,14 @@
 (use-package abbrev
   :ensure nil)
 
+(use-package auctex
+  :defer t
+  :ensure t
+  :hook
+  (LaTeX-mode . (lambda()
+                  (auto-fill-mode 1)
+                  (setq fill-column 80))))
+
 (use-package clang-format
   :hook
   ((c-mode c++-mode) . (lambda()  (fset 'format-code 'clang-format-region))))
@@ -41,7 +49,6 @@
   (setq company-dabbrev-code-other-buffers 'all)
   (setq company-dabbrev-code-ignore-case t)
   (setq company-dabbrev-downcase nil)
-  (setq company-dabbrev-ignore-buffers "nil")
   (setq company-dabbrev-ignore-case t)
   (setq company-dabbrev-other-buffers 'all)
   (setq company-idle-delay 0.1)
@@ -50,7 +57,7 @@
   :hook
   ((c-mode c++-mode) . (lambda ()
 			 (set (make-local-variable 'company-backends)
-			      '((company-dabbrev-code company-gtags)))))
+			      '((company-gtags company-dabbrev-code)))))
   :init
   (global-company-mode))
 
@@ -82,7 +89,7 @@
   (setq evil-symbol-word-search t)
   (setq evil-want-fine-undo t)
   :hook
-  ((c++-mode gn-mode). (lambda () (setq evil-shift-width 2))))
+  ((c++-mode gn-mode LaTeX-mode). (lambda () (setq evil-shift-width 2))))
 
 (use-package evil-leader
   :config
@@ -101,8 +108,9 @@
 
 (use-package fill-column-indicator
   :config
-  (fci-mode)
-  :hook (c++-mode . (lambda () (setq fci-rule-column 80))))
+  :hook ((c++-mode LaTeX-mode) . (lambda ()
+                                   (fci-mode)
+                                   (setq fci-rule-column 80))))
 
 (use-package flx)
 
@@ -132,6 +140,8 @@
   :bind
   ("C-c m d" . magit-diff-buffer-file)
   ("C-c m s" . magit-status)
+  ("C-c m m n" . smerge-next)
+  ("C-c m m p" . smerge-prev)
   :config
   (setq git-commit-summary-max-length 100)
   (setq fill-column -1))

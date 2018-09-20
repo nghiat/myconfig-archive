@@ -8,7 +8,7 @@
   Run, "Everything.exe"
   Return
 #m::
-  Run, "emacsclient.exe" -c -n
+  Run, "runemacs.exe"
   Return
 #Return::
   Run, "cmd.exe"

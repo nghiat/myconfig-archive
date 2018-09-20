@@ -38,7 +38,7 @@
 "nautilus"
   Mod4 + e
 
-"emacsclient -nc"
+"emacs"
   Mod4 + m
 
 "urxvt"
