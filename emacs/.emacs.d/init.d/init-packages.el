@@ -31,7 +31,20 @@
   :hook
   (LaTeX-mode . (lambda()
                   (auto-fill-mode 1)
-                  (setq fill-column 80))))
+                  (setq fill-column 80)))
+  :init
+  ;; https://stackoverflow.com/questions/9534239/emacs-auctex-latex-syntax-prevents-monospaced-font
+  ;; Only change sectioning color
+  (setq font-latex-fontify-sectioning 'color)
+  ;; super-/sub-script on baseline
+  (setq font-latex-script-display (quote (nil)))
+  ;; Do not change super-/sub-script font
+  (custom-set-faces
+   '(font-latex-subscript-face ((t nil)))
+   '(font-latex-superscript-face ((t nil))))
+  ;; Exclude bold/italic from keywords
+  (setq font-latex-deactivated-keyword-classes
+        '("italic-command" "bold-command" "italic-declaration" "bold-declaration")))
 
 (use-package clang-format
   :hook
@@ -116,7 +129,55 @@
 
 (use-package flycheck)
 
+(use-package flyspell-correct-ivy
+  :config
+  (define-key flyspell-mode-map (kbd "C-c i c") 'flyspell-correct-wrapper))
+
 (use-package ggtags)
+
+(use-package ispell
+  :hook
+  (prog-mode . flyspell-prog-mode)
+  (text-mode . flyspell-mode)
+  :init
+  (setq ispell-dictionary "en_US")
+  (if (eq system-type 'windows-nt)
+      (setq ispell-program-name (expand-file-name "~/myconfig/windows/hunspell/bin/hunspell.exe"))
+    (setq ispell-program-name (executable-find "hunspell")))
+  (setq ispell-really-hunspell t)
+  (setq ispell-local-dictionary-alist
+        '((nil
+           "[[:alpha:]]"
+           "[^[:alpha:]]"
+           "[']"
+           t
+           ("-d" "en_US" "-i" "utf-8")
+           nil
+           utf-8)
+          ("en_US"
+           "[[:alpha:]]"
+           "[^[:alpha:]]"
+           "[']"
+           t
+           ("-d" "en_US")
+           nil
+           utf-8)
+          ("de_DE_frami"
+           "[[:alpha:]ÄÖÜéäöüß]"
+           "[^[:alpha:]ÄÖÜéäöüß]"
+           "[']"
+           t
+           ("-d" "de_DE_frami")
+           nil
+           utf-8)
+          ("fr"
+           "[[:alpha:]ÀÂÇÈÉÊËÎÏÔÙÛÜàâçèéêëîïôùûü]"
+           "[^[:alpha:]ÀÂÇÈÉÊËÎÏÔÙÛÜàâçèéêëîïôùûü]"
+           "[-']"
+           t
+           ("-d" "fr-classique")
+           nil
+           utf-8))))
 
 (use-package ivy
   :bind
@@ -125,10 +186,6 @@
   (ivy-mode 1)
   (setq enable-recursive-minibuffers t)
   (setq ivy-use-virtual-buffers t))
-
-;; (use-package js2-mode
-;;   :config
-;;   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
 
 (use-package json-mode
   :hook

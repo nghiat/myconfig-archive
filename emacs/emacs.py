@@ -12,7 +12,8 @@ links = {
     "~/.globalrc": ".globalrc"
 }
 
-note = "pip install jedi flake8 yapf"
+note = """pip install jedi flake8 yapf
+hunspell en-us de-de-frami fr"""
 
 
 def setup():
