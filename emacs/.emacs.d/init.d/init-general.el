@@ -13,7 +13,7 @@
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
-(setq recentf-max-saved-items 1000)
+(setq recentf-max-saved-items nil)
 (setq recentf-max-menu-items 1000)
 (setq-default show-trailing-whitespace t)
 (setq tab-width 4)
@@ -27,17 +27,16 @@
 (electric-pair-mode)
 (global-auto-revert-mode t)
 (global-hl-line-mode)
-(global-linum-mode t)
 (infer-indentation-style)
 (load-theme 'ez t)
 (menu-bar-mode -1)
 (recentf-mode 1)
+(run-at-time nil (* 5 60) 'recentf-save-list)
 (savehist-mode 1)
 (semantic-mode 1)
 (scroll-bar-mode -1)
 (show-paren-mode 1)
 (tool-bar-mode -1)
-
 ; Previous recently buffer
 (global-set-key (kbd "C-c o") 'mode-line-other-buffer)
 (global-set-key (kbd "C-c s") 'ff-find-other-file)
@@ -53,10 +52,7 @@
 (add-hook 'c++-mode-hook
           (lambda ()
             (setq c-basic-offset 2)
-            (setq c-syntactic-indentation nil)
-            (setq whitespace-line-column 79)
-            (setq whitespace-style '(face lines-tail))
-            (whitespace-mode)))
+            (setq c-syntactic-indentation nil)))
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 

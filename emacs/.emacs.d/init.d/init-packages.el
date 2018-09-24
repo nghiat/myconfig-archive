@@ -52,6 +52,10 @@
 
 (use-package cmake-mode)
 
+(use-package column-enforce-mode
+  :config
+  (global-column-enforce-mode t))
+
 (use-package company
   :config
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
@@ -121,6 +125,12 @@
 
 (use-package fill-column-indicator
   :config
+  (defun on-off-fci-before-company(command)
+    (when (string= "show" command)
+      (turn-off-fci-mode))
+    (when (string= "hide" command)
+      (turn-on-fci-mode)))
+  (advice-add 'company-call-frontends :before #'on-off-fci-before-company)
   :hook ((c++-mode LaTeX-mode) . (lambda ()
                                    (fci-mode)
                                    (setq fci-rule-column 80))))
@@ -131,11 +141,18 @@
 
 (use-package flyspell-correct-ivy
   :config
+  (setq flyspell-issue-message-flag nil)
   (define-key flyspell-mode-map (kbd "C-c i c") 'flyspell-correct-wrapper))
+
+(use-package flyspell-lazy
+  :config
+  (setq flyspell-lazy-idle-seconds 1)
+  (flyspell-lazy-mode 1))
 
 (use-package ggtags)
 
 (use-package ispell
+  :after (flyspell-lazy)
   :hook
   (prog-mode . flyspell-prog-mode)
   (text-mode . flyspell-mode)
@@ -204,6 +221,10 @@
   (setq fill-column -1))
 
 (use-package evil-magit)
+
+(use-package nlinum
+  :config
+  (global-nlinum-mode))
 
 (use-package nyan-mode
   :config
