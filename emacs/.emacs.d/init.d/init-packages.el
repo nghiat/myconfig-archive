@@ -125,6 +125,8 @@
 
 (use-package fill-column-indicator
   :config
+  ;; Temporary fix for line height change abnormally.
+  (setq  fci-always-use-textual-rule t)
   (defun on-off-fci-before-company(command)
     (when (string= "show" command)
       (turn-off-fci-mode))
