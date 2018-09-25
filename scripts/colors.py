@@ -32,6 +32,9 @@ colors256 = {
     "tDCompletePopupB": "238", "DCompletePopupB": "#444444",
     "tDCompletePopupF": "15", "DCompletePopupF": "#ffffff",
 
+    # Terminal usually uses color name Black, White, etc.
+    # If you want dark theme, D{Color} should be inverted
+    # (e.g. DBlack should be light color)
     "LBlack": "#000000",
     "LWhite": "#ffffff",
     "LRed": "#800000",
