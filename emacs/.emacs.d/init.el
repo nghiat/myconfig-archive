@@ -10,7 +10,7 @@
 (require 'gn-mode)
 
 (if (eq system-type 'windows-nt)
-  (require 'init-windows)
+    (require 'init-windows)
   (require 'init-nix))
 
 (provide 'init)

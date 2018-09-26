@@ -1,6 +1,6 @@
 (defun infer-indentation-style ()
-  ;; if our source file uses tabs, we use tabs, if spaces spaces, and if       
-  ;; neither, we use the current indent-tabs-mode                              
+  ;; if our source file uses tabs, we use tabs, if spaces spaces, and if
+  ;; neither, we use the current indent-tabs-mode
   (let ((space-count (how-many "^  " (point-min) (point-max)))
         (tab-count (how-many "^\t" (point-min) (point-max))))
     (if (> space-count tab-count) (setq indent-tabs-mode nil))
@@ -19,7 +19,7 @@ or just one char if that's not possible"
       (save-match-data
         (if (string-match "\\w*\\(\\s-+\\)$" (buffer-substring-no-properties (- p movement) p))
             (backward-delete-char-untabify (- (match-end 1) (match-beginning 1)))
-        (call-interactively 'backward-delete-char-untabify))))))
+          (call-interactively 'backward-delete-char-untabify))))))
 
 (setq current-theme-index 0)
 (defun switch-theme (themes-list)

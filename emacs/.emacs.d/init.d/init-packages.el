@@ -1,17 +1,17 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (if (getenv "http_proxy")
-    ;Use local mirror
+    ;; Use local mirror
     (progn
-        (unless (file-directory-p "~/.emacs.d/mirror-elpa")
-	    ((let ((default-directory "~/.emacs.d"))
-                (shell-command-to-string "git clone https://github.com/d12frosted/elpa-mirror"))))
-        (setq package-archives '(("melpa" . "~/.emacs.d/mirror-elpa/melpa/")
-                         ("org"   . "~/.emacs.d/mirror-elpa/org/")
-                         ("gnu"   . "~/.emacs.d/mirror-elpa/gnu/"))))
-    (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org"   . "https://marmalade-repo.org/packages/")
-                         ("gnu"   . "https://elpa.gnu.org/packages/"))))
+      (unless (file-directory-p "~/.emacs.d/mirror-elpa")
+	((let ((default-directory "~/.emacs.d"))
+           (shell-command-to-string "git clone https://github.com/d12frosted/elpa-mirror"))))
+      (setq package-archives '(("melpa" . "~/.emacs.d/mirror-elpa/melpa/")
+                               ("org"   . "~/.emacs.d/mirror-elpa/org/")
+                               ("gnu"   . "~/.emacs.d/mirror-elpa/gnu/"))))
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("org"   . "https://marmalade-repo.org/packages/")
+                           ("gnu"   . "https://elpa.gnu.org/packages/"))))
 (package-initialize)
 ;; Install 'use-package' if necessary
 (unless (package-installed-p 'use-package)
@@ -81,7 +81,7 @@
 (use-package counsel
   :bind
   ("C-c c g" . counsel-ag)
-  ; Files browsing
+  ;; Files browsing
   ("C-c e" . counsel-find-file)
   ("M-x" . counsel-M-x)
   ("C-c r" . counsel-recentf))
@@ -111,11 +111,11 @@
 (use-package evil-leader
   :config
   (evil-leader/set-key
-   "h" 'evil-window-left
-   "j" 'evil-window-down
-   "k" 'evil-window-up
-   "l" 'evil-window-right
-   "f" 'format-code)
+    "h" 'evil-window-left
+    "j" 'evil-window-down
+    "k" 'evil-window-up
+    "l" 'evil-window-right
+    "f" 'format-code)
   (evil-leader/set-leader "<SPC>")
   (global-evil-leader-mode))
 

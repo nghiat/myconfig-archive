@@ -1,13 +1,13 @@
 (setq auto-save-default nil)
-; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
+;; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
 (setq auto-window-vscroll nil)
 (setq column-number-mode t)
 (setq custom-safe-themes t)
-;Ignore whitespace
+;; Ignore whitespace
 (setq ediff-diff-options "-w")
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-;Filename filepath
+;; Filename filepath
 (setq frame-title-format '("%b %f"))
 (setq history-length 1000)
 (setq-default indent-tabs-mode nil)
@@ -37,7 +37,7 @@
 (scroll-bar-mode -1)
 (show-paren-mode 1)
 (tool-bar-mode -1)
-; Previous recently buffer
+;; Previous recently buffer
 (global-set-key (kbd "C-c o") 'mode-line-other-buffer)
 (global-set-key (kbd "C-c s") 'ff-find-other-file)
 (global-set-key (kbd "<f5>") 'shell-command)
