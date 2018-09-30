@@ -26,6 +26,7 @@
 (electric-indent-mode 1)
 (electric-pair-mode)
 (global-auto-revert-mode t)
+(global-eldoc-mode -1)
 (global-hl-line-mode)
 (infer-indentation-style)
 (load-theme 'ez t)
