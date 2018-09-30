@@ -58,4 +58,18 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+(setq-default mode-line-format
+              '(;; value of current buffer name
+               "(%b) "
+               ;; directory
+               "("
+               default-directory
+               ") "
+               ;; major mode
+               "("
+               mode-name
+               ") "
+               ;; line number, column number
+               "(%l:%C) "
+               ))
 (provide 'init-general)

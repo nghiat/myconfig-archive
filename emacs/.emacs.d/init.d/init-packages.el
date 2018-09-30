@@ -228,13 +228,6 @@
   :config
   (global-nlinum-mode))
 
-(use-package nyan-mode
-  :config
-  (nyan-mode)
-  (nyan-start-animation)
-  (nyan-toggle-wavy-trail)
-  (setq nyan-animate-nyancat t))
-
 (use-package org
   :config
   (setq org-log-done 'time))
