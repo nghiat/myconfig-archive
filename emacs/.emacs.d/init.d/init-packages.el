@@ -61,20 +61,13 @@
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous)
-  (setq company-dabbrev-code-everywhere t)
-  (setq company-dabbrev-code-modes t)
-  (setq company-dabbrev-code-other-buffers 'all)
-  (setq company-dabbrev-code-ignore-case t)
   (setq company-dabbrev-downcase nil)
-  (setq company-dabbrev-ignore-case t)
+  (setq company-dabbrev-ignore-case nil)
   (setq company-dabbrev-other-buffers 'all)
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2)
   (setq company-show-numbers t)
-  :hook
-  ((c-mode c++-mode) . (lambda ()
-			 (set (make-local-variable 'company-backends)
-			      '((company-gtags company-dabbrev-code)))))
+  (setq company-backends '(company-dabbrev-code))
   :init
   (global-company-mode))
 
@@ -91,13 +84,6 @@
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode))
-
-(use-package elpy
-  :after python
-  :config
-  (elpy-enable)
-  :hook
-  (python-mode . (lambda() (fset 'format-code 'elpy-format-code))))
 
 (use-package evil
   :config
