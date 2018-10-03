@@ -18,6 +18,8 @@
 (setq-default show-trailing-whitespace t)
 (setq tab-width 4)
 (setq tab-stop-list (number-sequence 4 200 4))
+;; Disable emacs built-in vc.
+(setq vc-handled-backends nil)
 (setq visible-bell 1)
 (setq x-select-enable-clipboard t)
 
@@ -34,8 +36,8 @@
 (recentf-mode 1)
 (run-at-time nil (* 5 60) 'recentf-save-list)
 (savehist-mode 1)
-(semantic-mode 1)
 (scroll-bar-mode -1)
+(semantic-mode 1)
 (show-paren-mode 1)
 (tool-bar-mode -1)
 ;; Previous recently buffer

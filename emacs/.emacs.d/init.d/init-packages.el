@@ -265,9 +265,4 @@
   (sgml-mode . (lambda()  (fset 'format-code 'web-beautify-html)))
   (css-mode . (lambda()  (fset 'format-code 'web-beautify-css))))
 
-(use-package yascroll
-  :config
-  (global-yascroll-bar-mode 1)
-  (setq yascroll:delay-to-hide nil))
-
 (provide 'init-packages)
