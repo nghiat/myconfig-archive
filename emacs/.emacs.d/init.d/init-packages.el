@@ -74,7 +74,7 @@
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 2)
   (setq company-show-numbers t)
-  (setq company-backends '(company-dabbrev-code))
+  (setq company-backends '(company-dabbrev))
   :hook
   (after-init . (lambda () (global-company-mode))))
 
