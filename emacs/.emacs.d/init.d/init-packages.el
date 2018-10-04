@@ -1,5 +1,14 @@
+;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
+(defvar file-name-handler-alist-old file-name-handler-alist)
+
+;; These config will be restored to the default values after-init-hook
+(setq package-enable-at-startup nil
+      file-name-handler-alist nil
+      message-log-max 16384
+      gc-cons-threshold 402653184
+      gc-cons-percentage 0.6)
+
 (require 'package)
-(setq package-enable-at-startup nil)
 (if (getenv "http_proxy")
     ;; Use local mirror
     (progn
@@ -7,13 +16,12 @@
 	((let ((default-directory "~/.emacs.d"))
            (shell-command-to-string "git clone https://github.com/d12frosted/elpa-mirror"))))
       (setq package-archives '(("melpa" . "~/.emacs.d/mirror-elpa/melpa/")
-                               ("org"   . "~/.emacs.d/mirror-elpa/org/")
                                ("gnu"   . "~/.emacs.d/mirror-elpa/gnu/"))))
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                           ("org"   . "https://marmalade-repo.org/packages/")
                            ("gnu"   . "https://elpa.gnu.org/packages/"))))
-(package-initialize)
+
 ;; Install 'use-package' if necessary
+(package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -22,12 +30,8 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
-(use-package abbrev
-  :ensure nil)
-
 (use-package auctex
-  :defer t
-  :ensure t
+  :mode ("\\.tex\\'" . TeX-latex-mode)
   :hook
   (LaTeX-mode . (lambda()
                   (auto-fill-mode 1)
@@ -50,13 +54,16 @@
   :hook
   ((c-mode c++-mode) . (lambda()  (fset 'format-code 'clang-format-region))))
 
-(use-package cmake-mode)
+(use-package cmake-mode
+  :mode ("CMakeLists.txt" "\\.cmake\\'"))
 
 (use-package column-enforce-mode
+  :defer 5
   :config
   (global-column-enforce-mode t))
 
 (use-package company
+  :defer 5
   :config
   (define-key company-active-map (kbd "<tab>") #'company-complete-selection)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
@@ -68,8 +75,8 @@
   (setq company-minimum-prefix-length 2)
   (setq company-show-numbers t)
   (setq company-backends '(company-dabbrev-code))
-  :init
-  (global-company-mode))
+  :hook
+  (after-init . (lambda () (global-company-mode))))
 
 (use-package counsel
   :bind
@@ -77,11 +84,24 @@
   ;; Files browsing
   ("C-c e" . counsel-find-file)
   ("M-x" . counsel-M-x)
-  ("C-c r" . counsel-recentf))
+  ("C-c r" . counsel-recentf)
+  :config
+  (use-package flx)
+  (use-package smex
+    :config
+    (smex-initialize)))
 
-(use-package counsel-gtags)
+
+(use-package counsel-gtags
+  :commands
+  (counsel-gtags-dwim
+   counsel-gtags-find-file
+   counsel-gtags-find-symbol
+   counsel-gtags-find-reference
+   counsel-gtags-find-definition))
 
 (use-package counsel-projectile
+  :after (counsel projectile)
   :config
   (counsel-projectile-mode))
 
@@ -95,6 +115,7 @@
   ((c++-mode gn-mode LaTeX-mode). (lambda () (setq evil-shift-width 2))))
 
 (use-package evil-leader
+  :after evil
   :config
   (evil-leader/set-key
     "h" 'evil-window-left
@@ -112,7 +133,7 @@
 (use-package fill-column-indicator
   :config
   ;; Temporary fix for line height change abnormally.
-  (setq  fci-always-use-textual-rule t)
+  (setq fci-always-use-textual-rule t)
   (defun on-off-fci-before-company(command)
     (when (string= "show" command)
       (turn-off-fci-mode))
@@ -123,11 +144,8 @@
                                    (fci-mode)
                                    (setq fci-rule-column 80))))
 
-(use-package flx)
-
-(use-package flycheck)
-
 (use-package flyspell-correct-ivy
+  :defer 5
   :config
   (setq flyspell-issue-message-flag nil)
   (define-key flyspell-mode-map (kbd "C-c i c") 'flyspell-correct-wrapper))
@@ -137,10 +155,16 @@
   (setq flyspell-lazy-idle-seconds 1)
   (flyspell-lazy-mode 1))
 
-(use-package ggtags)
+(use-package ggtags
+  :disabled t
+  :commands ggtags-mode)
+
+(use-package gn-mode
+  :load-path "init.d"
+  :mode ("BUILD.gn" "\\.gni\\'"))
 
 (use-package ispell
-  :after (flyspell-lazy)
+  :no-require t
   :hook
   (prog-mode . flyspell-prog-mode)
   (text-mode . flyspell-mode)
@@ -193,10 +217,13 @@
   (setq ivy-use-virtual-buffers t))
 
 (use-package json-mode
+  :mode "\\.json\\'"
   :hook
   (json-mode . (lambda()  (fset 'format-code 'json-reformat-region))))
 
-(use-package lua-mode)
+(use-package lua-mode
+  :mode "\\.lua\\'"
+  :interpreter "lua")
 
 (use-package magit
   :bind
@@ -205,37 +232,26 @@
   ("C-c m m n" . smerge-next)
   ("C-c m m p" . smerge-prev)
   :config
-  (setq git-commit-summary-max-length 100)
-  (setq fill-column -1))
-
-(use-package evil-magit)
+  (use-package evil-magit))
 
 (use-package nlinum
   :config
   (global-nlinum-mode))
 
-(use-package org
-  :config
-  (setq org-log-done 'time))
-
 (use-package projectile
+  :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (projectile-mode)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-indexing-method 'alien)
   (setq projectile-enable-caching t))
 
 (use-package qml-mode
+  :mode "\\.qml\\'"
   :config
-  (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
   (autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t))
 
 (use-package ranger
   :bind ("<f7>" . ranger))
-
-(use-package smex
-  :config
-  (smex-initialize))
 
 (use-package sr-speedbar
   :bind
@@ -250,5 +266,13 @@
   ((js2-mode js-mode json-mode) . (lambda()  (fset 'format-code 'web-beautify-js)))
   (sgml-mode . (lambda()  (fset 'format-code 'web-beautify-html)))
   (css-mode . (lambda()  (fset 'format-code 'web-beautify-css))))
+
+;; Restore to the default values.
+(add-hook 'after-init-hook
+          `(lambda ()
+             (setq file-name-handler-alist file-name-handler-alist-old
+                   gc-cons-threshold 800000
+                   gc-cons-percentage 0.1)
+             (garbage-collect)) t)
 
 (provide 'init-packages)
