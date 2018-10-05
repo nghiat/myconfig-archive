@@ -100,11 +100,6 @@
    counsel-gtags-find-reference
    counsel-gtags-find-definition))
 
-(use-package counsel-projectile
-  :after (counsel projectile)
-  :config
-  (counsel-projectile-mode))
-
 (use-package evil
   :config
   (evil-mode 1)
@@ -243,7 +238,10 @@
   :config
   (projectile-mode)
   (setq projectile-indexing-method 'alien)
-  (setq projectile-enable-caching t))
+  (setq projectile-enable-caching t)
+  (use-package counsel-projectile
+    :config
+    (counsel-projectile-mode)))
 
 (use-package qml-mode
   :mode "\\.qml\\'"
