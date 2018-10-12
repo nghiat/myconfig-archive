@@ -18,6 +18,7 @@
       (setq package-archives '(("melpa" . "~/.emacs.d/mirror-elpa/melpa/")
                                ("gnu"   . "~/.emacs.d/mirror-elpa/gnu/"))))
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("melpa-stable" . "https://stable.melpa.org/packages/")
                            ("gnu"   . "https://elpa.gnu.org/packages/"))))
 
 ;; Install 'use-package' if necessary
@@ -214,7 +215,10 @@
 (use-package json-mode
   :mode "\\.json\\'"
   :hook
-  (json-mode . (lambda()  (fset 'format-code 'json-reformat-region))))
+  (json-mode . (lambda()
+                 (fset 'format-code 'json-reformat-region)
+                 (make-local-variable 'js-indent-level)
+                 (setq js-indent-level 2))))
 
 (use-package lua-mode
   :mode "\\.lua\\'"
@@ -234,6 +238,7 @@
   (global-nlinum-mode))
 
 (use-package projectile
+  :pin melpa-stable
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (projectile-mode)
