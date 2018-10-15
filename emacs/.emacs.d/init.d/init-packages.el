@@ -270,6 +270,10 @@
   (sgml-mode . (lambda()  (fset 'format-code 'web-beautify-html)))
   (css-mode . (lambda()  (fset 'format-code 'web-beautify-css))))
 
+(use-package yapfify
+  :hook
+  (python-mode . (lambda()  (fset 'format-code 'yapfify-region))))
+
 ;; Restore to the default values.
 (add-hook 'after-init-hook
           `(lambda ()
