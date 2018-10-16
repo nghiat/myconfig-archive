@@ -11,7 +11,7 @@ links = {
     "~/.emacs.d": ".emacs.d",
 }
 
-note = """pip install yapf
+note = """pip install yapf flake8
 hunspell en-us de-de-frami fr"""
 
 

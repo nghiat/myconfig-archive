@@ -131,6 +131,14 @@
                                    (fci-mode)
                                    (setq fci-rule-column 80))))
 
+(use-package flycheck
+  :hook
+  (python-mode . (lambda()
+                   (flycheck-mode 1)
+                   (if (eq system-type 'windows-nt)
+                       (setq flycheck-python-flake8-executable "python.exe")
+                     (setq flycheck-python-flake8-executable "python3")))))
+
 (use-package flyspell-correct-ivy
   :defer 5
   :config
