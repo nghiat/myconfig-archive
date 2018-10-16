@@ -92,15 +92,6 @@
     :config
     (smex-initialize)))
 
-
-(use-package counsel-gtags
-  :commands
-  (counsel-gtags-dwim
-   counsel-gtags-find-file
-   counsel-gtags-find-symbol
-   counsel-gtags-find-reference
-   counsel-gtags-find-definition))
-
 (use-package evil
   :config
   (evil-mode 1)
@@ -150,10 +141,6 @@
   :config
   (setq flyspell-lazy-idle-seconds 1)
   (flyspell-lazy-mode 1))
-
-(use-package ggtags
-  :disabled t
-  :commands ggtags-mode)
 
 (use-package gn-mode
   :load-path "init.d"

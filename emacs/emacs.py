@@ -9,7 +9,6 @@ colors_templates = {
 
 links = {
     "~/.emacs.d": ".emacs.d",
-    "~/.globalrc": ".globalrc"
 }
 
 note = """pip install yapf
@@ -17,7 +16,6 @@ hunspell en-us de-de-frami fr"""
 
 
 def setup():
-    set_envvar("GTAGSCONF", ".globalrc")
     if os.name == "nt":
         run_command(
             "copy .emacs.d/init.d/init-local.el.template .emacs.d/init.d/init-local.el")
