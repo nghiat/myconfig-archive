@@ -117,20 +117,6 @@
   :config
   (global-evil-visualstar-mode))
 
-(use-package fill-column-indicator
-  :config
-  ;; Temporary fix for line height change abnormally.
-  (setq fci-always-use-textual-rule t)
-  (defun on-off-fci-before-company(command)
-    (when (string= "show" command)
-      (turn-off-fci-mode))
-    (when (string= "hide" command)
-      (turn-on-fci-mode)))
-  (advice-add 'company-call-frontends :before #'on-off-fci-before-company)
-  :hook ((c++-mode LaTeX-mode) . (lambda ()
-                                   (fci-mode)
-                                   (setq fci-rule-column 80))))
-
 (use-package flycheck
   :hook
   (python-mode . (lambda()
