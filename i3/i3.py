@@ -34,4 +34,6 @@ udisks2
 gvfs
 gvfs-mtp
 gvfs-smb
-lxsession"""
+lxsession
+xfce-i3-workspaces-plugin(-git)
+"""
