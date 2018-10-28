@@ -30,4 +30,4 @@
   '(evil-ex-substitute-matches ((t (:inherit 'isearch))))
   '(evil-ex-substitute-replacement ((t (:inherit 'isearch))))
 )
-(provide-theme 'ez)
+(provide-theme 'ez-dark)

@@ -32,7 +32,6 @@
 (global-eldoc-mode -1)
 (global-hl-line-mode)
 (infer-indentation-style)
-(load-theme 'ez t)
 (menu-bar-mode -1)
 (savehist-mode 1)
 (scroll-bar-mode -1)
@@ -44,6 +43,16 @@
 (global-set-key (kbd "<f5>") 'shell-command)
 (global-set-key (kbd "<f6>") 'compile)
 (global-set-key (kbd "\C-s") 'save-buffer)
+
+;; Theme by time of day
+(defun load-theme-by-hour ()
+  (setq hour
+        (string-to-number
+         (substring (current-time-string) 11 13)))
+  (if (member hour (number-sequence 8 18))
+      (load-theme 'ez t)
+    (load-theme 'ez-dark t)))
+(run-with-timer 0 600 'load-theme-by-hour)
 
 (add-hook 'after-change-major-mode-hook
           (lambda ()
