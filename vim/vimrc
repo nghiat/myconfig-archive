@@ -19,7 +19,7 @@ call plug#end()            " required
     set smartcase
     set autochdir
     syntax on
-    if strftime("%H") > 8 && strftime("%H") < 19
+    if strftime("%H") >= 8 && strftime("%H") < 19
       set background=light
     else
       set background=dark
