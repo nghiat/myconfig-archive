@@ -46,32 +46,16 @@ colors256 = {
 }
 
 
-def generate_from_a_template_file(template_file, output_file):
-    output_str = ""
-    expanded_output = os.path.expanduser(output_file)
-    with open(template_file) as f:
-        output_str = f.read().format(**colors256)
-    with open(expanded_output, "w") as f:
-        f.write(output_str)
-    print("Generated {0} from {1} with colors code replaced"
-          .format(expanded_output, template_file))
-
-
 def generate_from_template_files(templates_map):
-    for template, output_file in templates_map.items():
-        if os.path.exists(output_file):
-            backup_num = 0
-            while True:
-                backup_path = output_file + ".backup"
-                if backup_num:
-                    backup_path += "." + str(backup_num)
-                if not os.path.exists(backup_path):
-                    break
-                backup_num += 1
-            os.rename(output_file, backup_path)
-            print("{} file exists. Renaming it to {}"
-                  .format(output_file, backup_path))
-        generate_from_a_template_file(template, output_file)
+    for template_file, output_file in templates_map.items():
+        output_str = ""
+        expanded_output = os.path.expanduser(output_file)
+        with open(template_file) as f:
+            output_str = f.read().format(**colors256)
+        with open(expanded_output, "w") as f:
+            f.write(output_str)
+        print("Generated {0} from {1} with colors code replaced"
+              .format(expanded_output, template_file))
 
 
 def delete_generated_files(templates_map):
@@ -79,5 +63,5 @@ def delete_generated_files(templates_map):
         expanded_output = os.path.expanduser(output_file)
         if os.path.exists(expanded_output):
             os.remove(expanded_output)
-            print("Deleted file {0} that was generated from"
+            print("Deleted file {0} that was generated from {1}"
                   .format(expanded_output, template_file))
