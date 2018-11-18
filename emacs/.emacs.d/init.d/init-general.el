@@ -13,6 +13,7 @@
 (setq-default indent-tabs-mode nil)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
+(setq message-log-max 16384)
 (setq org-log-done 'time)
 (setq recentf-max-saved-items nil)
 (setq recentf-max-menu-items 1000)

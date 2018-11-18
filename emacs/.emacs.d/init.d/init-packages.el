@@ -1,13 +1,3 @@
-;; https://www.reddit.com/r/emacs/comments/3kqt6e/2_easy_little_known_steps_to_speed_up_emacs_start/
-(defvar file-name-handler-alist-old file-name-handler-alist)
-
-;; These config will be restored to the default values after-init-hook
-(setq package-enable-at-startup nil
-      file-name-handler-alist nil
-      message-log-max 16384
-      gc-cons-threshold 402653184
-      gc-cons-percentage 0.6)
-
 (require 'package)
 (if (getenv "http_proxy")
     ;; Use local mirror
@@ -28,7 +18,7 @@
   (package-install 'use-package))
 
 ;; Enable use-package
-(eval-when-compile (require 'use-package))
+(require 'use-package)
 (setq use-package-always-ensure t)
 
 (use-package auctex
@@ -254,13 +244,5 @@
 (use-package yapfify
   :hook
   (python-mode . (lambda()  (fset 'format-code 'yapfify-region))))
-
-;; Restore to the default values.
-(add-hook 'after-init-hook
-          `(lambda ()
-             (setq file-name-handler-alist file-name-handler-alist-old
-                   gc-cons-threshold 800000
-                   gc-cons-percentage 0.1)
-             (garbage-collect)) t)
 
 (provide 'init-packages)
